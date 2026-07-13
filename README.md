@@ -2,7 +2,7 @@
 
 Static bilingual portfolio for [Shihao Xing](https://github.com/Neroxsh), built for GitHub Pages.
 
-The site presents education, honors, internship experience, research papers, engineering systems, skills, public projects, and interests. It includes persistent light/dark and Chinese/English modes, Liquid Glass controls, GSAP interactions, responsive layouts, and keyboard-friendly project details.
+The site presents education, honors, internship experience, research papers, engineering systems, public projects, skills, and interests. It includes persistent light/dark and Chinese/English modes, Liquid Glass controls, GSAP interactions, responsive layouts, and keyboard-friendly project details.
 
 ## Local preview
 

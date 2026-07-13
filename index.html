@@ -42,6 +42,7 @@
       <a href="#honors" data-i18n="nav.honors">荣誉</a>
       <a href="#experience" data-i18n="nav.experience">实习</a>
       <a href="#research" data-i18n="nav.research">研究与项目</a>
+      <a href="#builds" data-i18n="nav.builds">公开项目</a>
       <a href="#skills" data-i18n="nav.skills">技能</a>
       <a href="#interests" data-i18n="nav.interests">兴趣</a>
     </nav>
@@ -92,7 +93,7 @@
         </div>
       </aside>
       <span class="hero-accent hero-accent--blue" aria-hidden="true"></span>
-      <span class="hero-accent hero-accent--coral" aria-hidden="true"></span>
+      <span class="hero-accent hero-accent--aqua" aria-hidden="true"></span>
     </section>
 
     <section class="honors-section" id="honors" aria-labelledby="honors-title">
@@ -266,7 +267,7 @@
             </div>
           </article>
 
-          <article class="paper-panel paper-panel--coral" data-paper-id="farsql" tabindex="0" role="listitem">
+          <article class="paper-panel paper-panel--aqua" data-paper-id="farsql" tabindex="0" role="listitem">
             <div class="paper-meta"><span>P.03</span><div class="paper-venue"><strong>NDBC 2026</strong><small>UNDER REVIEW</small></div></div>
             <h4>FAR-SQL</h4>
             <p class="paper-lead" data-i18n="paper.farsql.lead">以“形式化优先、失效后补全”为原则，在有限预算内分离可信确定域与模型补全域。</p>
@@ -292,20 +293,32 @@
             <div class="system-project-head"><span>S.01</span><i data-lucide="database-backup" aria-hidden="true"></i></div>
             <p class="system-kicker">SQL EVALUATION INFRASTRUCTURE</p>
             <h4 data-i18n="system.sql.title">统一 SQL 评测框架</h4>
-            <p data-i18n="system.sql.summary">为 NL2SQL、SQL 纠错与等价验证提供模型无关的统一执行和评测层。</p>
+            <p data-i18n="system.sql.summary">面向 NL2SQL、SQL 纠错与等价验证的统一评测基础设施，将任务、模型、执行环境和评价指标彻底解耦。</p>
+            <div class="system-focus" aria-label="项目重点">
+              <span><i data-lucide="blocks" aria-hidden="true"></i><strong data-i18n="system.sql.focus1">任务 / 模型解耦</strong></span>
+              <span><i data-lucide="database" aria-hidden="true"></i><strong data-i18n="system.sql.focus2">三数据库执行</strong></span>
+              <span><i data-lucide="scan-search" aria-hidden="true"></i><strong data-i18n="system.sql.focus3">统一 EX 与诊断</strong></span>
+            </div>
             <dl>
-              <div><dt data-i18n="detail.method">方法</dt><dd data-i18n="system.sql.method">拆分输入构造、预测解析、SQL 执行、结果归一化与指标统计，并以 Docker 提供 MySQL、PostgreSQL、SQLite 标准环境。</dd></div>
-              <div><dt data-i18n="detail.result">结果</dt><dd data-i18n="system.sql.result">统一多任务、多模型与多数据集的执行准确率评测，新任务接入由天级缩短至小时级。</dd></div>
+              <div><dt><i data-lucide="workflow" aria-hidden="true"></i><span data-i18n="detail.architecture">架构</span></dt><dd data-i18n="system.sql.architecture">以 Task Adapter 与 Model Adapter 解耦任务和模型；Input Builder、Prediction Parser、Execution Engine、Normalizer 与 Metric 均可独立替换。</dd></div>
+              <div><dt><i data-lucide="settings-2" aria-hidden="true"></i><span data-i18n="detail.method">方法</span></dt><dd data-i18n="system.sql.method">复用同一执行主干评测三类 SQL 任务，在 Docker 中标准化 MySQL、PostgreSQL 与 SQLite，并统一处理空值、顺序、重复行和执行异常。</dd></div>
+              <div><dt><i data-lucide="circle-check-big" aria-hidden="true"></i><span data-i18n="detail.result">结果</span></dt><dd data-i18n="system.sql.result">不同数据集与模型通过同一接口接入，统一产出执行准确率和错误诊断；新任务评测链路由天级缩短至小时级。</dd></div>
             </dl>
           </article>
           <article class="system-project system-project--credit">
             <div class="system-project-head"><span>S.02</span><i data-lucide="landmark" aria-hidden="true"></i></div>
             <p class="system-kicker">BANKING FINTECH · MULTI-AGENT</p>
             <h4>CreditRiskRobot</h4>
-            <p data-i18n="system.credit.summary">面向企业授信材料的智能审查工作台，连接文档理解、财务分析、多 Agent 风险识别与证据化报告生成。</p>
+            <p data-i18n="system.credit.summary">面向企业授信业务的智能审查工作台，把多格式材料理解、多 Agent 风险研判与可追溯报告生成串成完整业务闭环。</p>
+            <div class="system-focus" aria-label="项目重点">
+              <span><i data-lucide="files" aria-hidden="true"></i><strong data-i18n="system.credit.focus1">五类材料统一解析</strong></span>
+              <span><i data-lucide="users-round" aria-hidden="true"></i><strong data-i18n="system.credit.focus2">多 Agent 风险协作</strong></span>
+              <span><i data-lucide="file-check-2" aria-hidden="true"></i><strong data-i18n="system.credit.focus3">证据回链与自审计</strong></span>
+            </div>
             <dl>
-              <div><dt data-i18n="detail.method">方法</dt><dd data-i18n="system.credit.method">统一处理 PDF、Word、Excel、文本和图片，多角色围绕经营、财务、还款来源和风险因素协作，并保留证据引用与材料缺口。</dd></div>
-              <div><dt data-i18n="detail.result">结果</dt><dd data-i18n="system.credit.result">覆盖 Case 管理、材料盘点、风险分析、报告编辑、自审计及多格式导出，同时保留人工授信决策边界。</dd></div>
+              <div><dt><i data-lucide="workflow" aria-hidden="true"></i><span data-i18n="detail.architecture">架构</span></dt><dd data-i18n="system.credit.architecture">以 Case 为中心串联材料清单、解析与事实库，再由经营、财务、还款来源和风险 Agent 协作，最终进入报告编辑与自审计。</dd></div>
+              <div><dt><i data-lucide="settings-2" aria-hidden="true"></i><span data-i18n="detail.method">方法</span></dt><dd data-i18n="system.credit.method">统一处理 PDF、Word、Excel、文本与图片；每项结论保留原文证据、页码和材料缺口，Agent 只在证据边界内完成分析。</dd></div>
+              <div><dt><i data-lucide="circle-check-big" aria-hidden="true"></i><span data-i18n="detail.result">结果</span></dt><dd data-i18n="system.credit.result">覆盖案件管理、材料盘点、风险分析、报告编辑、自审计及多格式导出，并把最终授信判断明确保留给人工审批。</dd></div>
             </dl>
             <a class="system-link" href="https://github.com/Neroxsh/CreditRiskRobot" target="_blank" rel="noreferrer">GitHub <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
           </article>
@@ -313,23 +326,9 @@
       </div>
     </section>
 
-    <section class="skills-section" id="skills" aria-labelledby="skills-title">
-      <div class="section-heading skills-heading">
-        <p class="section-index">04 · SKILLS</p>
-        <h2 id="skills-title" data-i18n="skills.title">专业技能</h2>
-      </div>
-      <div class="skill-ledger">
-        <article><span>01</span><h3 data-i18n="skills.programming">编程与数据</h3><p>Python · SQL · SQLGlot</p></article>
-        <article><span>02</span><h3 data-i18n="skills.agent">Agent 与大模型应用</h3><p>LangChain · LangGraph · RAG · Tool Use</p></article>
-        <article><span>03</span><h3 data-i18n="skills.training">训练与推理</h3><p>vLLM · verl · TRL · DeepSpeed · SFT · GRPO · DPO</p></article>
-        <article><span>04</span><h3 data-i18n="skills.engineering">研究工程化</h3><p>Linux · Git · Docker · ClearML</p></article>
-        <article><span>05</span><h3 data-i18n="skills.aiCoding">AI 辅助研发</h3><p>Claude Code · Codex</p></article>
-      </div>
-    </section>
-
     <section class="builds-section" id="builds" aria-labelledby="builds-title">
       <div class="section-heading builds-heading">
-        <p class="section-index">05 · MORE BUILDS</p>
+        <p class="section-index">04 · MORE BUILDS</p>
         <h2 id="builds-title" data-i18n="builds.title">更多公开项目</h2>
       </div>
       <div class="small-projects">
@@ -340,6 +339,35 @@
         <article class="small-project">
           <a class="small-project-image small-project-image--words" href="https://github.com/Neroxsh/moyu-words" target="_blank" rel="noreferrer"><img src="public/assets/moyu-words.png" alt="摸鱼背词应用图标" loading="lazy"></a>
           <div><p>React · Tauri</p><h3 data-i18n="builds.words">摸鱼背词</h3><span data-i18n="builds.wordsDetail">透明悬浮式桌面背词应用，支持学习计划、词书切换与熟词归档。</span><a href="https://github.com/Neroxsh/moyu-words" target="_blank" rel="noreferrer" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="skills-section" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading skills-heading">
+        <p class="section-index">05 · SKILLS</p>
+        <h2 id="skills-title" data-i18n="skills.title">专业技能</h2>
+      </div>
+      <div class="skill-ledger">
+        <article>
+          <span>01</span><h3 data-i18n="skills.programming">编程与数据</h3>
+          <div class="skill-items"><span><i data-lucide="braces" aria-hidden="true"></i>Python</span><span><i data-lucide="database" aria-hidden="true"></i>SQL</span><span><i data-lucide="workflow" aria-hidden="true"></i>SQLGlot</span></div>
+        </article>
+        <article>
+          <span>02</span><h3 data-i18n="skills.agent">Agent 与大模型应用</h3>
+          <div class="skill-items"><span><i data-lucide="link-2" aria-hidden="true"></i>LangChain</span><span><i data-lucide="git-fork" aria-hidden="true"></i>LangGraph</span><span><i data-lucide="book-open-check" aria-hidden="true"></i>RAG</span><span><i data-lucide="wrench" aria-hidden="true"></i>Tool Use</span></div>
+        </article>
+        <article>
+          <span>03</span><h3 data-i18n="skills.training">训练与推理</h3>
+          <div class="skill-items"><span><i data-lucide="gauge" aria-hidden="true"></i>vLLM</span><span><i data-lucide="repeat-2" aria-hidden="true"></i>verl</span><span><i data-lucide="route" aria-hidden="true"></i>TRL</span><span><i data-lucide="zap" aria-hidden="true"></i>DeepSpeed</span><span><i data-lucide="graduation-cap" aria-hidden="true"></i>SFT</span><span><i data-lucide="layers-3" aria-hidden="true"></i>GRPO</span><span><i data-lucide="scale" aria-hidden="true"></i>DPO</span></div>
+        </article>
+        <article>
+          <span>04</span><h3 data-i18n="skills.engineering">研究工程化</h3>
+          <div class="skill-items"><span><i data-lucide="terminal" aria-hidden="true"></i>Linux</span><span><i data-lucide="git-branch" aria-hidden="true"></i>Git</span><span><i data-lucide="container" aria-hidden="true"></i>Docker</span><span><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i>ClearML</span></div>
+        </article>
+        <article>
+          <span>05</span><h3 data-i18n="skills.aiCoding">AI 辅助研发</h3>
+          <div class="skill-items"><span><i data-lucide="sparkles" aria-hidden="true"></i>Claude Code</span><span><i data-lucide="square-code" aria-hidden="true"></i>Codex</span></div>
         </article>
       </div>
     </section>
