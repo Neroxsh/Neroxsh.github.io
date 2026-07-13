@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="邢仕浩，河南大学硕士研究生，专注 SQL 等价验证、Text-to-SQL、大语言模型训练与可靠 Agent 系统。">
+  <meta name="theme-color" content="#f5f7f2">
+  <meta property="og:title" content="邢仕浩 | SQL & LLM Research">
+  <meta property="og:description" content="研究 SQL 等价验证、Text-to-SQL 与可靠的大模型 Agent 系统。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neroxsh.github.io/">
+  <meta property="og:image" content="https://neroxsh.github.io/public/assets/profile.jpg">
+  <title>邢仕浩 | SQL & LLM Research</title>
+  <link rel="icon" href="public/assets/profile.jpg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="返回顶部">
+      <span class="brand-mark">XS</span>
+      <span class="brand-name">邢仕浩</span>
+    </a>
+
+    <nav class="site-nav" aria-label="主导航">
+      <a href="#research">研究</a>
+      <a href="#experience">经历</a>
+      <a href="#skills">能力</a>
+      <a href="#builds">作品</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="icon-button" href="https://github.com/Neroxsh" target="_blank" rel="noreferrer" aria-label="访问 GitHub" title="GitHub">
+        <i data-lucide="github" aria-hidden="true"></i>
+      </a>
+      <button class="icon-button" type="button" data-theme-toggle aria-label="切换深浅主题" title="切换主题">
+        <i data-lucide="moon" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas class="hero-canvas" data-network aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="status-dot"></span> Open to research & engineering opportunities</p>
+          <h1 id="hero-title">邢仕浩<span>Shihao Xing</span></h1>
+          <p class="hero-role">SQL Systems <b>/</b> LLM Research <b>/</b> Reliable Agents</p>
+          <p class="hero-intro">
+            河南大学硕士研究生。关注 SQL 等价验证、Text-to-SQL 与大语言模型训练，
+            将形式化方法、可验证评测和 Agent 工作流组合成可靠、可复现的系统。
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button--primary" href="#research">
+              <span>查看研究</span><i data-lucide="arrow-down-right" aria-hidden="true"></i>
+            </a>
+            <a class="button button--ghost" href="mailto:shihaoxing@henu.edu.cn">
+              <i data-lucide="mail" aria-hidden="true"></i><span>联系我</span>
+            </a>
+          </div>
+
+          <dl class="hero-stats" aria-label="个人概览">
+            <div><dt>03</dt><dd>在审研究工作</dd></div>
+            <div><dt>24.5K</dt><dd>跨方言 SQL 标注</dd></div>
+            <div><dt>89.38</dt><dd>LeetCode-Hard GM</dd></div>
+          </dl>
+        </div>
+
+        <div class="portrait-wrap reveal" data-delay="120">
+          <div class="portrait-meta portrait-meta--top"><span>HENU</span><span>2024—2027</span></div>
+          <img src="public/assets/profile.jpg" alt="邢仕浩的证件照" width="187" height="250">
+          <div class="portrait-caption">
+            <span>Master's Student</span>
+            <strong>Network & Information Security</strong>
+          </div>
+          <div class="portrait-code" aria-hidden="true">01 / SQL / LLM</div>
+        </div>
+      </div>
+
+      <a class="hero-next" href="#research" aria-label="前往研究项目">
+        <span>Selected research</span><i data-lucide="chevron-down" aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <section class="section research-section" id="research" aria-labelledby="research-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-index">01 / RESEARCH</p>
+          <h2 id="research-title">让模型判断有依据，<br>让实验结果可复现。</h2>
+        </div>
+        <p>研究主线围绕 SQL 语义等价、跨方言评测与可靠 Agent。项目状态按简历如实标注，公开代码提供直接入口。</p>
+      </div>
+
+      <div class="research-list">
+        <article class="research-item research-item--featured reveal">
+          <div class="research-number">R.01</div>
+          <div class="research-main">
+            <div class="research-topline">
+              <h3>SQLEq-O1</h3>
+              <span class="tag tag--lime">EMNLP 2026 Under Review</span>
+            </div>
+            <p class="research-subtitle">面向 SQL 等价验证的轻量化推理模型</p>
+            <p>构建 LeetCode 人工多解与 SynSQL 合成双轨数据，以 VeriEQL 形式化标注蒸馏验证式推理轨迹，并通过 SFT warm-up + GRPO 训练 Qwen2.5/Qwen3 小模型。</p>
+            <ul class="research-points">
+              <li><span>Challenge</span>执行式检查覆盖有限，形式化验证易超时，通用 LLM 成本高且推理不稳定</li>
+              <li><span>Result</span>Qwen2.5-Coder-1.5B 在 LeetCode-Hard GM 从 73.60 提升至 89.38</li>
+            </ul>
+          </div>
+          <div class="metric-block"><strong>+15.78</strong><span>GM uplift</span></div>
+        </article>
+
+        <article class="research-item reveal">
+          <div class="research-number">R.02</div>
+          <div class="research-main">
+            <div class="research-topline">
+              <h3>UniQL</h3>
+              <span class="tag">EMNLP 2026 Under Review</span>
+            </div>
+            <p class="research-subtitle">跨方言 Text-to-SQL 基准测试</p>
+            <p>将 BIRD dev 的 1,534 个自然语言问题扩展至 16 种 SQL 方言，完成数据库迁移、类型映射、SQLGlot/LLM 翻译、自反思修复与执行一致性校验。</p>
+          </div>
+          <div class="metric-block"><strong>24,544</strong><span>可执行 SQL 标注</span></div>
+        </article>
+
+        <article class="research-item reveal">
+          <div class="research-number">R.03</div>
+          <div class="research-main">
+            <div class="research-topline">
+              <h3>FAR-SQL</h3>
+              <span class="tag">NDBC 2026 Under Review</span>
+            </div>
+            <p class="research-subtitle">面向 SQL 等价性判定的失效感知分层方法</p>
+            <p>根据历史 VeriEQL 日志建立验证收益画像并动态分配预算，保留形式化确定输出，将 timeout、unsupported 等非确定状态路由到本地 SFT 模型。</p>
+            <a class="text-link" href="https://github.com/Neroxsh/FAR-SQL" target="_blank" rel="noreferrer">查看可复现实验 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+          <div class="metric-block"><strong>83.98%</strong><span>Calcite + Spider-DAIL GM</span></div>
+        </article>
+
+        <article class="research-item reveal">
+          <div class="research-number">R.04</div>
+          <div class="research-main">
+            <div class="research-topline"><h3>Safe-RAG for SQL</h3><span class="tag tag--blue">Agent System</span></div>
+            <p class="research-subtitle">多智能体 SQL 验证与结构化检索增强</p>
+            <p>基于 SQLGlot 抽取 AST 骨架，构建结构化向量检索库；通过模型 Logprobs 设定自适应阈值，在低置信场景触发检索增强与多源仲裁。</p>
+          </div>
+          <div class="metric-pair"><div><strong>+40%</strong><span>检索准确率</span></div><div><strong>-52%</strong><span>幻觉率</span></div></div>
+        </article>
+
+        <article class="research-item reveal">
+          <div class="research-number">R.05</div>
+          <div class="research-main">
+            <div class="research-topline"><h3>Unified SQL Evaluation</h3><span class="tag tag--coral">Infrastructure</span></div>
+            <p class="research-subtitle">统一 SQL 评测基准框架</p>
+            <p>把输入构造、SQL 执行、结果比对与指标统计拆解为可复用环节，使用 Docker 标准化数据库环境，支持 MySQL、PostgreSQL 与 SQLite 自动切换。</p>
+          </div>
+          <div class="metric-block"><strong>Hours</strong><span>实验搭建从天级缩短</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section experience-section" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading section-heading--light reveal">
+        <div>
+          <p class="section-index">02 / EXPERIENCE</p>
+          <h2 id="experience-title">从实验设计到远端训练，<br>把复杂流程变成协作系统。</h2>
+        </div>
+        <span class="company-stamp">Alibaba<br>Intelligence</span>
+      </div>
+
+      <article class="experience-card reveal">
+        <div class="experience-meta">
+          <p>2026.04 — 2026.06</p>
+          <span>算法研发实习生</span>
+        </div>
+        <div class="experience-content">
+          <h3>阿里深象智能</h3>
+          <p class="experience-lead">参与通用模型自动优化 Agent 研发，覆盖检测、分类、属性识别与分割任务，并适配 YOLO、MMPretrain、MMDetection 等训练后端。</p>
+          <div class="experience-grid">
+            <div><span>01</span><h4>流程抽象</h4><p>将实验规划、数据分析、结构调整、超参搜索与结果复盘抽象为可协作模块。</p></div>
+            <div><span>02</span><h4>训练运维</h4><p>构建远端训练、状态监控、异常诊断、指标回填与候选模型管理能力。</p></div>
+            <div><span>03</span><h4>业务落地</h4><p>参与数据画像、采样策略与参数一致性校验，降低无效调参与重复实验成本。</p></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section skills-section" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-index">03 / CAPABILITIES</p>
+          <h2 id="skills-title">能力边界，<br>清晰标注。</h2>
+        </div>
+        <p>“熟悉”来自简历中能够独立完成的工作；“了解”表示已有实践基础，但不将其包装成深度专长。</p>
+      </div>
+
+      <div class="skill-layout">
+        <div class="skill-panel reveal">
+          <div class="skill-level"><span>PROFICIENT</span><strong>熟悉</strong></div>
+          <div class="skill-groups">
+            <div><h3>Language & Data</h3><p>Python</p><p>SQL</p><p>SQLGlot</p></div>
+            <div><h3>Agent Systems</h3><p>LangChain</p><p>LangGraph</p><p>RAG Pipeline</p></div>
+            <div><h3>Engineering</h3><p>Linux</p><p>Git</p><p>Docker</p><p>ClearML</p></div>
+          </div>
+        </div>
+
+        <div class="skill-panel skill-panel--secondary reveal" data-delay="100">
+          <div class="skill-level"><span>WORKING KNOWLEDGE</span><strong>了解</strong></div>
+          <div class="skill-groups">
+            <div><h3>Training</h3><p>SFT</p><p>GRPO / DPO</p><p>verl / TRL</p></div>
+            <div><h3>Inference</h3><p>vLLM</p><p>DeepSpeed</p><p>Model Debugging</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="education-strip reveal">
+        <p class="section-index">EDUCATION</p>
+        <div><strong>河南大学</strong><span>硕士 · 软件学院 · 网络与信息安全</span><time>2024.09 — 2027.06</time></div>
+        <div><strong>河南工业大学</strong><span>本科 · 信息科学与工程学院 · 计算机科学与技术</span><time>2020.09 — 2024.06</time></div>
+      </div>
+    </section>
+
+    <section class="section builds-section" id="builds" aria-labelledby="builds-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-index">04 / MORE BUILDS</p>
+          <h2 id="builds-title">研究之外，<br>也把想法做成产品。</h2>
+        </div>
+        <p>以下内容来自 GitHub 公开仓库，放在研究经历之后。这里展示工程广度，不替代简历中明确标注的专业能力。</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card project-card--wide reveal" data-tilt>
+          <a class="project-media" href="https://github.com/Neroxsh/CreditRiskRobot" target="_blank" rel="noreferrer" aria-label="查看 CreditRiskRobot">
+            <img src="public/assets/credit-risk-robot.png" alt="CreditRiskRobot 多 Agent 风控分析界面" loading="lazy">
+          </a>
+          <div class="project-body">
+            <div class="project-kicker"><span>AI Workbench</span><span>Python</span></div>
+            <h3>CreditRiskRobot</h3>
+            <p>基于 FinSight 报告生成与导出链路改造的企业贷款风控审查工作台，覆盖材料盘点、风险分析、证据追踪和报告自审计。</p>
+            <a class="text-link" href="https://github.com/Neroxsh/CreditRiskRobot" target="_blank" rel="noreferrer">GitHub <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tilt>
+          <a class="project-media project-media--pink" href="https://github.com/Neroxsh/hello-kitty-todo" target="_blank" rel="noreferrer" aria-label="查看桌面待办项目">
+            <img src="public/assets/todo-widget.png" alt="桌面待办小组件界面" loading="lazy">
+          </a>
+          <div class="project-body">
+            <div class="project-kicker"><span>Desktop App</span><span>TypeScript · Tauri</span></div>
+            <h3>我的任务</h3>
+            <p>面向 macOS 与 Windows 的轻量桌面待办小组件，支持 DDL 进度、智能排序、托盘常驻与安装包发布。</p>
+            <a class="text-link" href="https://github.com/Neroxsh/hello-kitty-todo/releases/latest" target="_blank" rel="noreferrer">查看发布 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tilt>
+          <a class="project-media project-media--icon" href="https://github.com/Neroxsh/moyu-words" target="_blank" rel="noreferrer" aria-label="查看摸鱼背词项目">
+            <img src="public/assets/moyu-words.png" alt="摸鱼背词应用图标" loading="lazy">
+            <span>看起来在摸鱼<br>其实你在变强。</span>
+          </a>
+          <div class="project-body">
+            <div class="project-kicker"><span>Desktop App</span><span>React · Tauri</span></div>
+            <h3>摸鱼背词</h3>
+            <p>透明悬浮式桌面背词应用，内置七本词书，支持学习计划、熟词归档与 Windows/macOS 打包。</p>
+            <a class="text-link" href="https://github.com/Neroxsh/moyu-words" target="_blank" rel="noreferrer">GitHub <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="project-card project-card--wide reveal" data-tilt>
+          <a class="project-media project-media--pilot" href="https://neroxsh.github.io/marginpilot/" target="_blank" rel="noreferrer" aria-label="打开利润罗盘">
+            <div class="pilot-demo" aria-hidden="true">
+              <div class="pilot-top"><span>利润罗盘</span><i data-lucide="compass"></i></div>
+              <div class="pilot-numbers"><div><small>单笔净利润</small><strong>¥ 42.80</strong></div><div><small>保本 ROAS</small><strong>2.37</strong></div><div><small>利润率</small><strong>21.4%</strong></div></div>
+              <div class="pilot-bars"><span style="--bar: 84%"></span><span style="--bar: 63%"></span><span style="--bar: 46%"></span></div>
+            </div>
+          </a>
+          <div class="project-body">
+            <div class="project-kicker"><span>Web Tool</span><span>JavaScript</span></div>
+            <h3>利润罗盘 · MarginPilot</h3>
+            <p>面向跨境电商卖家的利润、保本售价和 ROAS 计算器；无需后端，支持本机保存、分享链接、CSV 导出与离线缓存。</p>
+            <a class="text-link" href="https://neroxsh.github.io/marginpilot/" target="_blank" rel="noreferrer">在线体验 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="learning-repos reveal">
+        <div><span>OPEN SOURCE & LEARNING</span><p>公开学习记录与上游项目复刻，单独列出，不作为原创成果展示。</p></div>
+        <div class="repo-links">
+          <a href="https://github.com/Neroxsh/Langchain1.0-Langgraph1.0-Learning" target="_blank" rel="noreferrer">LangChain / LangGraph Learning <i data-lucide="git-fork" aria-hidden="true"></i></a>
+          <a href="https://github.com/Neroxsh/RM-R1" target="_blank" rel="noreferrer">RM-R1 Study <i data-lucide="git-fork" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section honors-section" aria-labelledby="honors-title">
+      <div class="section-heading reveal">
+        <div><p class="section-index">05 / RECOGNITION</p><h2 id="honors-title">保持好奇，<br>也保持行动。</h2></div>
+      </div>
+      <div class="honors-ticker reveal">
+        <span>全国大学生金融科技创新大赛 全国二等奖 / 河南省第一名</span>
+        <span>互联网+ 河南省赛银奖</span>
+        <span>挑战杯 河南省赛铜奖</span>
+        <span>一等奖学业奖学金 × 2</span>
+        <span>人工智能创新创业大赛 一等奖</span>
+        <span>大学生计算机设计大赛 优秀志愿者</span>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-inner reveal">
+        <p class="section-index">LET'S CONNECT</p>
+        <h2 id="contact-title">一起做值得验证的事。</h2>
+        <p>欢迎交流 SQL、LLM 训练、Agent 系统与研究工程化。</p>
+        <div class="contact-actions">
+          <a class="button button--light" href="mailto:shihaoxing@henu.edu.cn"><i data-lucide="mail" aria-hidden="true"></i><span>shihaoxing@henu.edu.cn</span></a>
+          <a class="button button--outline-light" href="https://github.com/Neroxsh" target="_blank" rel="noreferrer"><i data-lucide="github" aria-hidden="true"></i><span>@Neroxsh</span></a>
+        </div>
+      </div>
+      <footer><span>© <span data-year></span> Shihao Xing</span><span>Built for clarity, backed by evidence.</span></footer>
+    </section>
+  </main>
+
+  <script src="public/vendor/gsap-3.13.0.min.js"></script>
+  <script src="public/vendor/ScrollTrigger-3.13.0.min.js"></script>
+  <script src="public/vendor/lucide-0.468.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
