@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="邢仕浩，河南大学软件学院硕士研究生，求职方向为大模型算法、Agent 应用研发与银行金融科技。">
-  <meta name="theme-color" content="#eaf0e8">
-  <meta property="og:title" content="邢仕浩 | LLM Algorithms & Agent Engineering">
-  <meta property="og:description" content="SQL 可靠性、可验证推理、多智能体系统、模型自动优化与智能风控。">
+  <meta name="theme-color" content="#edf1eb">
+  <meta name="description" content="邢仕浩的个人网站：SQL 等价性验证、跨方言 Text-to-SQL、多智能体模型优化与金融科技智能系统。">
+  <meta property="og:title" content="邢仕浩 | Shihao Xing">
+  <meta property="og:description" content="研究、工程与实践经历。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://neroxsh.github.io/">
-  <title>邢仕浩 | LLM Algorithms & Agent Engineering</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23101412'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='27' font-family='Arial' font-weight='700' fill='%23c9ff45'%3EXS%3C/text%3E%3C/svg%3E">
+  <title>邢仕浩 | 研究与工程</title>
   <script>
     (() => {
       const theme = localStorage.getItem("portfolio-theme") || "light";
       const language = localStorage.getItem("portfolio-language") || "zh";
       document.documentElement.dataset.theme = theme;
-      document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
+      document.documentElement.lang = language === "en" ? "en" : "zh-CN";
     })();
   </script>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,20 +26,19 @@
   <div class="theme-wash" aria-hidden="true"></div>
 
   <svg class="filter-defs" width="0" height="0" aria-hidden="true" focusable="false">
-    <filter id="liquid-refract" x="-20%" y="-20%" width="140%" height="140%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.028" numOctaves="1" seed="7" result="noise" />
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="B" />
+    <filter id="liquid-refract" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="1" seed="9" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="B" />
     </filter>
   </svg>
 
-  <header class="site-header liquid-glass" data-header>
+  <header class="site-header" data-header>
     <a class="brand" href="#top" aria-label="返回首页">
       <span class="brand-mark">XS</span>
       <span class="brand-name" data-i18n="brand.name">邢仕浩</span>
     </a>
 
     <nav class="site-nav" aria-label="主导航">
-      <a href="#education" data-i18n="nav.education">教育</a>
       <a href="#honors" data-i18n="nav.honors">荣誉</a>
       <a href="#experience" data-i18n="nav.experience">实习</a>
       <a href="#research" data-i18n="nav.research">研究与项目</a>
@@ -48,17 +47,17 @@
     </nav>
 
     <div class="header-tools">
-      <div class="language-switch liquid-glass" role="group" aria-label="语言切换">
+      <div class="language-switch" role="group" aria-label="语言切换">
         <button class="language-option is-active" type="button" data-language="zh" aria-pressed="true">中</button>
         <button class="language-option" type="button" data-language="en" aria-pressed="false">EN</button>
       </div>
-      <a class="icon-button liquid-glass" href="https://openreview.net/profile?id=%7EShihao_Xing1" target="_blank" rel="noreferrer" aria-label="OpenReview" title="OpenReview">
+      <a class="glass-control" href="https://openreview.net/profile?id=%7EShihao_Xing1" target="_blank" rel="noreferrer" aria-label="OpenReview" title="OpenReview">
         <i data-lucide="notebook-tabs" aria-hidden="true"></i>
       </a>
-      <a class="icon-button liquid-glass" href="https://github.com/Neroxsh" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
+      <a class="glass-control" href="https://github.com/Neroxsh" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
         <i data-lucide="github" aria-hidden="true"></i>
       </a>
-      <button class="icon-button liquid-glass" type="button" data-theme-toggle aria-label="切换亮暗主题" title="切换亮暗主题">
+      <button class="glass-control" type="button" data-theme-toggle aria-label="切换亮暗主题" title="切换亮暗主题">
         <i data-theme-icon data-lucide="moon" aria-hidden="true"></i>
       </button>
     </div>
@@ -66,210 +65,276 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
+      <div class="hero-signature">
         <p class="hero-kicker" data-i18n="hero.kicker">2027 届硕士研究生 · 河南大学软件学院</p>
-        <h1 id="hero-title">邢仕浩<span>Shihao Xing</span></h1>
-        <p class="hero-direction" data-i18n="hero.direction">大模型算法 · Agent 应用研发 · 银行金融科技</p>
-        <p class="hero-summary" data-i18n="hero.summary">研究 SQL 可靠性与可验证推理，构建多智能体协作、模型自动优化与智能风控系统。</p>
-        <div class="hero-actions">
-          <a class="command-button" href="#experience">
-            <span data-i18n="hero.action">查看经历</span><i data-lucide="arrow-down-right" aria-hidden="true"></i>
-          </a>
-          <a class="text-action" href="mailto:shihaoxing@henu.edu.cn"><i data-lucide="mail" aria-hidden="true"></i>shihaoxing@henu.edu.cn</a>
-        </div>
-        <div class="profile-links">
+        <h1 id="hero-title"><span class="hero-name-line">邢仕浩</span><small>Shihao Xing</small></h1>
+        <div class="hero-links">
+          <a href="mailto:shihaoxing@henu.edu.cn"><i data-lucide="mail" aria-hidden="true"></i>shihaoxing@henu.edu.cn</a>
           <a href="https://github.com/Neroxsh" target="_blank" rel="noreferrer">GitHub <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
           <a href="https://openreview.net/profile?id=%7EShihao_Xing1" target="_blank" rel="noreferrer">OpenReview <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
         </div>
       </div>
 
-      <div class="hero-focus" aria-label="求职方向">
-        <div class="focus-rail" aria-hidden="true"><span></span></div>
-        <p class="focus-label" data-i18n="hero.intentLabel">求职方向</p>
-        <div class="focus-token focus-token--blue liquid-glass">
-          <span>01</span><strong data-i18n="hero.intent1">大模型算法</strong><small>LLM ALGORITHMS</small>
+      <aside class="hero-education" aria-labelledby="hero-education-title">
+        <div class="education-heading">
+          <p>EDUCATION</p>
+          <h2 id="hero-education-title" data-i18n="education.title">教育经历</h2>
         </div>
-        <div class="focus-token focus-token--lime liquid-glass">
-          <span>02</span><strong data-i18n="hero.intent2">Agent 应用研发</strong><small>AGENT ENGINEERING</small>
+        <div class="degree-list">
+          <article class="degree-item">
+            <time>2024.09 - 2027.06</time>
+            <div><span data-i18n="education.master">硕士研究生</span><h3 data-i18n="education.henu">河南大学</h3><p data-i18n="education.school">软件学院</p></div>
+          </article>
+          <article class="degree-item">
+            <time>2020.09 - 2024.06</time>
+            <div><span data-i18n="education.bachelor">本科</span><h3 data-i18n="education.haut">河南工业大学</h3><p data-i18n="education.major">计算机科学与技术</p></div>
+          </article>
         </div>
-        <div class="focus-token focus-token--coral liquid-glass">
-          <span>03</span><strong data-i18n="hero.intent3">银行金融科技</strong><small>FINTECH AI</small>
-        </div>
-      </div>
-    </section>
-
-    <section class="education-section" id="education" aria-labelledby="education-title">
-      <div class="section-intro">
-        <p class="section-index">01 · EDUCATION</p>
-        <h2 id="education-title" data-i18n="education.title">教育经历</h2>
-      </div>
-      <div class="education-track">
-        <article class="education-item">
-          <time>2024.09—2027.06</time>
-          <span class="education-dot" aria-hidden="true"></span>
-          <div><p data-i18n="education.master">硕士研究生</p><h3 data-i18n="education.henu">河南大学</h3><span data-i18n="education.school">软件学院</span></div>
-        </article>
-        <article class="education-item">
-          <time>2020.09—2024.06</time>
-          <span class="education-dot" aria-hidden="true"></span>
-          <div><p data-i18n="education.bachelor">本科</p><h3 data-i18n="education.haut">河南工业大学</h3><span data-i18n="education.major">计算机科学与技术</span></div>
-        </article>
-      </div>
+      </aside>
+      <span class="hero-accent hero-accent--blue" aria-hidden="true"></span>
+      <span class="hero-accent hero-accent--coral" aria-hidden="true"></span>
     </section>
 
     <section class="honors-section" id="honors" aria-labelledby="honors-title">
-      <div class="honors-heading">
-        <p class="section-index">02 · HONORS</p>
+      <div class="section-heading honors-heading">
+        <p class="section-index">01 · HONORS</p>
         <h2 id="honors-title" data-i18n="honors.title">荣誉奖项</h2>
-        <p data-i18n="honors.note">竞赛、研究实践与持续学习的阶段记录。</p>
       </div>
-      <ol class="honors-list">
-        <li><span>01</span><p data-i18n="honors.1">第十六届全国大学生金融科技创新大赛全国二等奖（河南省第一名）</p><small data-i18n="honors.national">国家级</small></li>
-        <li><span>02</span><p data-i18n="honors.2">“互联网+”河南省赛银奖</p><small data-i18n="honors.provincial">省级</small></li>
-        <li><span>03</span><p data-i18n="honors.3">“挑战杯”河南省赛铜奖</p><small data-i18n="honors.provincial">省级</small></li>
-        <li><span>04</span><p data-i18n="honors.4">一等奖学业奖学金 × 2</p><small data-i18n="honors.academic">学业</small></li>
-        <li><span>05</span><p data-i18n="honors.5">人工智能创新创业大赛一等奖</p><small data-i18n="honors.competition">竞赛</small></li>
-        <li><span>06</span><p data-i18n="honors.6">第六届创新英语挑战赛二等奖</p><small data-i18n="honors.competition">竞赛</small></li>
-        <li><span>07</span><p data-i18n="honors.7">河南大学大学生创新大赛二等奖</p><small data-i18n="honors.campus">校级</small></li>
-        <li><span>08</span><p data-i18n="honors.8">河大杯羽毛球比赛第六名</p><small data-i18n="honors.sport">体育</small></li>
-        <li><span>09</span><p data-i18n="honors.9">大学生计算机设计大赛优秀志愿者</p><small data-i18n="honors.service">实践</small></li>
+      <ol class="honor-grid">
+        <li><span>01</span><p data-i18n="honors.1">第十六届全国大学生金融科技创新大赛全国二等奖（河南省第一名）</p></li>
+        <li><span>02</span><p data-i18n="honors.2">“互联网+”河南省赛银奖</p></li>
+        <li><span>03</span><p data-i18n="honors.3">“挑战杯”河南省赛铜奖</p></li>
+        <li><span>04</span><p data-i18n="honors.4">一等学业奖学金 × 2</p></li>
+        <li><span>05</span><p data-i18n="honors.5">人工智能创新创业大赛一等奖</p></li>
+        <li><span>06</span><p data-i18n="honors.6">第六届创新英语挑战赛二等奖</p></li>
+        <li><span>07</span><p data-i18n="honors.7">河南大学大学生创新大赛二等奖</p></li>
+        <li><span>08</span><p data-i18n="honors.8">河大杯羽毛球比赛第六名</p></li>
+        <li><span>09</span><p data-i18n="honors.9">大学生计算机设计大赛优秀志愿者</p></li>
       </ol>
     </section>
 
     <section class="experience-section" id="experience" aria-labelledby="experience-title">
       <div class="experience-head">
         <div>
-          <p class="section-index">03 · INTERNSHIP</p>
+          <p class="section-index">02 · INTERNSHIP</p>
           <h2 id="experience-title" data-i18n="experience.title">实习经历</h2>
         </div>
         <div class="experience-company">
           <span data-i18n="experience.role">算法研发实习生</span>
           <h3 data-i18n="experience.company">阿里-银泰星-深象智能</h3>
-          <time>2026.04—2026.06</time>
+          <time>2026.04 - 2026.06</time>
         </div>
       </div>
 
       <article class="optimizer-project">
         <div class="optimizer-copy">
           <p class="project-overline">MULTI-AGENT MODEL OPTIMIZATION</p>
-          <h3 data-i18n="experience.projectTitle">天工优化：多智能体闭环模型优化系统</h3>
-          <p data-i18n="experience.summary">参与研发面向工业视觉任务的多智能体模型自动优化系统。系统由 Planner 统一决策，数据、参数与模型专家协同生成优化方案，分析专家独立评估实验结果，并通过 ClearML 自动完成基线建立、数据优化、代码与参数调整、训练测试、异常修复和经验沉淀。</p>
+          <h3 data-i18n="experience.projectTitle">天工优化：多智能体闭环模型自动优化系统</h3>
+          <p class="optimizer-summary" data-i18n="experience.summary">参与研发面向工业视觉模型的多智能体自动优化控制系统。Planner 编排研究检索、三类专家、受控代码改动与 ClearML 训练测试；Analyst 在隔离上下文中独立审查，Family Memory 沉淀可复用经验，正式模型发布保留 Human-in-the-loop 决策。</p>
+
+          <div class="optimizer-capabilities" aria-label="核心能力">
+            <span>Human-in-the-loop</span><span>Research Engine</span><span>Safe Code Editing</span><span>ClearML</span><span>Family Memory</span>
+          </div>
+
           <div class="optimizer-impact" aria-label="优化周期缩短">
             <div><small data-i18n="experience.before">原优化周期</small><strong data-i18n="experience.fourWeeks">约 4 周</strong></div>
             <i data-lucide="arrow-right" aria-hidden="true"></i>
-            <div><small data-i18n="experience.after">自动化后</small><strong data-i18n="experience.fourDays">4—5 天</strong></div>
+            <div><small data-i18n="experience.after">自动化后</small><strong data-i18n="experience.fourDays">4-5 天</strong></div>
           </div>
-          <p class="optimizer-result" data-i18n="experience.result">将依赖人工分析、调参与验证的流程转化为可追踪、可复用的自动化实验闭环，并应用于烟火检测、风险行为检测及人体属性识别等任务。</p>
-          <button class="architecture-button liquid-glass" type="button" data-architecture-open>
+          <p class="optimizer-result" data-i18n="experience.result">将人工分析、调参、代码试验与验证转化为可追踪的自动化闭环，应用于烟火检测、风险行为检测和人体属性识别等任务。</p>
+          <button class="architecture-button liquid-action" type="button" data-architecture-open>
+            <span class="liquid-action-lens" aria-hidden="true"></span>
             <i data-lucide="maximize-2" aria-hidden="true"></i><span data-i18n="experience.architecture">查看完整架构</span>
           </button>
         </div>
 
-        <div class="optimizer-visual" aria-label="天工优化流程">
-          <div class="flow-experts">
-            <button class="flow-node flow-node--expert" type="button" data-flow-key="data"><i data-lucide="database" aria-hidden="true"></i><span data-i18n="flow.data">数据专家</span></button>
-            <button class="flow-node flow-node--expert" type="button" data-flow-key="param"><i data-lucide="sliders-horizontal" aria-hidden="true"></i><span data-i18n="flow.param">参数专家</span></button>
-            <button class="flow-node flow-node--expert" type="button" data-flow-key="model"><i data-lucide="box" aria-hidden="true"></i><span data-i18n="flow.model">模型专家</span></button>
+        <div class="optimizer-visual" aria-label="天工模型自动优化协作架构">
+          <div class="map-scroll">
+            <div class="map-canvas">
+              <svg class="system-links" viewBox="0 0 1000 660" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M205 58 H330 Q350 58 350 82 V180 Q350 205 375 205" />
+                <path d="M500 105 V180" />
+                <path d="M245 285 H365" />
+                <path d="M775 58 H700 Q670 58 670 88 V180 Q670 205 635 205" />
+                <path d="M500 275 V330" />
+                <path d="M500 390 V425 H130 V455" />
+                <path d="M500 390 V425 H360 V455" />
+                <path d="M230 500 H260" />
+                <path d="M460 500 H505" />
+                <path d="M695 500 H760" />
+                <path d="M860 455 V150 Q860 120 830 120 H700" />
+                <path d="M860 545 V570" />
+                <path d="M760 610 H690" />
+                <path class="system-link-accent" d="M580 570 V545" />
+              </svg>
+
+              <button class="map-node map-node--human" type="button" data-flow-key="human">
+                <i data-lucide="user-round-check" aria-hidden="true"></i><strong>Human</strong><small data-i18n="flow.humanSmall">启动 · 干预 · 发布</small>
+              </button>
+
+              <button class="map-node map-node--research" type="button" data-flow-key="research">
+                <span class="map-node-title"><i data-lucide="search-code" aria-hidden="true"></i><strong>Research Engine</strong></span>
+                <span class="research-sources"><small><i data-lucide="globe-2" aria-hidden="true"></i>WEB</small><small><i data-lucide="file-text" aria-hidden="true"></i>PAPERS</small><small><i data-lucide="github" aria-hidden="true"></i>CODE</small></span>
+              </button>
+
+              <button class="map-node map-node--memory" type="button" data-flow-key="memory">
+                <i data-lucide="database-zap" aria-hidden="true"></i><strong>Family Memory</strong><small data-i18n="flow.memorySmall">跨模型经验</small>
+              </button>
+
+              <div class="map-experts" aria-label="专家团队">
+                <button type="button" data-flow-key="data"><i data-lucide="database" aria-hidden="true"></i><span data-i18n="flow.data">数据专家</span></button>
+                <button type="button" data-flow-key="param"><i data-lucide="sliders-horizontal" aria-hidden="true"></i><span data-i18n="flow.param">超参专家</span></button>
+                <button type="button" data-flow-key="model"><i data-lucide="boxes" aria-hidden="true"></i><span data-i18n="flow.model">结构专家</span></button>
+              </div>
+
+              <button class="map-node map-node--planner" type="button" data-flow-key="planner">
+                <i data-lucide="brain-circuit" aria-hidden="true"></i><strong>Planner</strong><small data-i18n="flow.plannerSmall">策略编排与 Trial 规划</small>
+              </button>
+
+              <button class="map-node map-node--dispatcher" type="button" data-flow-key="dispatcher">
+                <i data-lucide="git-branch" aria-hidden="true"></i><strong>Tool Dispatcher</strong><small data-i18n="flow.dispatcherSmall">并行只读 · 串行变更</small>
+              </button>
+
+              <button class="map-node map-node--code" type="button" data-flow-key="code">
+                <i data-lucide="code-xml" aria-hidden="true"></i><strong>Code Editor</strong><small data-i18n="flow.codeSmall">Worktree · Codeup</small>
+              </button>
+              <button class="map-node map-node--clearml" type="button" data-flow-key="clearml">
+                <i data-lucide="play-circle" aria-hidden="true"></i><strong>ClearML</strong><small data-i18n="flow.clearmlSmall">训练 · 测试 · 模型</small>
+              </button>
+              <button class="map-node map-node--evaluator" type="button" data-flow-key="evaluator">
+                <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i><strong>Evaluator</strong><small data-i18n="flow.evaluatorSmall">指标与硬约束</small>
+              </button>
+              <button class="map-node map-node--analyst" type="button" data-flow-key="analyst">
+                <i data-lucide="scan-search" aria-hidden="true"></i><strong>Analyst</strong><small data-i18n="flow.analystSmall">独立审查</small>
+              </button>
+              <button class="map-node map-node--candidate" type="button" data-flow-key="candidate">
+                <i data-lucide="badge-check" aria-hidden="true"></i><strong>Candidate</strong><small data-i18n="flow.candidateSmall">可信提升候选</small>
+              </button>
+              <button class="map-node map-node--gate" type="button" data-flow-key="gate">
+                <i data-lucide="shield-check" aria-hidden="true"></i><strong>Promote</strong><small data-i18n="flow.gateSmall">人工确认 best model</small>
+              </button>
+            </div>
           </div>
-          <div class="flow-line flow-line--one" aria-hidden="true"><span></span></div>
-          <button class="flow-node flow-node--planner" type="button" data-flow-key="planner"><i data-lucide="brain-circuit" aria-hidden="true"></i><span>Planner</span><small data-i18n="flow.plannerSmall">生成 Trial 方案</small></button>
-          <div class="flow-line" aria-hidden="true"><span></span></div>
-          <button class="flow-node flow-node--trial" type="button" data-flow-key="trial"><span>DATA · CODE · PARAM</span><strong>Trial</strong></button>
-          <div class="flow-line" aria-hidden="true"><span></span></div>
-          <div class="flow-execution">
-            <button class="flow-node flow-node--clearml" type="button" data-flow-key="clearml"><i data-lucide="play-circle" aria-hidden="true"></i><span>ClearML</span><small data-i18n="flow.clearmlSmall">训练与自动测试</small></button>
-            <button class="flow-node flow-node--analyst" type="button" data-flow-key="analyst"><i data-lucide="scan-search" aria-hidden="true"></i><span data-i18n="flow.analyst">分析专家</span><small data-i18n="flow.analystSmall">独立复盘</small></button>
-          </div>
-          <div class="flow-line" aria-hidden="true"><span></span></div>
-          <button class="flow-node flow-node--memory" type="button" data-flow-key="memory"><i data-lucide="refresh-cw" aria-hidden="true"></i><span data-i18n="flow.memory">经验回流与下一轮</span></button>
-          <p class="flow-caption" data-flow-caption data-i18n="flow.defaultCaption">从专家协同决策到 ClearML 训练评测，再由分析专家复盘并回流经验。</p>
+          <p class="flow-caption" data-flow-caption data-i18n="flow.defaultCaption">从人类目标、外部研究和专家协作，到受控代码试验、ClearML 训练测试、独立审查与人工发布的完整闭环。</p>
         </div>
       </article>
     </section>
 
     <section class="work-section" id="research" aria-labelledby="research-title">
       <div class="work-heading">
-        <p class="section-index">04 · RESEARCH & SYSTEMS</p>
+        <p class="section-index">03 · RESEARCH & SYSTEMS</p>
         <h2 id="research-title" data-i18n="work.title">研究与项目</h2>
-        <p data-i18n="work.note">默认快速阅读；悬停、聚焦或点击后查看问题、方法与结果。</p>
       </div>
 
-      <div class="work-subsection">
-        <div class="subsection-title"><span>01</span><h3 data-i18n="work.papers">研究论文</h3><p data-i18n="work.papersNote">Formal reasoning · Cross-dialect SQL · Failure-aware verification</p></div>
-        <div class="work-shell" data-work-group="papers">
-          <div class="work-index" role="list">
-            <button class="work-item is-active" type="button" data-work-id="sqlequ" role="listitem" aria-pressed="true">
-              <span class="work-number">P.01</span><span class="work-name"><strong>SQLEq-O1</strong><small data-i18n="work.sqlequSummary">轻量模型学习 SQL 语义等价推理</small></span><span class="work-venue">EMNLP 2026<small>UNDER REVIEW</small></span>
-            </button>
-            <button class="work-item" type="button" data-work-id="uniql" role="listitem" aria-pressed="false">
-              <span class="work-number">P.02</span><span class="work-name"><strong>UniQL</strong><small data-i18n="work.uniqlSummary">覆盖 16 种数据库方言的可执行基准</small></span><span class="work-venue">EMNLP 2026<small>UNDER REVIEW</small></span>
-            </button>
-            <button class="work-item" type="button" data-work-id="farsql" role="listitem" aria-pressed="false">
-              <span class="work-number">P.03</span><span class="work-name"><strong>FAR-SQL</strong><small data-i18n="work.farsqlSummary">形式化验证与本地模型的失效感知路由</small></span><span class="work-venue">NDBC 2026<small>UNDER REVIEW</small></span>
-            </button>
-          </div>
-          <aside class="work-detail" data-work-detail="papers" aria-live="polite">
-            <div class="detail-head"><p data-detail-type></p><span data-detail-venue></span></div>
-            <h4 data-detail-title></h4><p class="detail-summary" data-detail-summary></p>
-            <dl class="detail-grid">
-              <div><dt data-i18n="detail.challenge">问题</dt><dd data-detail-challenge></dd></div>
-              <div><dt data-i18n="detail.method">方法</dt><dd data-detail-method></dd></div>
-              <div><dt data-i18n="detail.result">结果</dt><dd data-detail-result></dd></div>
-            </dl>
-            <a class="detail-link" data-detail-link target="_blank" rel="noreferrer"><span data-i18n="detail.view">查看项目</span><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
-          </aside>
+      <div class="research-subsection">
+        <div class="subsection-heading"><span>01</span><h3 data-i18n="work.papers">研究论文</h3><p>SQL REASONING · DIALECT GENERALIZATION · FORMAL VERIFICATION</p></div>
+        <div class="paper-stage" data-paper-stage role="list">
+          <article class="paper-panel paper-panel--lime is-active" data-paper-id="sqlequ" tabindex="0" role="listitem">
+            <div class="paper-meta"><span>P.01</span><div class="paper-venue"><strong>EMNLP 2026</strong><small>UNDER REVIEW</small></div></div>
+            <h4>SQLEq-O1</h4>
+            <p class="paper-lead" data-i18n="paper.sqlequ.lead">面向 SQL 语义等价判定的轻量级强化推理框架，将形式化标签、推理蒸馏与可验证奖励统一到同一训练链路。</p>
+            <div class="paper-metrics">
+              <span><strong>60K</strong><small>CoRE-SQL</small></span>
+              <span><strong>89.38</strong><small>LeetCode-Hard GM</small></span>
+              <span><strong>1.5B</strong><small>Compact Verifier</small></span>
+            </div>
+            <div class="paper-detail">
+              <div><span data-i18n="detail.problem">问题</span><p data-i18n="paper.sqlequ.problem">执行测试无法证明等价，SMT 验证在复杂查询上易超时；通用大模型成本高，而轻量模型又容易依赖关键词和结构相似度形成偏置。</p></div>
+              <div><span data-i18n="detail.method">方法</span><p data-i18n="paper.sqlequ.method">双轨构造真实 LeetCode 多解与 SynSQL 合成难例，统一由 VeriEQL 形式化标注；蒸馏验证式 CoT，形成 6 万条类别均衡的 CoRE-SQL，再以 30% SFT Warm-up + 70% GRPO 和稀疏可验证奖励训练。</p></div>
+              <div><span data-i18n="detail.result">结果</span><p data-i18n="paper.sqlequ.result">Qwen2.5-Coder-1.5B 在 LeetCode-Hard 上由 34.88 GM 提升至 89.38，在域外 Calcite+Spider-DAIL 上由 44.58 提升至 76.77，兼顾小模型部署成本与困难样本判别能力。</p></div>
+            </div>
+            <div class="paper-footer"><span data-i18n="paper.manuscript">论文审稿中</span><i data-lucide="sparkles" aria-hidden="true"></i></div>
+          </article>
+
+          <article class="paper-panel paper-panel--blue" data-paper-id="uniql" tabindex="0" role="listitem">
+            <div class="paper-meta"><span>P.02</span><div class="paper-venue"><strong>EMNLP 2026</strong><small>UNDER REVIEW · ARXIV</small></div></div>
+            <h4>UniQL</h4>
+            <p class="paper-lead" data-i18n="paper.uniql.lead">首个在相同自然语言意图、对齐 Schema 与数据内容下，系统评估 16 种 SQL 方言泛化能力的可执行基准。</p>
+            <div class="paper-metrics">
+              <span><strong>16</strong><small>SQL Dialects</small></span>
+              <span><strong>24,544</strong><small>Executable SQL</small></span>
+              <span><strong>20.14%</strong><small>Best All-16</small></span>
+            </div>
+            <div class="paper-detail">
+              <div><span data-i18n="detail.problem">问题</span><p data-i18n="paper.uniql.problem">现有 Text-to-SQL 基准高度集中于 SQLite，模型在单一方言上的成功无法说明其能否稳定迁移到 PostgreSQL、Oracle、Hive、Teradata 等真实数据库。</p></div>
+              <div><span data-i18n="detail.method">方法</span><p data-i18n="paper.uniql.method">将 BIRD Dev 的 1,534 个意图迁移到 16 种方言，组合数据库迁移、SQLGlot、LLM 翻译、三轮执行反馈自反思、规则演化和双人共识校验；比较时保留排序语义和重复项计数。</p></div>
+              <div><span data-i18n="detail.result">结果</span><p data-i18n="paper.uniql.result">形成 24,544 条人审可执行 SQL。最佳模型平均 EX 仅 54.63%，同一意图在 16 种方言全部正确的比例最高仅 20.14%，揭示 SQLite 评测掩盖的跨方言脆弱性。</p></div>
+            </div>
+            <div class="paper-footer">
+              <a href="https://arxiv.org/abs/2606.08018" target="_blank" rel="noreferrer">arXiv <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+              <a href="https://github.com/JerryGao818/UniQL" target="_blank" rel="noreferrer">Code <i data-lucide="github" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="paper-panel paper-panel--coral" data-paper-id="farsql" tabindex="0" role="listitem">
+            <div class="paper-meta"><span>P.03</span><div class="paper-venue"><strong>NDBC 2026</strong><small>UNDER REVIEW</small></div></div>
+            <h4>FAR-SQL</h4>
+            <p class="paper-lead" data-i18n="paper.farsql.lead">以“形式化优先、失效后补全”为原则，在有限预算内分离可信确定域与模型补全域。</p>
+            <div class="paper-metrics">
+              <span><strong>83.98</strong><small>OOD GM</small></span>
+              <span><strong>0%</strong><small>Undetermined</small></span>
+              <span><strong>13.97s</strong><small>Average</small></span>
+            </div>
+            <div class="paper-detail">
+              <div><span data-i18n="detail.problem">问题</span><p data-i18n="paper.farsql.problem">VeriEQL 的确定输出可信，但复杂聚合、嵌套和方言函数会触发超时、不支持或转换异常；直接改用模型又会丢失形式化可信边界。</p></div>
+              <div><span data-i18n="detail.method">方法</span><p data-i18n="paper.farsql.method">从历史 VeriEQL 日志学习验证收益画像，按 SQL 结构动态分配预算；保留 equivalent/inequivalent 结论，将非确定状态归一化后路由至任务适配本地模型，并以 Self-Consistency@3 稳定补全。</p></div>
+              <div><span data-i18n="detail.result">结果</span><p data-i18n="paper.farsql.result">在 412 对 Calcite+Spider-DAIL 域外样本上达到 83.98 GM、0 未决率和约 14 秒平均耗时；相比 VeriEQL@60s 的 38.19 GM / 35 秒取得更优质量效率折中。</p></div>
+            </div>
+            <div class="paper-footer"><a href="https://github.com/Neroxsh/FAR-SQL" target="_blank" rel="noreferrer">GitHub <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+          </article>
         </div>
       </div>
 
-      <div class="work-subsection work-subsection--systems">
-        <div class="subsection-title"><span>02</span><h3 data-i18n="work.systems">系统项目</h3><p data-i18n="work.systemsNote">Evaluation infrastructure · FinTech Agent</p></div>
-        <div class="work-shell" data-work-group="systems">
-          <div class="work-index" role="list">
-            <button class="work-item is-active" type="button" data-work-id="sqlbench" role="listitem" aria-pressed="true">
-              <span class="work-number">S.01</span><span class="work-name"><strong data-i18n="work.sqlbench">统一 SQL 评测框架</strong><small data-i18n="work.sqlbenchSummary">多任务、多数据库的统一执行与评测基础设施</small></span><span class="work-venue">SQL EVAL<small>INFRASTRUCTURE</small></span>
-            </button>
-            <button class="work-item" type="button" data-work-id="credit" role="listitem" aria-pressed="false">
-              <span class="work-number">S.02</span><span class="work-name"><strong>CreditRiskRobot</strong><small data-i18n="work.creditSummary">企业信贷智能审查与证据化报告工作台</small></span><span class="work-venue">FINTECH AI<small>MULTI-AGENT</small></span>
-            </button>
-          </div>
-          <aside class="work-detail" data-work-detail="systems" aria-live="polite">
-            <div class="detail-head"><p data-detail-type></p><span data-detail-venue></span></div>
-            <h4 data-detail-title></h4><p class="detail-summary" data-detail-summary></p>
-            <dl class="detail-grid">
-              <div><dt data-i18n="detail.challenge">问题</dt><dd data-detail-challenge></dd></div>
-              <div><dt data-i18n="detail.method">方法</dt><dd data-detail-method></dd></div>
-              <div><dt data-i18n="detail.result">结果</dt><dd data-detail-result></dd></div>
+      <div class="systems-subsection">
+        <div class="subsection-heading"><span>02</span><h3 data-i18n="work.systems">系统项目</h3><p>EVALUATION INFRASTRUCTURE · FINTECH AGENT</p></div>
+        <div class="system-projects">
+          <article class="system-project">
+            <div class="system-project-head"><span>S.01</span><i data-lucide="database-backup" aria-hidden="true"></i></div>
+            <p class="system-kicker">SQL EVALUATION INFRASTRUCTURE</p>
+            <h4 data-i18n="system.sql.title">统一 SQL 评测框架</h4>
+            <p data-i18n="system.sql.summary">为 NL2SQL、SQL 纠错与等价验证提供模型无关的统一执行和评测层。</p>
+            <dl>
+              <div><dt data-i18n="detail.method">方法</dt><dd data-i18n="system.sql.method">拆分输入构造、预测解析、SQL 执行、结果归一化与指标统计，并以 Docker 提供 MySQL、PostgreSQL、SQLite 标准环境。</dd></div>
+              <div><dt data-i18n="detail.result">结果</dt><dd data-i18n="system.sql.result">统一多任务、多模型与多数据集的执行准确率评测，新任务接入由天级缩短至小时级。</dd></div>
             </dl>
-            <a class="detail-link" data-detail-link target="_blank" rel="noreferrer"><span data-i18n="detail.view">查看项目</span><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
-          </aside>
+          </article>
+          <article class="system-project system-project--credit">
+            <div class="system-project-head"><span>S.02</span><i data-lucide="landmark" aria-hidden="true"></i></div>
+            <p class="system-kicker">BANKING FINTECH · MULTI-AGENT</p>
+            <h4>CreditRiskRobot</h4>
+            <p data-i18n="system.credit.summary">面向企业授信材料的智能审查工作台，连接文档理解、财务分析、多 Agent 风险识别与证据化报告生成。</p>
+            <dl>
+              <div><dt data-i18n="detail.method">方法</dt><dd data-i18n="system.credit.method">统一处理 PDF、Word、Excel、文本和图片，多角色围绕经营、财务、还款来源和风险因素协作，并保留证据引用与材料缺口。</dd></div>
+              <div><dt data-i18n="detail.result">结果</dt><dd data-i18n="system.credit.result">覆盖 Case 管理、材料盘点、风险分析、报告编辑、自审计及多格式导出，同时保留人工授信决策边界。</dd></div>
+            </dl>
+            <a class="system-link" href="https://github.com/Neroxsh/CreditRiskRobot" target="_blank" rel="noreferrer">GitHub <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="skills-section" id="skills" aria-labelledby="skills-title">
-      <div class="skills-heading">
-        <p class="section-index">05 · CAPABILITIES</p>
+      <div class="section-heading skills-heading">
+        <p class="section-index">04 · SKILLS</p>
         <h2 id="skills-title" data-i18n="skills.title">专业技能</h2>
-        <p data-i18n="skills.note">把研究想法推进到可运行、可验证的工程系统。</p>
       </div>
-      <div class="skills-matrix">
-        <article class="skill-cell skill-cell--blue"><span>01</span><h3 data-i18n="skills.programming">编程与数据</h3><p>Python · SQL · SQLGlot</p><small data-i18n="skills.programmingDetail">SQL 解析、数据处理、评测 Pipeline</small></article>
-        <article class="skill-cell skill-cell--lime"><span>02</span><h3 data-i18n="skills.agent">Agent 与大模型应用</h3><p>LangChain · LangGraph · RAG</p><small data-i18n="skills.agentDetail">多智能体协作、工具调度、检索增强</small></article>
-        <article class="skill-cell skill-cell--coral"><span>03</span><h3 data-i18n="skills.training">训练与推理</h3><p>vLLM · verl · TRL · DeepSpeed</p><small data-i18n="skills.trainingDetail">SFT、GRPO、DPO 与推理优化</small></article>
-        <article class="skill-cell skill-cell--yellow"><span>04</span><h3 data-i18n="skills.engineering">研究工程化</h3><p>Linux · Git · Docker · ClearML</p><small data-i18n="skills.engineeringDetail">环境搭建、训练调度、日志分析与复盘</small></article>
-        <article class="skill-cell skill-cell--violet"><span>05</span><h3 data-i18n="skills.aiCoding">AI 辅助研发</h3><p>Claude Code · Codex</p><small data-i18n="skills.aiCodingDetail">代码理解、功能开发、测试验证与复杂工程协作</small></article>
+      <div class="skill-ledger">
+        <article><span>01</span><h3 data-i18n="skills.programming">编程与数据</h3><p>Python · SQL · SQLGlot</p></article>
+        <article><span>02</span><h3 data-i18n="skills.agent">Agent 与大模型应用</h3><p>LangChain · LangGraph · RAG · Tool Use</p></article>
+        <article><span>03</span><h3 data-i18n="skills.training">训练与推理</h3><p>vLLM · verl · TRL · DeepSpeed · SFT · GRPO · DPO</p></article>
+        <article><span>04</span><h3 data-i18n="skills.engineering">研究工程化</h3><p>Linux · Git · Docker · ClearML</p></article>
+        <article><span>05</span><h3 data-i18n="skills.aiCoding">AI 辅助研发</h3><p>Claude Code · Codex</p></article>
       </div>
     </section>
 
     <section class="builds-section" id="builds" aria-labelledby="builds-title">
-      <div class="builds-heading">
-        <p class="section-index">06 · MORE BUILDS</p>
+      <div class="section-heading builds-heading">
+        <p class="section-index">05 · MORE BUILDS</p>
         <h2 id="builds-title" data-i18n="builds.title">更多公开项目</h2>
-        <p data-i18n="builds.note">轻量应用与产品想法，作为研究工程之外的补充。</p>
       </div>
       <div class="small-projects">
         <article class="small-project">
-          <a class="small-project-image small-project-image--todo" href="https://github.com/Neroxsh/hello-kitty-todo" target="_blank" rel="noreferrer"><img src="public/assets/todo-widget.png" alt="Hello Kitty Todo 应用界面" loading="lazy"></a>
+          <a class="small-project-image" href="https://github.com/Neroxsh/hello-kitty-todo" target="_blank" rel="noreferrer"><img src="public/assets/todo-widget.png" alt="Hello Kitty Todo 应用界面" loading="lazy"></a>
           <div><p>TypeScript · Tauri</p><h3 data-i18n="builds.todo">我的任务 · Hello Kitty Todo</h3><span data-i18n="builds.todoDetail">轻量桌面待办应用，支持截止日期进度、智能排序与托盘常驻。</span><a href="https://github.com/Neroxsh/hello-kitty-todo" target="_blank" rel="noreferrer" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a></div>
         </article>
         <article class="small-project">
@@ -280,15 +345,15 @@
     </section>
 
     <section class="interests-section" id="interests" aria-labelledby="interests-title">
-      <div class="interests-heading">
-        <p class="section-index">07 · OFFLINE MODE</p>
+      <div class="section-heading interests-heading">
+        <p class="section-index">06 · INTERESTS</p>
         <h2 id="interests-title" data-i18n="interests.title">兴趣爱好</h2>
       </div>
-      <div class="interest-grid">
-        <article class="interest-card interest-card--reading"><img src="public/assets/interest-reading.webp" alt="阅读卡通插画" loading="lazy"><h3 data-i18n="interests.reading">阅读</h3><span>READING</span></article>
-        <article class="interest-card interest-card--badminton"><img src="public/assets/interest-badminton.webp" alt="羽毛球卡通插画" loading="lazy"><h3 data-i18n="interests.badminton">羽毛球</h3><span>BADMINTON</span></article>
-        <article class="interest-card interest-card--swimming"><img src="public/assets/interest-swimming.webp" alt="游泳卡通插画" loading="lazy"><h3 data-i18n="interests.swimming">游泳</h3><span>SWIMMING</span></article>
-        <article class="interest-card interest-card--music"><img src="public/assets/interest-music.webp" alt="音乐卡通插画" loading="lazy"><h3 data-i18n="interests.music">音乐</h3><span>MUSIC</span></article>
+      <div class="interest-strip">
+        <article class="interest-item"><img src="public/assets/interest-reading.webp" alt="阅读卡通插画" loading="lazy"><div><h3 data-i18n="interests.reading">阅读</h3><span>READING</span></div></article>
+        <article class="interest-item"><img src="public/assets/interest-badminton.webp" alt="羽毛球卡通插画" loading="lazy"><div><h3 data-i18n="interests.badminton">羽毛球</h3><span>BADMINTON</span></div></article>
+        <article class="interest-item"><img src="public/assets/interest-swimming.webp" alt="游泳卡通插画" loading="lazy"><div><h3 data-i18n="interests.swimming">游泳</h3><span>SWIMMING</span></div></article>
+        <article class="interest-item"><img src="public/assets/interest-music.webp" alt="音乐卡通插画" loading="lazy"><div><h3 data-i18n="interests.music">音乐</h3><span>MUSIC</span></div></article>
       </div>
     </section>
   </main>
@@ -304,11 +369,11 @@
   </footer>
 
   <dialog class="architecture-dialog" data-architecture-dialog>
-    <div class="dialog-toolbar liquid-glass">
-      <div><p data-i18n="dialog.eyebrow">TIANGONG OPTIMIZER</p><h2 data-i18n="dialog.title">多智能体闭环模型优化架构</h2></div>
-      <button class="icon-button" type="button" data-architecture-close aria-label="关闭架构图" title="关闭"><i data-lucide="x" aria-hidden="true"></i></button>
+    <div class="dialog-toolbar">
+      <div><p>TIANGONG OPTIMIZER</p><h2 data-i18n="dialog.title">多智能体闭环模型优化完整架构</h2></div>
+      <button class="glass-control" type="button" data-architecture-close aria-label="关闭架构图" title="关闭"><i data-lucide="x" aria-hidden="true"></i></button>
     </div>
-    <figure><img src="public/assets/tiangong-optimizer.png" alt="天工模型自动优化系统完整架构图"><figcaption data-i18n="dialog.caption">Planner、专家协同、Trial 执行、ClearML 训练评测与经验闭环。</figcaption></figure>
+    <figure><img src="public/assets/tiangong-optimizer.png" alt="天工模型自动优化系统完整架构图"><figcaption data-i18n="dialog.caption">Human-in-the-loop、Planner、专家协作、受控 Trial、ClearML 训练评测、Analyst 与经验闭环。</figcaption></figure>
   </dialog>
 
   <script src="public/vendor/gsap-3.13.0.min.js"></script>
