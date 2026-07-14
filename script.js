@@ -175,7 +175,7 @@
     state.theme = theme;
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("portfolio-theme", theme);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#0d120f" : "#edf1eb");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#0b1020" : "#edf3ff");
     updateThemeIcon();
   };
 
@@ -429,26 +429,11 @@
     .from(".hero-name-line", { clipPath: "inset(0 0 100% 0)", y: 24, duration: 0.66 }, "-=0.16")
     .from(".hero h1 small", { y: 10, autoAlpha: 0, duration: 0.34 }, "-=0.3")
     .from(".hero-links a", { y: 12, autoAlpha: 0, duration: 0.38, stagger: 0.07 }, "-=0.2")
-    .from(".hero-education", { x: 54, autoAlpha: 0, duration: 0.7 }, "-=0.62")
+    .from(".hero-honors-heading > *", { y: 10, autoAlpha: 0, duration: 0.34, stagger: 0.06 }, "-=0.16")
+    .from(".hero-honor-list li", { y: 13, autoAlpha: 0, duration: 0.38, stagger: 0.035 }, "-=0.22")
+    .from(".hero-education", { x: 54, autoAlpha: 0, duration: 0.7 }, "-=0.72")
     .from(".degree-item", { x: 22, autoAlpha: 0, duration: 0.42, stagger: 0.12 }, "-=0.42")
     .from(".hero-accent", { scaleX: 0, transformOrigin: "right center", duration: 0.45, stagger: 0.08 }, "-=0.48");
-
-  gsap.from(".honors-heading > *", {
-    y: 24,
-    autoAlpha: 0,
-    duration: 0.55,
-    stagger: 0.08,
-    scrollTrigger: { trigger: ".honors-section", start: "top 78%", once: true }
-  });
-
-  gsap.from(".honor-grid li", {
-    y: 28,
-    autoAlpha: 0,
-    duration: 0.64,
-    stagger: { each: 0.05, grid: [3, 3], from: "start" },
-    ease: "expo.out",
-    scrollTrigger: { trigger: ".honor-grid", start: "top 84%", once: true }
-  });
 
   gsap.from(".experience-head > *", {
     x: (index) => index ? 42 : -42,
