@@ -147,16 +147,16 @@
     }
   };
 
+  const savedLanguage = localStorage.getItem("portfolio-language");
+  const languageVersion = localStorage.getItem("portfolio-language-version");
   const state = {
-    language: localStorage.getItem("portfolio-language") === "en" ? "en" : "zh",
+    language: languageVersion === "2" && savedLanguage === "zh" ? "zh" : "en",
     theme: localStorage.getItem("portfolio-theme") === "dark" ? "dark" : "light",
-    activeFlow: "default",
-    activePaper: "sqlequ"
+    activeFlow: "default"
   };
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const hasGsap = Boolean(window.gsap && window.ScrollTrigger);
-  let paperCenterTimer;
 
   const renderIcons = () => {
     if (window.lucide) window.lucide.createIcons({ attrs: { "aria-hidden": "true" } });
@@ -167,7 +167,11 @@
     if (!button) return;
     const icon = state.theme === "dark" ? "sun" : "moon";
     button.innerHTML = `<i data-theme-icon data-lucide="${icon}" aria-hidden="true"></i>`;
-    button.setAttribute("aria-label", state.theme === "dark" ? "切换亮色主题" : "切换暗色主题");
+    const label = state.language === "en"
+      ? (state.theme === "dark" ? "Switch to light theme" : "Switch to dark theme")
+      : (state.theme === "dark" ? "切换亮色主题" : "切换暗色主题");
+    button.setAttribute("aria-label", label);
+    button.setAttribute("title", label);
     renderIcons();
   };
 
@@ -175,7 +179,7 @@
     state.theme = theme;
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("portfolio-theme", theme);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#0b1020" : "#edf3ff");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#0b1020" : "#eef4ff");
     updateThemeIcon();
   };
 
@@ -207,6 +211,7 @@
   const applyLanguage = (language) => {
     state.language = language;
     localStorage.setItem("portfolio-language", language);
+    localStorage.setItem("portfolio-language-version", "2");
     document.documentElement.lang = language === "en" ? "en" : "zh-CN";
 
     document.querySelectorAll("[data-i18n]").forEach((element) => {
@@ -223,69 +228,23 @@
 
     document.querySelector("[data-flow-caption]").textContent = flowCopy[language][state.activeFlow] || flowCopy[language].default;
     document.title = language === "zh" ? "邢仕浩 | 研究与工程" : "Shihao Xing | Research & Engineering";
-  };
-
-  const activatePaper = (panel, animate = true) => {
-    const panels = [...document.querySelectorAll(".paper-panel")];
-    if (!panel || !panels.length) return;
-    state.activePaper = panel.dataset.paperId;
-
-    panels.forEach((item) => item.classList.toggle("is-active", item === panel));
-    if (window.innerWidth <= 900) {
-      if (animate) {
-        const stage = panel.closest(".paper-stage");
-        window.clearTimeout(paperCenterTimer);
-        paperCenterTimer = window.setTimeout(() => {
-          const left = panel.offsetLeft - (stage.clientWidth - panel.clientWidth) / 2;
-          if (hasGsap && !reducedMotion) {
-            stage.style.scrollSnapType = "none";
-            const scrollState = { left: stage.scrollLeft };
-            window.gsap.to(scrollState, {
-              left,
-              duration: 0.42,
-              ease: "power3.inOut",
-              overwrite: true,
-              onUpdate: () => { stage.scrollLeft = scrollState.left; },
-              onComplete: () => { stage.style.scrollSnapType = ""; }
-            });
-          } else {
-            stage.scrollLeft = left;
-          }
-        }, 80);
-      }
-      return;
-    }
-    if (!hasGsap || reducedMotion || !animate) return;
-
-    panels.forEach((item) => {
-      window.gsap.to(item, {
-        flexGrow: item === panel ? 1.72 : 0.82,
-        duration: 0.55,
-        ease: "power3.inOut",
-        overwrite: true
-      });
-    });
-    window.gsap.fromTo(panel.querySelectorAll(".paper-detail > div"),
-      { x: 14, autoAlpha: 0 },
-      { x: 0, autoAlpha: 1, duration: 0.38, stagger: 0.055, delay: 0.12, ease: "power2.out", overwrite: true }
-    );
+    const english = language === "en";
+    document.querySelector(".brand")?.setAttribute("aria-label", english ? "Back to top" : "返回首页");
+    document.querySelector(".site-nav")?.setAttribute("aria-label", english ? "Primary navigation" : "主导航");
+    document.querySelector(".language-switch")?.setAttribute("aria-label", english ? "Language" : "语言切换");
+    document.querySelector("[data-architecture-open]")?.setAttribute("aria-label", english ? "View complete architecture" : "查看完整架构");
+    const close = document.querySelector("[data-architecture-close]");
+    close?.setAttribute("aria-label", english ? "Close architecture" : "关闭架构图");
+    close?.setAttribute("title", english ? "Close" : "关闭");
+    updateThemeIcon();
   };
 
   document.querySelectorAll(".paper-panel").forEach((panel) => {
-    const select = () => activatePaper(panel, true);
-    panel.addEventListener("mouseenter", () => {
-      if (window.innerWidth > 900) select();
-    });
-    panel.addEventListener("focus", () => {
-      if (window.innerWidth > 900) select();
-    });
-    panel.addEventListener("click", select);
     panel.addEventListener("pointermove", (event) => {
       const rect = panel.getBoundingClientRect();
       panel.style.setProperty("--spot-x", `${((event.clientX - rect.left) / rect.width) * 100}%`);
       panel.style.setProperty("--spot-y", `${((event.clientY - rect.top) / rect.height) * 100}%`);
     });
-    panel.querySelectorAll("a").forEach((link) => link.addEventListener("click", (event) => event.stopPropagation()));
   });
 
   document.querySelectorAll("[data-flow-key]").forEach((node) => {
@@ -340,28 +299,34 @@
       .to(wash, { autoAlpha: 0, duration: 0.3, ease: "power2.out" });
   });
 
-  document.querySelectorAll(".glass-control, .liquid-action").forEach((control) => {
+  document.querySelectorAll("[data-liquid-glass]").forEach((control) => {
     control.addEventListener("pointermove", (event) => {
       const rect = control.getBoundingClientRect();
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
       control.style.setProperty("--glass-x", `${(x / rect.width) * 100}%`);
       control.style.setProperty("--glass-y", `${(y / rect.height) * 100}%`);
+      control.style.setProperty("--glass-tilt-x", `${(0.5 - y / rect.height) * 4}deg`);
+      control.style.setProperty("--glass-tilt-y", `${(x / rect.width - 0.5) * 5}deg`);
       if (control.classList.contains("liquid-action")) {
         control.style.setProperty("--lens-x", `${Math.max(3, Math.min(rect.width - 45, x - 21))}px`);
       }
-      if (hasGsap && !reducedMotion) {
-        window.gsap.to(control, {
-          x: (x / rect.width - 0.5) * 5,
-          y: (y / rect.height - 0.5) * 5,
-          duration: 0.25,
-          ease: "power2.out",
-          overwrite: true
-        });
-      }
     });
     control.addEventListener("pointerleave", () => {
-      if (hasGsap && !reducedMotion) window.gsap.to(control, { x: 0, y: 0, duration: 0.45, ease: "elastic.out(1, 0.5)" });
+      control.style.setProperty("--glass-x", "50%");
+      control.style.setProperty("--glass-y", "28%");
+      control.style.setProperty("--glass-tilt-x", "0deg");
+      control.style.setProperty("--glass-tilt-y", "0deg");
+      if (control.classList.contains("liquid-action")) control.style.setProperty("--lens-x", "18px");
+    });
+    if (!control.classList.contains("liquid-action")) return;
+    control.addEventListener("pointerdown", () => {
+      if (hasGsap && !reducedMotion) window.gsap.to(control, { scaleX: 1.035, scaleY: 0.93, duration: 0.14, ease: "power2.out" });
+    });
+    ["pointerup", "pointercancel", "pointerleave"].forEach((eventName) => {
+      control.addEventListener(eventName, () => {
+        if (hasGsap && !reducedMotion) window.gsap.to(control, { scaleX: 1, scaleY: 1, duration: 0.55, ease: "elastic.out(1, 0.42)" });
+      });
     });
   });
 
@@ -412,7 +377,6 @@
   setTheme(state.theme);
   applyLanguage(state.language);
   renderIcons();
-  activatePaper(document.querySelector(`[data-paper-id="${state.activePaper}"]`), false);
   updateProgress();
 
   if (!hasGsap || reducedMotion) return;
@@ -493,12 +457,9 @@
   });
 
   media.add("(min-width: 901px)", () => {
-    gsap.set(".paper-panel.is-active", { flexGrow: 1.72 });
-    gsap.set(".paper-panel:not(.is-active)", { flexGrow: 0.82 });
     gsap.from(".paper-panel", {
       y: 60,
-      rotationY: -8,
-      transformPerspective: 1000,
+      clipPath: "inset(0 0 18% 0)",
       autoAlpha: 0,
       duration: 0.75,
       stagger: 0.12,
@@ -509,7 +470,7 @@
 
   media.add("(max-width: 900px)", () => {
     gsap.from(".paper-panel", {
-      x: 52,
+      y: 42,
       autoAlpha: 0,
       duration: 0.58,
       stagger: 0.1,

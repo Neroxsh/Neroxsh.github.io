@@ -1,19 +1,21 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="light">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#edf3ff">
-  <meta name="description" content="邢仕浩的个人网站：SQL 等价性验证、跨方言 Text-to-SQL、多智能体模型优化与金融科技智能系统。">
-  <meta property="og:title" content="邢仕浩 | Shihao Xing">
-  <meta property="og:description" content="研究、工程与实践经历。">
+  <meta name="theme-color" content="#eef4ff">
+  <meta name="description" content="Shihao Xing's portfolio: SQL equivalence verification, cross-dialect Text-to-SQL, multi-agent model optimization, and financial AI systems.">
+  <meta property="og:title" content="Shihao Xing | Research & Engineering">
+  <meta property="og:description" content="Research, engineering, and selected practice in reliable AI systems.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://neroxsh.github.io/">
-  <title>邢仕浩 | 研究与工程</title>
+  <title>Shihao Xing | Research & Engineering</title>
   <script>
     (() => {
       const theme = localStorage.getItem("portfolio-theme") || "light";
-      const language = localStorage.getItem("portfolio-language") || "zh";
+      const savedLanguage = localStorage.getItem("portfolio-language");
+      const languageVersion = localStorage.getItem("portfolio-language-version");
+      const language = languageVersion === "2" && savedLanguage === "zh" ? "zh" : "en";
       document.documentElement.dataset.theme = theme;
       document.documentElement.lang = language === "en" ? "en" : "zh-CN";
     })();
@@ -27,8 +29,9 @@
 
   <svg class="filter-defs" width="0" height="0" aria-hidden="true" focusable="false">
     <filter id="liquid-refract" x="-30%" y="-30%" width="160%" height="160%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="1" seed="9" result="noise" />
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="B" />
+      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.028" numOctaves="2" seed="9" result="noise" />
+      <feGaussianBlur in="noise" stdDeviation="0.65" result="softNoise" />
+      <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="12" xChannelSelector="R" yChannelSelector="B" />
     </filter>
   </svg>
 
@@ -47,10 +50,11 @@
       <a href="#interests" data-i18n="nav.interests">兴趣</a>
     </nav>
 
-    <div class="header-tools">
+    <div class="header-tools liquid-glass liquid-glass--toolbar" data-liquid-glass>
+      <span class="toolbar-liquid-lens" aria-hidden="true"></span>
       <div class="language-switch" role="group" aria-label="语言切换">
-        <button class="language-option is-active" type="button" data-language="zh" aria-pressed="true">中</button>
-        <button class="language-option" type="button" data-language="en" aria-pressed="false">EN</button>
+        <button class="language-option" type="button" data-language="zh" aria-pressed="false">中</button>
+        <button class="language-option is-active" type="button" data-language="en" aria-pressed="true">EN</button>
       </div>
       <a class="glass-control" href="https://openreview.net/profile?id=%7EShihao_Xing1" target="_blank" rel="noreferrer" aria-label="OpenReview" title="OpenReview">
         <i data-lucide="notebook-tabs" aria-hidden="true"></i>
@@ -143,7 +147,7 @@
             <div><small data-i18n="experience.after">自动化后</small><strong data-i18n="experience.fourDays">4-5 天</strong></div>
           </div>
           <p class="optimizer-result" data-i18n="experience.result">将人工分析、调参、代码试验与验证转化为可追踪的自动化闭环，应用于烟火检测、风险行为检测和人体属性识别等任务。</p>
-          <button class="architecture-button liquid-action" type="button" data-architecture-open>
+          <button class="architecture-button liquid-action liquid-glass liquid-glass--action" type="button" data-liquid-glass data-architecture-open>
             <span class="liquid-action-lens" aria-hidden="true"></span>
             <i data-lucide="maximize-2" aria-hidden="true"></i><span data-i18n="experience.architecture">查看完整架构</span>
           </button>
@@ -230,7 +234,7 @@
       <div class="research-subsection">
         <div class="subsection-heading"><span>01</span><h3 data-i18n="work.papers">研究论文</h3><p>SQL REASONING · DIALECT GENERALIZATION · FORMAL VERIFICATION</p></div>
         <div class="paper-stage" data-paper-stage role="list">
-          <article class="paper-panel paper-panel--lime is-active" data-paper-id="sqlequ" tabindex="0" role="listitem">
+          <article class="paper-panel paper-panel--cobalt" data-paper-id="sqlequ" tabindex="0" role="listitem">
             <div class="paper-meta"><span>P.01</span><div class="paper-venue"><strong>EMNLP 2026</strong><small>UNDER REVIEW</small></div></div>
             <h4>SQLEq-O1</h4>
             <p class="paper-lead" data-i18n="paper.sqlequ.lead">面向 SQL 语义等价判定的轻量级强化推理框架，将形式化标签、推理蒸馏与可验证奖励统一到同一训练链路。</p>
@@ -351,23 +355,23 @@
       <div class="skill-ledger">
         <article>
           <span>01</span><h3 data-i18n="skills.programming">编程与数据</h3>
-          <div class="skill-items"><span><i data-lucide="braces" aria-hidden="true"></i>Python</span><span><i data-lucide="database" aria-hidden="true"></i>SQL</span><span><i data-lucide="workflow" aria-hidden="true"></i>SQLGlot</span></div>
+          <div class="skill-items"><span><img class="skill-logo" src="public/icons/python.svg" alt="" aria-hidden="true">Python</span><span class="skill-item--concept">SQL</span><span><img class="skill-logo skill-logo--round" src="public/icons/sqlglot.png" alt="" aria-hidden="true">SQLGlot</span></div>
         </article>
         <article>
           <span>02</span><h3 data-i18n="skills.agent">Agent 与大模型应用</h3>
-          <div class="skill-items"><span><i data-lucide="link-2" aria-hidden="true"></i>LangChain</span><span><i data-lucide="git-fork" aria-hidden="true"></i>LangGraph</span><span><i data-lucide="book-open-check" aria-hidden="true"></i>RAG</span><span><i data-lucide="wrench" aria-hidden="true"></i>Tool Use</span></div>
+          <div class="skill-items"><span><img class="skill-logo" src="public/icons/langchain.svg" alt="" aria-hidden="true">LangChain</span><span><img class="skill-logo" src="public/icons/langgraph.svg" alt="" aria-hidden="true">LangGraph</span><span class="skill-item--concept">RAG</span><span class="skill-item--concept">Tool Use</span></div>
         </article>
         <article>
           <span>03</span><h3 data-i18n="skills.training">训练与推理</h3>
-          <div class="skill-items"><span><i data-lucide="gauge" aria-hidden="true"></i>vLLM</span><span><i data-lucide="repeat-2" aria-hidden="true"></i>verl</span><span><i data-lucide="route" aria-hidden="true"></i>TRL</span><span><i data-lucide="zap" aria-hidden="true"></i>DeepSpeed</span><span><i data-lucide="graduation-cap" aria-hidden="true"></i>SFT</span><span><i data-lucide="layers-3" aria-hidden="true"></i>GRPO</span><span><i data-lucide="scale" aria-hidden="true"></i>DPO</span></div>
+          <div class="skill-items"><span><img class="skill-logo" src="public/icons/vllm.svg" alt="" aria-hidden="true">vLLM</span><span class="skill-item--concept">verl</span><span><img class="skill-logo" src="public/icons/huggingface.svg" alt="" aria-hidden="true">TRL</span><span><img class="skill-logo skill-logo--wordmark skill-logo--deepspeed" src="public/icons/deepspeed.png" alt="DeepSpeed"></span><span class="skill-item--concept">SFT</span><span class="skill-item--concept">GRPO</span><span class="skill-item--concept">DPO</span></div>
         </article>
         <article>
           <span>04</span><h3 data-i18n="skills.engineering">研究工程化</h3>
-          <div class="skill-items"><span><i data-lucide="terminal" aria-hidden="true"></i>Linux</span><span><i data-lucide="git-branch" aria-hidden="true"></i>Git</span><span><i data-lucide="container" aria-hidden="true"></i>Docker</span><span><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i>ClearML</span></div>
+          <div class="skill-items"><span><img class="skill-logo" src="public/icons/linux.svg" alt="" aria-hidden="true">Linux</span><span><img class="skill-logo" src="public/icons/git.svg" alt="" aria-hidden="true">Git</span><span><img class="skill-logo" src="public/icons/docker.svg" alt="" aria-hidden="true">Docker</span><span><img class="skill-logo skill-logo--wordmark" src="public/icons/clearml.svg" alt="ClearML"></span></div>
         </article>
         <article>
           <span>05</span><h3 data-i18n="skills.aiCoding">AI 辅助研发</h3>
-          <div class="skill-items"><span><i data-lucide="sparkles" aria-hidden="true"></i>Claude Code</span><span><i data-lucide="square-code" aria-hidden="true"></i>Codex</span></div>
+          <div class="skill-items"><span><img class="skill-logo" src="public/icons/claude.svg" alt="" aria-hidden="true">Claude Code</span><span><img class="skill-logo" src="public/icons/openai.svg" alt="" aria-hidden="true">Codex</span></div>
         </article>
       </div>
     </section>
