@@ -21,19 +21,11 @@
     })();
   </script>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260714-blue-tsinghua-purple">
+  <link rel="stylesheet" href="styles.css?v=20260714-indigo-violet">
 </head>
 <body>
   <div class="page-progress" aria-hidden="true"><span></span></div>
   <div class="theme-wash" aria-hidden="true"></div>
-
-  <svg class="filter-defs" width="0" height="0" aria-hidden="true" focusable="false">
-    <filter id="liquid-refract" x="-30%" y="-30%" width="160%" height="160%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.028" numOctaves="2" seed="9" result="noise" />
-      <feGaussianBlur in="noise" stdDeviation="0.65" result="softNoise" />
-      <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="12" xChannelSelector="R" yChannelSelector="B" />
-    </filter>
-  </svg>
 
   <header class="site-header" data-header>
     <a class="brand" href="#top" aria-label="返回首页">
@@ -51,7 +43,6 @@
     </nav>
 
     <div class="header-tools liquid-glass liquid-glass--toolbar" data-liquid-glass>
-      <span class="toolbar-liquid-lens" aria-hidden="true"></span>
       <div class="language-switch" role="group" aria-label="语言切换">
         <button class="language-option" type="button" data-language="zh" aria-pressed="false">中</button>
         <button class="language-option is-active" type="button" data-language="en" aria-pressed="true">EN</button>
@@ -148,7 +139,6 @@
           </div>
           <p class="optimizer-result" data-i18n="experience.result">将人工分析、调参、代码试验与验证转化为可追踪的自动化闭环，应用于烟火检测、风险行为检测和人体属性识别等任务。</p>
           <button class="architecture-button liquid-action liquid-glass liquid-glass--action" type="button" data-liquid-glass data-architecture-open>
-            <span class="liquid-action-lens" aria-hidden="true"></span>
             <i data-lucide="maximize-2" aria-hidden="true"></i><span data-i18n="experience.architecture">查看完整架构</span>
           </button>
         </div>
@@ -411,6 +401,6 @@
   <script src="public/vendor/gsap-3.13.0.min.js"></script>
   <script src="public/vendor/ScrollTrigger-3.13.0.min.js"></script>
   <script src="public/vendor/lucide-0.468.0.min.js"></script>
-  <script src="script.js?v=20260714-blue-tsinghua-purple"></script>
+  <script src="script.js?v=20260714-indigo-violet"></script>
 </body>
 </html>

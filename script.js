@@ -308,16 +308,12 @@
       control.style.setProperty("--glass-y", `${(y / rect.height) * 100}%`);
       control.style.setProperty("--glass-tilt-x", `${(0.5 - y / rect.height) * 4}deg`);
       control.style.setProperty("--glass-tilt-y", `${(x / rect.width - 0.5) * 5}deg`);
-      if (control.classList.contains("liquid-action")) {
-        control.style.setProperty("--lens-x", `${Math.max(3, Math.min(rect.width - 45, x - 21))}px`);
-      }
     });
     control.addEventListener("pointerleave", () => {
       control.style.setProperty("--glass-x", "50%");
       control.style.setProperty("--glass-y", "28%");
       control.style.setProperty("--glass-tilt-x", "0deg");
       control.style.setProperty("--glass-tilt-y", "0deg");
-      if (control.classList.contains("liquid-action")) control.style.setProperty("--lens-x", "18px");
     });
     if (!control.classList.contains("liquid-action")) return;
     control.addEventListener("pointerdown", () => {

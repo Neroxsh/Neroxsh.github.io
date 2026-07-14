@@ -9,11 +9,11 @@
   --line-strong: rgba(225, 237, 255, 0.62);
   --blue: #9bceff;
   --blue-deep: #172d82;
-  --tsinghua-purple: #660874;
+  --violet: #7467e8;
+  --violet-deep: #403a9a;
   --lime: #b8ff36;
   --aqua: #57d7ee;
   --yellow: #f7d550;
-  --violet: #9d6cff;
   --content-width: 1180px;
   --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
@@ -104,11 +104,6 @@ a:focus-visible,
   background: #9ec5ff;
 }
 
-.filter-defs {
-  position: absolute;
-  pointer-events: none;
-}
-
 .page-progress {
   position: fixed;
   z-index: 200;
@@ -170,7 +165,7 @@ html[data-theme="dark"] .theme-wash {
   display: grid;
   place-items: center;
   color: var(--lime);
-  background: var(--tsinghua-purple);
+  background: var(--violet-deep);
   border-radius: 5px;
   font-family: Consolas, "SFMono-Regular", monospace;
   font-size: 12px;
@@ -200,7 +195,7 @@ html[data-theme="dark"] .brand-mark {
   bottom: -8px;
   left: 0;
   height: 2px;
-  background: var(--tsinghua-purple);
+  background: var(--violet);
   content: "";
   transform: scaleX(0);
   transform-origin: right center;
@@ -248,18 +243,7 @@ html[data-theme="dark"] .brand-mark {
 }
 
 .liquid-glass::before {
-  position: absolute;
-  z-index: 0;
-  inset: -70%;
-  background:
-    radial-gradient(ellipse 20% 30% at var(--glass-x) var(--glass-y), rgba(255, 255, 255, 0.98) 0 18%, rgba(104, 190, 255, 0.4) 27%, rgba(69, 95, 255, 0.16) 38%, transparent 56%),
-    conic-gradient(from 120deg at var(--glass-x) var(--glass-y), transparent, rgba(130, 215, 255, 0.28), transparent 22%, rgba(110, 129, 255, 0.16), transparent 46%);
-  content: "";
-  filter: url(#liquid-refract);
-  mix-blend-mode: screen;
-  opacity: 0.78;
-  pointer-events: none;
-  transition: opacity 180ms ease;
+  content: none;
 }
 
 .liquid-glass::after {
@@ -286,28 +270,6 @@ html[data-theme="dark"] .brand-mark {
 .header-tools > * {
   position: relative;
   z-index: 2;
-}
-
-.header-tools > .toolbar-liquid-lens {
-  position: absolute;
-  z-index: 1;
-  top: calc(var(--glass-y) - 17px);
-  left: calc(var(--glass-x) - 22px);
-  width: 44px;
-  height: 34px;
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  border-radius: 48% 58% 46% 54%;
-  background: radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.64), rgba(100, 175, 255, 0.2) 46%, rgba(78, 107, 237, 0.08) 68%, transparent 74%);
-  box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.82), inset -2px -2px 6px rgba(53, 91, 190, 0.14), 0 0 18px rgba(88, 155, 255, 0.16);
-  filter: url(#liquid-refract);
-  opacity: 0.62;
-  pointer-events: none;
-  transition: top 90ms linear, left 90ms linear, border-radius 180ms ease;
-}
-
-.header-tools:hover > .toolbar-liquid-lens {
-  border-radius: 58% 42% 55% 45%;
-  opacity: 0.82;
 }
 
 html[data-theme="dark"] .liquid-glass {
@@ -339,8 +301,8 @@ html[data-theme="dark"] .liquid-glass {
 
 .language-option.is-active {
   color: #ffffff;
-  background: rgba(38, 85, 225, 0.92);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 3px 10px rgba(30, 66, 170, 0.26);
+  background: #315bd6;
+  box-shadow: none;
 }
 
 .glass-control {
@@ -467,7 +429,7 @@ html[data-theme="dark"] .glass-control:hover {
 
 .hero-honors {
   margin-top: 34px;
-  border-top: 3px solid var(--tsinghua-purple);
+  border-top: 3px solid var(--violet);
   scroll-margin-top: 24px;
 }
 
@@ -524,7 +486,7 @@ html[data-theme="dark"] .glass-control:hover {
   position: absolute;
   z-index: -1;
   inset: 3px 0;
-  background: var(--tsinghua-purple);
+  background: var(--violet-deep);
   content: "";
   transform: scaleX(0);
   transform-origin: left center;
@@ -564,7 +526,7 @@ html[data-theme="dark"] .glass-control:hover {
 .hero-education {
   position: relative;
   z-index: 2;
-  border-top: 4px solid var(--tsinghua-purple);
+  border-top: 4px solid var(--violet);
   border-bottom: 1px solid var(--line-strong);
 }
 
@@ -670,7 +632,7 @@ html[data-theme="dark"] .glass-control:hover {
   bottom: 46px;
   width: 128px;
   height: 7px;
-  background: var(--tsinghua-purple);
+  background: var(--violet);
 }
 
 .experience-section,
@@ -830,7 +792,6 @@ html[data-theme="dark"] .glass-control:hover {
 .liquid-action {
   --glass-x: 24%;
   --glass-y: 28%;
-  --lens-x: 18px;
   position: relative;
   min-height: 48px;
   margin-top: 25px;
@@ -851,25 +812,6 @@ html[data-theme="dark"] .glass-control:hover {
 
 .liquid-action::after {
   z-index: 1;
-}
-
-.liquid-action-lens {
-  position: absolute;
-  z-index: 1;
-  top: 5px;
-  left: var(--lens-x);
-  width: 46px;
-  height: 36px;
-  border-radius: 50% 58% 46% 54%;
-  background: radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.5), rgba(111, 184, 255, 0.14) 48%, transparent 72%);
-  box-shadow: inset 1px 1px 4px rgba(255, 255, 255, 0.72), inset -2px -2px 5px rgba(43, 92, 204, 0.16), 0 0 20px rgba(102, 185, 255, 0.18);
-  filter: url(#liquid-refract);
-  transition: left 120ms ease-out, border-radius 180ms ease, transform 180ms ease;
-}
-
-.liquid-action:hover .liquid-action-lens {
-  border-radius: 58% 42% 54% 46%;
-  transform: scaleX(1.12) scaleY(0.9);
 }
 
 .liquid-action > svg,
@@ -1271,13 +1213,13 @@ html[data-theme="dark"] .work-section {
 }
 
 .paper-panel--blue {
-  --paper-accent: #e2b7ed;
-  --paper-surface: #660874;
+  --paper-accent: #d2ceff;
+  --paper-surface: #4b46ad;
 }
 
 .paper-panel--aqua {
-  --paper-accent: #c6c5ff;
-  --paper-surface: #42318f;
+  --paper-accent: #bdc9ff;
+  --paper-surface: #35469f;
 }
 
 html[data-theme="dark"] .paper-panel {
@@ -1290,11 +1232,11 @@ html[data-theme="dark"] .paper-panel--cobalt {
 }
 
 html[data-theme="dark"] .paper-panel--blue {
-  --paper-surface: #30083a;
+  --paper-surface: #242049;
 }
 
 html[data-theme="dark"] .paper-panel--aqua {
-  --paper-surface: #221c51;
+  --paper-surface: #1c234d;
 }
 
 html[data-theme="dark"] .paper-panel::after {
@@ -1460,7 +1402,7 @@ html[data-theme="dark"] .paper-panel::after {
 }
 
 .system-project--credit {
-  background: #660874;
+  background: #403a9a;
 }
 
 .system-project-head {
@@ -1593,7 +1535,7 @@ html[data-theme="dark"] .system-project {
 }
 
 html[data-theme="dark"] .system-project--credit {
-  background: #280732;
+  background: #20203f;
 }
 
 html[data-theme="dark"] .system-focus,
@@ -1644,8 +1586,8 @@ html[data-theme="dark"] .skills-section {
 }
 
 .skill-ledger article:nth-child(2) {
-  --skill-accent: #d9a8e5;
-  --skill-soft: #f5eafa;
+  --skill-accent: #c7c1ff;
+  --skill-soft: #f0efff;
 }
 
 .skill-ledger article:nth-child(3) {
@@ -1659,8 +1601,8 @@ html[data-theme="dark"] .skills-section {
 }
 
 .skill-ledger article:nth-child(5) {
-  --skill-accent: #d9a8e5;
-  --skill-soft: #f5eafa;
+  --skill-accent: #c7c1ff;
+  --skill-soft: #f0efff;
 }
 
 .skill-ledger article > span {
@@ -1751,14 +1693,14 @@ html[data-theme="dark"] .skill-items > span:has(.skill-logo) {
 }
 
 .builds-section {
-  background: #4b1066;
-  box-shadow: 0 0 0 100vmax #4b1066;
+  background: #303486;
+  box-shadow: 0 0 0 100vmax #303486;
   clip-path: inset(0 -100vmax);
 }
 
 html[data-theme="dark"] .builds-section {
-  background: #23082f;
-  box-shadow: 0 0 0 100vmax #23082f;
+  background: #171936;
+  box-shadow: 0 0 0 100vmax #171936;
 }
 
 .small-projects {
@@ -1783,7 +1725,7 @@ html:not([data-theme="dark"]) .small-project:first-child {
 }
 
 html:not([data-theme="dark"]) .small-project:last-child {
-  background: #660874;
+  background: #4642a5;
 }
 
 .small-project-image {
@@ -1852,14 +1794,14 @@ html:not([data-theme="dark"]) .small-project:last-child {
 .interests-section {
   padding-top: 72px;
   padding-bottom: 72px;
-  background: #660874;
-  box-shadow: 0 0 0 100vmax #660874;
+  background: #35388d;
+  box-shadow: 0 0 0 100vmax #35388d;
   clip-path: inset(0 -100vmax);
 }
 
 html[data-theme="dark"] .interests-section {
-  background: #26072f;
-  box-shadow: 0 0 0 100vmax #26072f;
+  background: #191a38;
+  box-shadow: 0 0 0 100vmax #191a38;
 }
 
 .interests-section .section-heading {
@@ -1891,7 +1833,7 @@ html[data-theme="dark"] .interests-section {
 }
 
 html:not([data-theme="dark"]) .interest-item {
-  background: #7a1d88;
+  background: #4d48ad;
 }
 
 html:not([data-theme="dark"]) .interest-item:nth-child(even) {
