@@ -1,12 +1,12 @@
 :root {
-  --page: #eef4ff;
-  --surface: #f9fbff;
-  --surface-2: #e5edff;
+  --page: #e0eaff;
+  --surface: #f5f8ff;
+  --surface-2: #d5e2ff;
   --ink: #111b3f;
   --text: #142043;
   --muted: #687491;
-  --line: rgba(23, 45, 130, 0.18);
-  --line-strong: rgba(23, 45, 130, 0.42);
+  --line: rgba(23, 45, 130, 0.22);
+  --line-strong: rgba(23, 45, 130, 0.48);
   --blue: #315efb;
   --blue-deep: #172d82;
   --lime: #b8ff36;
@@ -1150,8 +1150,8 @@ html[data-theme="dark"] .glass-control:hover {
 
 .work-section {
   color: var(--text);
-  background: #e7eeff;
-  box-shadow: 0 0 0 100vmax #e7eeff;
+  background: #d7e4ff;
+  box-shadow: 0 0 0 100vmax #d7e4ff;
   clip-path: inset(0 -100vmax);
 }
 
@@ -1214,7 +1214,7 @@ html[data-theme="dark"] .work-section {
 
 .paper-panel {
   --paper-accent: #315efb;
-  --paper-surface: #f6f8ff;
+  --paper-surface: #edf2ff;
   --spot-x: 50%;
   --spot-y: 20%;
   position: relative;
@@ -1266,17 +1266,17 @@ html[data-theme="dark"] .work-section {
 
 .paper-panel--cobalt {
   --paper-accent: #315efb;
-  --paper-surface: #f6f8ff;
+  --paper-surface: #edf2ff;
 }
 
 .paper-panel--blue {
   --paper-accent: #6678f6;
-  --paper-surface: #f1f3ff;
+  --paper-surface: #e8ebff;
 }
 
 .paper-panel--aqua {
   --paper-accent: #008eb9;
-  --paper-surface: #edf8ff;
+  --paper-surface: #e2f3ff;
 }
 
 html[data-theme="dark"] .paper-panel {
@@ -1443,11 +1443,11 @@ html[data-theme="dark"] .paper-panel::after {
   flex-direction: column;
   border-right: 1px solid var(--line-strong);
   border-left: 1px solid var(--line-strong);
-  background: #f1f5ff;
+  background: #e7efff;
 }
 
 .system-project--credit {
-  background: #eaf7ff;
+  background: #ddf1ff;
 }
 
 .system-project-head {
@@ -1598,8 +1598,8 @@ html[data-theme="dark"] .system-focus > span {
 }
 
 .skills-section {
-  background: #f8faff;
-  box-shadow: 0 0 0 100vmax #f8faff;
+  background: #dfe8ff;
+  box-shadow: 0 0 0 100vmax #dfe8ff;
   clip-path: inset(0 -100vmax);
 }
 
@@ -1737,8 +1737,8 @@ html[data-theme="dark"] .skill-items > span:has(.skill-logo) {
 }
 
 .builds-section {
-  background: #e2ebff;
-  box-shadow: 0 0 0 100vmax #e2ebff;
+  background: #c8d9ff;
+  box-shadow: 0 0 0 100vmax #c8d9ff;
   clip-path: inset(0 -100vmax);
 }
 
@@ -1830,8 +1830,8 @@ html[data-theme="dark"] .builds-section {
 .interests-section {
   padding-top: 72px;
   padding-bottom: 72px;
-  background: #e8f4ff;
-  box-shadow: 0 0 0 100vmax #e8f4ff;
+  background: #d3eaff;
+  box-shadow: 0 0 0 100vmax #d3eaff;
   clip-path: inset(0 -100vmax);
 }
 

@@ -179,7 +179,7 @@
     state.theme = theme;
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("portfolio-theme", theme);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#0b1020" : "#eef4ff");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#0b1020" : "#e0eaff");
     updateThemeIcon();
   };
 
