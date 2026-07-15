@@ -239,11 +239,33 @@
     updateThemeIcon();
   };
 
-  document.querySelectorAll(".paper-panel").forEach((panel) => {
+  document.querySelectorAll(".paper-panel, .system-project, .small-project").forEach((panel) => {
     panel.addEventListener("pointermove", (event) => {
       const rect = panel.getBoundingClientRect();
-      panel.style.setProperty("--spot-x", `${((event.clientX - rect.left) / rect.width) * 100}%`);
-      panel.style.setProperty("--spot-y", `${((event.clientY - rect.top) / rect.height) * 100}%`);
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = (event.clientY - rect.top) / rect.height;
+      panel.style.setProperty("--spot-x", `${x * 100}%`);
+      panel.style.setProperty("--spot-y", `${y * 100}%`);
+      if (!hasGsap || reducedMotion || window.innerWidth < 901) return;
+      window.gsap.to(panel, {
+        rotationY: (x - 0.5) * 3.2,
+        rotationX: -(y - 0.5) * 3.2,
+        z: 8,
+        duration: 0.32,
+        ease: "power2.out",
+        overwrite: "auto"
+      });
+    });
+    panel.addEventListener("pointerleave", () => {
+      if (!hasGsap || reducedMotion || window.innerWidth < 901) return;
+      window.gsap.to(panel, {
+        rotationX: 0,
+        rotationY: 0,
+        z: 0,
+        duration: 0.55,
+        ease: "power3.out",
+        overwrite: "auto"
+      });
     });
   });
 
@@ -375,6 +397,129 @@
   renderIcons();
   updateProgress();
 
+  const initHeroNetwork = () => {
+    const canvas = document.querySelector("[data-hero-network]");
+    const heroElement = canvas?.closest(".hero");
+    const context = canvas?.getContext("2d");
+    if (!canvas || !heroElement || !context) return;
+
+    const labels = ["SQL", "AST", "≡", "AGENT", "RISK"];
+    const pointer = { x: -1000, y: -1000 };
+    let width = 0;
+    let height = 0;
+    let pixelRatio = 1;
+    let nodes = [];
+    let active = true;
+    let animationFrame = 0;
+
+    const resize = () => {
+      const rect = heroElement.getBoundingClientRect();
+      width = Math.max(1, rect.width);
+      height = Math.max(1, rect.height);
+      pixelRatio = Math.min(2, window.devicePixelRatio || 1);
+      canvas.width = Math.round(width * pixelRatio);
+      canvas.height = Math.round(height * pixelRatio);
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      const count = width < 700 ? 22 : 44;
+      nodes = Array.from({ length: count }, (_, index) => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.16,
+        vy: (Math.random() - 0.5) * 0.12,
+        radius: index < labels.length ? 3.4 : 1.2 + Math.random() * 1.5,
+        label: labels[index] || ""
+      }));
+      draw(true);
+    };
+
+    const draw = (staticFrame = false) => {
+      context.clearRect(0, 0, width, height);
+      context.lineWidth = 1;
+
+      for (let x = 48; x < width; x += 96) {
+        context.strokeStyle = "rgba(164, 211, 255, 0.055)";
+        context.beginPath();
+        context.moveTo(x, 0);
+        context.lineTo(x, height);
+        context.stroke();
+      }
+
+      for (let y = 56; y < height; y += 96) {
+        context.strokeStyle = "rgba(164, 211, 255, 0.045)";
+        context.beginPath();
+        context.moveTo(0, y);
+        context.lineTo(width, y);
+        context.stroke();
+      }
+
+      nodes.forEach((node, index) => {
+        if (!staticFrame && !reducedMotion) {
+          const dx = node.x - pointer.x;
+          const dy = node.y - pointer.y;
+          const distance = Math.hypot(dx, dy);
+          if (distance < 150 && distance > 0) {
+            const force = (150 - distance) / 150;
+            node.x += (dx / distance) * force * 0.42;
+            node.y += (dy / distance) * force * 0.42;
+          }
+          node.x += node.vx;
+          node.y += node.vy;
+          if (node.x < -30) node.x = width + 30;
+          if (node.x > width + 30) node.x = -30;
+          if (node.y < -30) node.y = height + 30;
+          if (node.y > height + 30) node.y = -30;
+        }
+
+        for (let otherIndex = index + 1; otherIndex < nodes.length; otherIndex += 1) {
+          const other = nodes[otherIndex];
+          const distance = Math.hypot(node.x - other.x, node.y - other.y);
+          if (distance > 150) continue;
+          context.strokeStyle = `rgba(117, 200, 255, ${(1 - distance / 150) * 0.2})`;
+          context.beginPath();
+          context.moveTo(node.x, node.y);
+          context.lineTo(other.x, other.y);
+          context.stroke();
+        }
+
+        context.fillStyle = node.label ? "rgba(201, 255, 74, 0.92)" : "rgba(98, 220, 255, 0.76)";
+        context.beginPath();
+        context.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        context.fill();
+
+        if (node.label) {
+          context.fillStyle = "rgba(225, 241, 255, 0.72)";
+          context.font = "700 9px Consolas, monospace";
+          context.fillText(node.label, node.x + 10, node.y + 3);
+        }
+      });
+
+      if (!staticFrame && active && !reducedMotion) animationFrame = requestAnimationFrame(() => draw(false));
+    };
+
+    heroElement.addEventListener("pointermove", (event) => {
+      const rect = heroElement.getBoundingClientRect();
+      pointer.x = event.clientX - rect.left;
+      pointer.y = event.clientY - rect.top;
+    });
+    heroElement.addEventListener("pointerleave", () => {
+      pointer.x = -1000;
+      pointer.y = -1000;
+    });
+
+    const visibility = new IntersectionObserver(([entry]) => {
+      active = entry.isIntersecting;
+      cancelAnimationFrame(animationFrame);
+      if (active && !reducedMotion) draw(false);
+    }, { threshold: 0.02 });
+
+    new ResizeObserver(resize).observe(heroElement);
+    visibility.observe(heroElement);
+    resize();
+    if (!reducedMotion) draw(false);
+  };
+
+  initHeroNetwork();
+
   if (!hasGsap || reducedMotion) return;
 
   const { gsap, ScrollTrigger } = window;
@@ -382,133 +527,192 @@
   ScrollTrigger.config({ ignoreMobileResize: true });
   const media = gsap.matchMedia();
 
-  const hero = gsap.timeline({ defaults: { ease: "power3.out" } });
-  hero
-    .from(".site-header > *", { y: -18, autoAlpha: 0, duration: 0.45, stagger: 0.08 })
-    .from(".hero-kicker", { x: -20, autoAlpha: 0, duration: 0.4 }, "-=0.16")
-    .from(".hero-name-line", { clipPath: "inset(0 0 100% 0)", y: 24, duration: 0.66 }, "-=0.16")
-    .from(".hero h1 small", { y: 10, autoAlpha: 0, duration: 0.34 }, "-=0.3")
-    .from(".hero-links a", { y: 12, autoAlpha: 0, duration: 0.38, stagger: 0.07 }, "-=0.2")
-    .from(".hero-honors-heading > *", { y: 10, autoAlpha: 0, duration: 0.34, stagger: 0.06 }, "-=0.16")
-    .from(".hero-honor-list li", { y: 13, autoAlpha: 0, duration: 0.38, stagger: 0.035 }, "-=0.22")
-    .from(".hero-education", { x: 54, autoAlpha: 0, duration: 0.7 }, "-=0.72")
-    .from(".degree-item", { x: 22, autoAlpha: 0, duration: 0.42, stagger: 0.12 }, "-=0.42")
-    .from(".hero-accent", { scaleX: 0, transformOrigin: "right center", duration: 0.45, stagger: 0.08 }, "-=0.48");
+  gsap.defaults({ ease: "power3.out" });
 
-  gsap.from(".experience-head > *", {
-    x: (index) => index ? 42 : -42,
-    autoAlpha: 0,
-    duration: 0.65,
-    stagger: 0.12,
-    scrollTrigger: { trigger: ".experience-head", start: "top 82%", once: true }
-  });
+  const heroTimeline = gsap.timeline({ defaults: { ease: "power3.out" } });
+  heroTimeline
+    .from(".site-header", { y: -20, autoAlpha: 0, duration: 0.55 })
+    .from(".site-header > *", { y: -8, autoAlpha: 0, duration: 0.34, stagger: 0.06 }, "-=0.3")
+    .from(".hero", { y: 24, clipPath: "inset(7% 0 0 0 round 8px)", autoAlpha: 0.82, duration: 0.88, ease: "power4.out" }, "-=0.3")
+    .from(".hero-network", { scale: 1.06, autoAlpha: 0, duration: 1.1 }, "-=0.78")
+    .from(".hero-kicker", { x: -24, autoAlpha: 0, duration: 0.42 }, 0.72)
+    .from(".hero-name-line", { yPercent: 92, clipPath: "inset(0 0 100% 0)", duration: 0.72 }, 0.9)
+    .from(".hero h1 small", { y: 14, autoAlpha: 0, duration: 0.4 }, 1.2)
+    .from(".hero-links a", { y: 14, autoAlpha: 0, duration: 0.42, stagger: 0.07 }, 1.28)
+    .from(".hero-honors", { clipPath: "inset(0 100% 0 0)", duration: 0.72, ease: "power3.inOut" }, 1.48)
+    .from(".hero-honor-list li", { y: 12, autoAlpha: 0, duration: 0.36, stagger: 0.035 }, 1.72)
+    .from(".hero-education", { x: 56, rotationY: -4, autoAlpha: 0, duration: 0.82 }, 0.94)
+    .from(".degree-item", { x: 24, autoAlpha: 0, duration: 0.45, stagger: 0.12 }, 1.32)
+    .from(".hero-scan", { scaleY: 0, transformOrigin: "top center", duration: 0.72 }, 0.72);
 
-  gsap.from(".optimizer-copy > *", {
-    x: -34,
-    autoAlpha: 0,
-    duration: 0.52,
-    stagger: 0.065,
-    scrollTrigger: { trigger: ".optimizer-project", start: "top 77%", once: true }
-  });
-
-  gsap.from(".optimizer-visual", {
-    x: 54,
-    clipPath: "inset(0 0 0 100%)",
-    duration: 0.9,
-    ease: "power3.inOut",
-    scrollTrigger: { trigger: ".optimizer-project", start: "top 77%", once: true }
-  });
-
-  gsap.from(".map-node, .map-experts button", {
-    scale: 0.78,
-    autoAlpha: 0,
-    duration: 0.34,
-    stagger: 0.045,
-    ease: "back.out(1.7)",
-    scrollTrigger: { trigger: ".map-canvas", start: "top 82%", once: true }
-  });
-
-  gsap.to(".system-links path", {
-    strokeDashoffset: -64,
-    duration: 2.5,
-    stagger: 0.08,
-    repeat: -1,
-    ease: "none"
-  });
-
-  gsap.to(".map-node--planner", {
-    boxShadow: "0 0 0 1px rgba(184,255,54,.28), 0 0 30px rgba(90,224,236,.34)",
-    duration: 1.4,
+  gsap.to(".hero-scan", {
+    x: () => Math.min(window.innerWidth * 0.24, 320),
+    duration: 6.4,
     repeat: -1,
     yoyo: true,
     ease: "sine.inOut"
   });
 
-  gsap.from(".work-heading > *", {
-    x: -34,
+  const revealHeading = (selector, trigger = selector) => {
+    gsap.from(`${selector} > *`, {
+      y: 32,
+      clipPath: "inset(0 0 100% 0)",
+      autoAlpha: 0,
+      duration: 0.72,
+      stagger: 0.09,
+      clearProps: "transform,clipPath,opacity,visibility",
+      scrollTrigger: { trigger, start: "top 84%", once: true }
+    });
+  };
+
+  revealHeading(".experience-head", ".experience-head");
+  revealHeading(".work-heading", ".work-heading");
+  revealHeading(".builds-heading", ".builds-heading");
+  revealHeading(".skills-heading", ".skills-heading");
+  revealHeading(".interests-heading", ".interests-heading");
+
+  gsap.from(".optimizer-copy > *", {
+    x: () => window.innerWidth > 900 ? -36 : 0,
+    y: () => window.innerWidth > 900 ? 0 : 24,
     autoAlpha: 0,
     duration: 0.58,
-    stagger: 0.1,
-    scrollTrigger: { trigger: ".work-heading", start: "top 82%", once: true }
+    stagger: 0.07,
+    clearProps: "transform,opacity,visibility",
+    scrollTrigger: { trigger: ".optimizer-project", start: "top 78%", once: true }
   });
 
-  media.add("(min-width: 901px)", () => {
-    gsap.from(".paper-panel", {
-      y: 60,
-      clipPath: "inset(0 0 18% 0)",
-      autoAlpha: 0,
-      duration: 0.75,
-      stagger: 0.12,
-      ease: "power3.out",
-      scrollTrigger: { trigger: ".paper-stage", start: "top 80%", once: true }
-    });
+  gsap.from(".optimizer-visual", {
+    x: () => window.innerWidth > 900 ? 68 : 0,
+    y: () => window.innerWidth > 900 ? 0 : 38,
+    rotationY: () => window.innerWidth > 900 ? -3 : 0,
+    clipPath: "inset(0 0 0 100% round 8px)",
+    autoAlpha: 0,
+    duration: 1,
+    clearProps: "transform,clipPath,opacity,visibility",
+    scrollTrigger: { trigger: ".optimizer-project", start: "top 78%", once: true }
   });
 
-  media.add("(max-width: 900px)", () => {
-    gsap.from(".paper-panel", {
-      y: 42,
+  gsap.from(".map-node, .map-experts button", {
+    y: 16,
+    scale: 0.82,
+    autoAlpha: 0,
+    duration: 0.4,
+    stagger: { each: 0.04, from: "center" },
+    ease: "back.out(1.45)",
+    clearProps: "transform,opacity,visibility",
+    scrollTrigger: { trigger: ".map-canvas", start: "top 84%", once: true }
+  });
+
+  gsap.to(".system-links path", {
+    strokeDashoffset: -80,
+    duration: 3,
+    stagger: 0.06,
+    repeat: -1,
+    ease: "none"
+  });
+
+  gsap.to(".map-node--planner", {
+    y: -2,
+    scale: 1.025,
+    duration: 1.55,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+  });
+
+  document.querySelectorAll(".subsection-heading").forEach((heading) => {
+    gsap.from(heading.children, {
+      x: -24,
       autoAlpha: 0,
       duration: 0.58,
-      stagger: 0.1,
-      scrollTrigger: { trigger: ".paper-stage", start: "top 83%", once: true }
+      stagger: 0.08,
+      clearProps: "transform,opacity,visibility",
+      scrollTrigger: { trigger: heading, start: "top 86%", once: true }
     });
   });
 
-  gsap.from(".system-project", {
-    x: (index) => index ? 54 : -54,
-    clipPath: (index) => index ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)",
-    duration: 0.82,
-    stagger: 0.1,
-    ease: "power3.inOut",
-    scrollTrigger: { trigger: ".system-projects", start: "top 82%", once: true }
-  });
+  media.add(
+    {
+      isDesktop: "(min-width: 901px)",
+      isMobile: "(max-width: 900px)"
+    },
+    ({ conditions }) => {
+      const { isDesktop } = conditions;
 
-  gsap.from(".skill-ledger article", {
-    x: (index) => index % 2 ? 28 : -28,
+      if (isDesktop) {
+        gsap.to(".hero-network", {
+          yPercent: 11,
+          scale: 1.035,
+          ease: "none",
+          scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1.1 }
+        });
+        gsap.to(".hero-education", {
+          y: -28,
+          ease: "none",
+          scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1.15 }
+        });
+      }
+
+      gsap.from(".paper-panel", {
+        y: isDesktop ? 72 : 44,
+        rotationX: isDesktop ? 7 : 0,
+        clipPath: isDesktop ? "inset(0 0 16% 0 round 7px)" : "inset(0 0 8% 0 round 7px)",
+        autoAlpha: 0,
+        duration: isDesktop ? 0.86 : 0.64,
+        stagger: 0.12,
+        ease: "power3.out",
+        clearProps: "transform,clipPath,opacity,visibility",
+        scrollTrigger: { trigger: ".paper-stage", start: "top 82%", once: true }
+      });
+    }
+  );
+
+  gsap.from(".system-project", {
+    y: 56,
+    clipPath: (index) => index ? "inset(0 0 18% 0 round 7px)" : "inset(18% 0 0 0 round 7px)",
     autoAlpha: 0,
-    duration: 0.45,
-    stagger: 0.07,
-    scrollTrigger: { trigger: ".skill-ledger", start: "top 85%", once: true }
+    duration: 0.84,
+    stagger: 0.12,
+    clearProps: "transform,clipPath,opacity,visibility",
+    scrollTrigger: { trigger: ".system-projects", start: "top 83%", once: true }
   });
 
   gsap.from(".small-project", {
-    y: 38,
+    y: 52,
     autoAlpha: 0,
-    duration: 0.62,
-    stagger: 0.13,
-    ease: "power3.out",
-    scrollTrigger: { trigger: ".small-projects", start: "top 85%", once: true }
+    duration: 0.72,
+    stagger: 0.14,
+    clearProps: "transform,opacity,visibility",
+    scrollTrigger: { trigger: ".small-projects", start: "top 86%", once: true }
+  });
+
+  gsap.from(".small-project-image img", {
+    scale: 1.14,
+    duration: 1.1,
+    stagger: 0.14,
+    clearProps: "transform",
+    scrollTrigger: { trigger: ".small-projects", start: "top 86%", once: true }
+  });
+
+  gsap.from(".skill-ledger article", {
+    x: -38,
+    clipPath: "inset(0 100% 0 0)",
+    autoAlpha: 0,
+    duration: 0.56,
+    stagger: 0.08,
+    clearProps: "transform,clipPath,opacity,visibility",
+    scrollTrigger: { trigger: ".skill-ledger", start: "top 87%", once: true }
   });
 
   gsap.from(".interest-item", {
-    y: 26,
-    scale: 0.93,
-    rotation: (index) => index % 2 ? 2 : -2,
+    y: 34,
+    scale: 0.94,
     autoAlpha: 0,
-    duration: 0.5,
+    duration: 0.58,
     stagger: 0.075,
-    ease: "back.out(1.5)",
-    scrollTrigger: { trigger: ".interest-strip", start: "top 88%", once: true }
+    ease: "back.out(1.3)",
+    clearProps: "transform,opacity,visibility",
+    scrollTrigger: { trigger: ".interest-strip", start: "top 89%", once: true }
   });
 
   window.addEventListener("load", () => ScrollTrigger.refresh());
