@@ -23,11 +23,17 @@
     })();
   </script>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260715-studio-v2">
+  <link rel="stylesheet" href="styles.css?v=20260715-dossier-v3">
 </head>
-<body class="portfolio-v2">
+<body class="portfolio-v3">
   <div class="page-progress" aria-hidden="true"><span></span></div>
   <div class="theme-wash" aria-hidden="true"></div>
+  <svg class="liquid-filter-defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="liquid-caustic" x="-35%" y="-60%" width="170%" height="220%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.055" numOctaves="1" seed="7" result="liquid-noise" />
+      <feDisplacementMap in="SourceGraphic" in2="liquid-noise" scale="13" xChannelSelector="R" yChannelSelector="B" />
+    </filter>
+  </svg>
 
   <header class="site-header" data-header>
     <a class="brand" href="#top" aria-label="返回首页">
@@ -63,8 +69,6 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-      <canvas class="hero-network" data-hero-network aria-hidden="true"></canvas>
-      <div class="hero-scan" aria-hidden="true"></div>
       <div class="hero-signature">
         <p class="hero-kicker" data-i18n="hero.kicker">2027 届硕士研究生 · 河南大学软件学院</p>
         <h1 id="hero-title"><span class="hero-name-line">邢仕浩</span><small>Shihao Xing</small></h1>
@@ -107,6 +111,11 @@
             <time>2020.09 - 2024.06</time>
             <div><span data-i18n="education.bachelor">本科</span><h3 data-i18n="education.haut">河南工业大学</h3><p data-i18n="education.major">计算机科学与技术</p></div>
           </article>
+        </div>
+        <div class="equivalence-proof" aria-hidden="true">
+          <div class="proof-queries"><code>Q1</code><span>≡</span><code>Q2</code></div>
+          <div class="proof-track"><span>PARSE</span><span>NORMALIZE</span><span>VERIFY</span></div>
+          <strong>SEMANTICALLY EQUIVALENT</strong>
         </div>
       </aside>
       <span class="hero-accent hero-accent--blue" aria-hidden="true"></span>
@@ -405,6 +414,6 @@
   <script src="public/vendor/gsap-3.13.0.min.js"></script>
   <script src="public/vendor/ScrollTrigger-3.13.0.min.js"></script>
   <script src="public/vendor/lucide-0.468.0.min.js"></script>
-  <script src="script.js?v=20260715-studio-v2"></script>
+  <script src="script.js?v=20260715-dossier-v3"></script>
 </body>
 </html>
