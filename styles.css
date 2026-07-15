@@ -3941,3 +3941,312 @@ html[data-theme="dark"] .portfolio-v3 .architecture-dialog {
     width: 44px;
   }
 }
+
+/* Deep brand palette: saturated blues with clear chapter contrast. */
+.portfolio-v3 {
+  background: #061a42;
+}
+
+.portfolio-v3 .hero {
+  color: #f7faff;
+  background: #0a2458;
+  border-bottom-color: rgba(105, 189, 255, 0.3);
+  box-shadow: 0 0 0 100vmax #0a2458;
+}
+
+.portfolio-v3 .hero::before {
+  background: #1655c9;
+  box-shadow: 100vmax 0 0 100vmax #1655c9;
+}
+
+.portfolio-v3 .hero-kicker,
+.portfolio-v3 .hero-honors-heading span,
+.portfolio-v3 .hero-honor-list li > span {
+  color: #59dcff;
+}
+
+.portfolio-v3 .hero h1 small {
+  color: #abc2e6;
+}
+
+.portfolio-v3 .hero-links a {
+  color: #e7f1ff;
+  border-color: rgba(154, 203, 255, 0.36);
+}
+
+.portfolio-v3 .hero-links a:hover,
+.portfolio-v3 .hero-honor-list li:hover,
+.portfolio-v3 .hero-honor-list li:hover > span {
+  color: #6ee6ff;
+}
+
+.portfolio-v3 .hero-honors,
+.portfolio-v3 .hero-honors-heading,
+.portfolio-v3 .hero-honor-list,
+.portfolio-v3 .hero-honor-list li,
+.portfolio-v3 .hero-honor-list li:not(.hero-honor-wide):nth-child(odd) {
+  border-color: rgba(135, 190, 255, 0.24);
+}
+
+.portfolio-v3 .hero-honors {
+  border-top-color: #2c83ff;
+}
+
+.portfolio-v3 .experience-section {
+  background: #06183f;
+  box-shadow: 0 0 0 100vmax #06183f;
+}
+
+.portfolio-v3 .work-section {
+  color: #f7faff;
+  background: #0a2a61;
+  box-shadow: 0 0 0 100vmax #0a2a61;
+}
+
+.portfolio-v3 .work-heading,
+.portfolio-v3 .subsection-heading,
+.portfolio-v3 .paper-panel,
+.portfolio-v3 .paper-panel:last-child {
+  border-color: rgba(132, 190, 255, 0.25);
+}
+
+.portfolio-v3 .work-heading .section-index,
+.portfolio-v3 .subsection-heading > span,
+.portfolio-v3 .subsection-heading > p {
+  color: #62dcff;
+}
+
+.portfolio-v3 .work-heading h2,
+.portfolio-v3 .subsection-heading h3 {
+  color: #ffffff;
+}
+
+.portfolio-v3 .paper-panel,
+.portfolio-v3 .paper-panel--cobalt {
+  --paper-accent: #67dcff;
+  color: #f5f9ff;
+  background: #0e3778;
+}
+
+.portfolio-v3 .paper-panel--blue {
+  --paper-accent: #57e1ff;
+  background: #0d3f83;
+}
+
+.portfolio-v3 .paper-panel--aqua {
+  --paper-accent: #83baff;
+  background: #11356f;
+}
+
+.portfolio-v3 .paper-meta,
+.portfolio-v3 .paper-metrics,
+.portfolio-v3 .paper-detail,
+.portfolio-v3 .paper-detail > div,
+.portfolio-v3 .paper-footer {
+  border-color: rgba(146, 198, 255, 0.2);
+}
+
+.portfolio-v3 .paper-venue strong,
+.portfolio-v3 .paper-panel h4 {
+  color: #ffffff;
+}
+
+.portfolio-v3 .paper-venue small,
+.portfolio-v3 .paper-metrics small {
+  color: #9db6db;
+}
+
+.portfolio-v3 .paper-lead,
+.portfolio-v3 .paper-detail p {
+  color: #bfd1eb;
+}
+
+.portfolio-v3 .paper-footer,
+.portfolio-v3 .paper-footer a {
+  color: #6ee6ff;
+}
+
+.portfolio-v3 .systems-subsection {
+  background: #1450b8;
+  box-shadow: 0 0 0 100vmax #1450b8;
+}
+
+.portfolio-v3 .builds-section {
+  color: #f7faff;
+  background: #061e49;
+  box-shadow: 0 0 0 100vmax #061e49;
+}
+
+.portfolio-v3 .builds-section .section-index {
+  color: #61dcff;
+}
+
+.portfolio-v3 .builds-section h2,
+.portfolio-v3 .small-project h3 {
+  color: #ffffff;
+}
+
+.portfolio-v3 .small-project {
+  color: #f5f9ff;
+  border-color: rgba(102, 178, 255, 0.35);
+  background: #0b2e68;
+  box-shadow: 0 22px 48px rgba(0, 8, 30, 0.34);
+}
+
+.portfolio-v3 .small-project > div {
+  background: #0b2e68;
+}
+
+.portfolio-v3 .small-project > div > p,
+.portfolio-v3 .small-project > div > a {
+  color: #63deff;
+}
+
+.portfolio-v3 .small-project > div > span {
+  color: #b8cbe6;
+}
+
+.portfolio-v3 .skills-section {
+  color: #f7faff;
+  background: #0a3475;
+  box-shadow: 0 0 0 100vmax #0a3475;
+}
+
+.portfolio-v3 .skills-section .section-index,
+.portfolio-v3 .skill-ledger article > span {
+  color: #64e0ff;
+}
+
+.portfolio-v3 .skills-section h2,
+.portfolio-v3 .skill-ledger article h3 {
+  color: #ffffff;
+}
+
+.portfolio-v3 .skill-ledger,
+.portfolio-v3 .skill-ledger article,
+.portfolio-v3 .skill-ledger article:nth-child(2),
+.portfolio-v3 .skill-ledger article:nth-child(3),
+.portfolio-v3 .skill-ledger article:nth-child(4),
+.portfolio-v3 .skill-ledger article:nth-child(5) {
+  border-color: rgba(143, 198, 255, 0.22);
+}
+
+.portfolio-v3 .skill-items > span {
+  color: #f2f7ff;
+  border-color: rgba(134, 198, 255, 0.3);
+  background: #103f86;
+}
+
+.portfolio-v3 .interests-section {
+  color: #f7faff;
+  background: #0e489f;
+  box-shadow: 0 0 0 100vmax #0e489f;
+}
+
+.portfolio-v3 .interests-section .section-index {
+  color: #69e1ff;
+}
+
+.portfolio-v3 .interests-section h2,
+.portfolio-v3 .interest-item h3 {
+  color: #ffffff;
+}
+
+.portfolio-v3 .interest-item {
+  color: #f5f9ff;
+  border-color: rgba(145, 204, 255, 0.28);
+  background: #0a2f70;
+}
+
+.portfolio-v3 .interest-item span {
+  color: #9fc2ec;
+}
+
+html[data-theme="dark"] .portfolio-v3 {
+  background: #020a19;
+}
+
+html[data-theme="dark"] .portfolio-v3 .hero {
+  background: #03132f;
+  box-shadow: 0 0 0 100vmax #03132f;
+}
+
+html[data-theme="dark"] .portfolio-v3 .hero::before {
+  background: #0c3c98;
+  box-shadow: 100vmax 0 0 100vmax #0c3c98;
+}
+
+html[data-theme="dark"] .portfolio-v3 .experience-section {
+  background: #020d24;
+  box-shadow: 0 0 0 100vmax #020d24;
+}
+
+html[data-theme="dark"] .portfolio-v3 .work-section {
+  background: #041630;
+  box-shadow: 0 0 0 100vmax #041630;
+}
+
+html[data-theme="dark"] .portfolio-v3 .paper-panel,
+html[data-theme="dark"] .portfolio-v3 .paper-panel--cobalt {
+  background: #08244e;
+}
+
+html[data-theme="dark"] .portfolio-v3 .paper-panel--blue {
+  background: #082b59;
+}
+
+html[data-theme="dark"] .portfolio-v3 .paper-panel--aqua {
+  background: #0a244a;
+}
+
+html[data-theme="dark"] .portfolio-v3 .systems-subsection {
+  background: #0c3789;
+  box-shadow: 0 0 0 100vmax #0c3789;
+}
+
+html[data-theme="dark"] .portfolio-v3 .builds-section {
+  background: #03132e;
+  box-shadow: 0 0 0 100vmax #03132e;
+}
+
+html[data-theme="dark"] .portfolio-v3 .small-project,
+html[data-theme="dark"] .portfolio-v3 .small-project > div {
+  color: #f5f9ff;
+  background: #082653;
+}
+
+html[data-theme="dark"] .portfolio-v3 .small-project > div > span {
+  color: #aec3e0;
+}
+
+html[data-theme="dark"] .portfolio-v3 .skills-section {
+  background: #062455;
+  box-shadow: 0 0 0 100vmax #062455;
+}
+
+html[data-theme="dark"] .portfolio-v3 .skill-items > span {
+  color: #f2f7ff;
+  border-color: rgba(134, 198, 255, 0.24);
+  background: #0b326d;
+}
+
+html[data-theme="dark"] .portfolio-v3 .interests-section {
+  background: #082e70;
+  box-shadow: 0 0 0 100vmax #082e70;
+}
+
+html[data-theme="dark"] .portfolio-v3 .interest-item {
+  background: #071f4d;
+}
+
+@media (max-width: 900px) {
+  .portfolio-v3 .hero-education {
+    background: #1655c9;
+    box-shadow: 0 0 0 100vmax #1655c9;
+  }
+
+  html[data-theme="dark"] .portfolio-v3 .hero-education {
+    background: #0c3c98;
+    box-shadow: 0 0 0 100vmax #0c3c98;
+  }
+}
