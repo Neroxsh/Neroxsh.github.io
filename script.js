@@ -95,6 +95,12 @@
       "skills.engineering": "Research Engineering",
       "skills.aiCoding": "AI-Assisted Development",
       "builds.title": "More Public Builds",
+      "builds.relayDetail": "Continue Codex sessions running on your computer from a mobile browser, without installing a phone app or signing in to ChatGPT on the phone.",
+      "builds.relayFeature1": "Browse projects and resume past sessions",
+      "builds.relayFeature2": "Stream replies and execution progress live",
+      "builds.relayFeature3": "End-to-end encryption with one-time pairing",
+      "builds.relayLive": "Open mobile client",
+      "builds.relayDemo": "28-second product demo",
       "builds.todo": "My Tasks · Hello Kitty Todo",
       "builds.todoDetail": "A lightweight desktop task manager with deadline progress, smart ordering, and tray mode.",
       "builds.words": "Moyu Words",
@@ -150,7 +156,7 @@
   const savedLanguage = localStorage.getItem("portfolio-language");
   const languageVersion = localStorage.getItem("portfolio-language-version");
   const state = {
-    language: languageVersion === "2" && savedLanguage === "zh" ? "zh" : "en",
+    language: languageVersion === "3" && savedLanguage === "en" ? "en" : "zh",
     theme: localStorage.getItem("portfolio-theme") === "dark" ? "dark" : "light",
     activeFlow: "default"
   };
@@ -211,7 +217,7 @@
   const applyLanguage = (language) => {
     state.language = language;
     localStorage.setItem("portfolio-language", language);
-    localStorage.setItem("portfolio-language-version", "2");
+    localStorage.setItem("portfolio-language-version", "3");
     document.documentElement.lang = language === "en" ? "en" : "zh-CN";
 
     document.querySelectorAll("[data-i18n]").forEach((element) => {

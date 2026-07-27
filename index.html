@@ -1,29 +1,29 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="zh-CN" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta name="theme-color" content="#0f4db8">
-  <meta name="description" content="Shihao Xing's portfolio: SQL equivalence verification, cross-dialect Text-to-SQL, multi-agent model optimization, and financial AI systems.">
-  <meta property="og:title" content="Shihao Xing | Research & Engineering">
-  <meta property="og:description" content="Research, engineering, and selected practice in reliable AI systems.">
+  <meta name="description" content="邢仕浩的个人网站：SQL 等价验证、跨方言 Text-to-SQL、多智能体模型优化与金融科技系统。">
+  <meta property="og:title" content="邢仕浩 | 研究与工程">
+  <meta property="og:description" content="可信 AI 系统方向的研究、工程与公开项目。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://xingshihao.site/">
-  <title>Shihao Xing | Research & Engineering</title>
+  <title>邢仕浩 | 研究与工程</title>
   <script>
     (() => {
       const theme = localStorage.getItem("portfolio-theme") || "light";
       const savedLanguage = localStorage.getItem("portfolio-language");
       const languageVersion = localStorage.getItem("portfolio-language-version");
-      const language = languageVersion === "2" && savedLanguage === "zh" ? "zh" : "en";
+      const language = languageVersion === "3" && savedLanguage === "en" ? "en" : "zh";
       document.documentElement.dataset.theme = theme;
       document.documentElement.lang = language === "en" ? "en" : "zh-CN";
     })();
   </script>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260715-dossier-v3-deep">
+  <link rel="stylesheet" href="styles.css?v=20260727-relaydesk-v1">
 </head>
 <body class="portfolio-v3">
   <div class="page-progress" aria-hidden="true"><span></span></div>
@@ -52,8 +52,8 @@
 
     <div class="header-tools liquid-glass liquid-glass--toolbar" data-liquid-glass>
       <div class="language-switch" role="group" aria-label="语言切换">
-        <button class="language-option" type="button" data-language="zh" aria-pressed="false">中</button>
-        <button class="language-option is-active" type="button" data-language="en" aria-pressed="true">EN</button>
+        <button class="language-option is-active" type="button" data-language="zh" aria-pressed="true">中</button>
+        <button class="language-option" type="button" data-language="en" aria-pressed="false">EN</button>
       </div>
       <a class="glass-control" href="https://openreview.net/profile?id=%7EShihao_Xing1" target="_blank" rel="noreferrer" aria-label="OpenReview" title="OpenReview">
         <i data-lucide="notebook-tabs" aria-hidden="true"></i>
@@ -339,6 +339,28 @@
         <h2 id="builds-title" data-i18n="builds.title">更多公开项目</h2>
       </div>
       <div class="small-projects">
+        <article class="small-project small-project--relaydesk">
+          <div class="relaydesk-project-copy">
+            <p>Next.js · React · Node.js · E2EE</p>
+            <h3>RelayDesk</h3>
+            <span data-i18n="builds.relayDetail">在手机浏览器中安全接续电脑上的 Codex 会话，无需安装手机 App，也无需在手机登录 ChatGPT。</span>
+            <ul class="relaydesk-highlights" aria-label="RelayDesk 核心能力">
+              <li><i data-lucide="messages-square" aria-hidden="true"></i><span data-i18n="builds.relayFeature1">按项目查看并继续历史会话</span></li>
+              <li><i data-lucide="radio-tower" aria-hidden="true"></i><span data-i18n="builds.relayFeature2">实时同步回复与执行进度</span></li>
+              <li><i data-lucide="shield-check" aria-hidden="true"></i><span data-i18n="builds.relayFeature3">端到端加密与一次配对</span></li>
+            </ul>
+            <div class="relaydesk-actions">
+              <a href="https://relay.xingshihao.site" target="_blank" rel="noreferrer"><i data-lucide="smartphone" aria-hidden="true"></i><span data-i18n="builds.relayLive">打开手机端</span></a>
+              <a href="https://github.com/Neroxsh/RelayDesk" target="_blank" rel="noreferrer"><i data-lucide="github" aria-hidden="true"></i>GitHub</a>
+            </div>
+          </div>
+          <figure class="relaydesk-video-shell">
+            <figcaption><i data-lucide="play" aria-hidden="true"></i><span data-i18n="builds.relayDemo">28 秒产品演示</span></figcaption>
+            <video controls playsinline preload="metadata" poster="public/assets/relaydesk-poster.webp" aria-label="RelayDesk 项目介绍视频">
+              <source src="public/assets/relaydesk-demo.mp4" type="video/mp4">
+            </video>
+          </figure>
+        </article>
         <article class="small-project">
           <a class="small-project-image" href="https://github.com/Neroxsh/hello-kitty-todo" target="_blank" rel="noreferrer"><img src="public/assets/todo-widget.png" alt="Hello Kitty Todo 应用界面" loading="lazy"></a>
           <div><p>TypeScript · Tauri</p><h3 data-i18n="builds.todo">我的任务 · Hello Kitty Todo</h3><span data-i18n="builds.todoDetail">轻量桌面待办应用，支持截止日期进度、智能排序与托盘常驻。</span><a href="https://github.com/Neroxsh/hello-kitty-todo" target="_blank" rel="noreferrer" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a></div>
@@ -414,6 +436,6 @@
   <script src="public/vendor/gsap-3.13.0.min.js"></script>
   <script src="public/vendor/ScrollTrigger-3.13.0.min.js"></script>
   <script src="public/vendor/lucide-0.468.0.min.js"></script>
-  <script src="script.js?v=20260715-dossier-v3-deep"></script>
+  <script src="script.js?v=20260727-relaydesk-v1"></script>
 </body>
 </html>
