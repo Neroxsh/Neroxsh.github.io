@@ -4531,15 +4531,6 @@ html[data-theme="dark"] .portfolio-v3 .interest-item {
   height: 16px;
 }
 
-.paper-framework figcaption {
-  margin-top: 9px;
-  color: var(--paper-accent);
-  font-family: Consolas, "SFMono-Regular", monospace;
-  font-size: 9px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
 @media (max-width: 900px) {
   .portfolio-v3 .paper-panel {
     grid-template-areas:
