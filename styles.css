@@ -4460,3 +4460,122 @@ html[data-theme="dark"] .portfolio-v3 .interest-item {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Complete the compact honors table and integrate restrained paper framework previews. */
+.portfolio-v3 .hero-honor-list {
+  border: 1px solid rgba(135, 190, 255, 0.24);
+  border-bottom: 0;
+}
+
+.portfolio-v3 .paper-panel,
+.portfolio-v3 .paper-panel--cobalt,
+.portfolio-v3 .paper-panel--blue,
+.portfolio-v3 .paper-panel--aqua {
+  grid-template-areas:
+    "meta title metrics"
+    "meta lead metrics"
+    "meta figure metrics"
+    "detail detail detail"
+    "footer footer footer";
+}
+
+.paper-framework {
+  grid-area: figure;
+  width: 100%;
+  max-width: 640px;
+  margin: 8px 0 0;
+}
+
+.paper-framework > a {
+  position: relative;
+  height: clamp(170px, 18vw, 230px);
+  padding: 10px;
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(116, 198, 255, 0.3);
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 0 16px 34px rgba(0, 10, 38, 0.28);
+}
+
+.paper-framework img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  transition: transform 320ms cubic-bezier(0.2, 0.75, 0.3, 1);
+}
+
+.paper-framework > a:hover img,
+.paper-framework > a:focus-visible img {
+  transform: scale(1.015);
+}
+
+.paper-framework-expand {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  border: 1px solid rgba(179, 225, 255, 0.55);
+  border-radius: 4px;
+  background: rgba(3, 25, 67, 0.88);
+  box-shadow: 0 8px 20px rgba(0, 8, 32, 0.28);
+}
+
+.paper-framework-expand svg {
+  width: 16px;
+  height: 16px;
+}
+
+.paper-framework figcaption {
+  margin-top: 9px;
+  color: var(--paper-accent);
+  font-family: Consolas, "SFMono-Regular", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .portfolio-v3 .paper-panel {
+    grid-template-areas:
+      "meta title"
+      "meta lead"
+      "figure figure"
+      "metrics metrics"
+      "detail detail"
+      "footer footer";
+  }
+
+  .paper-framework {
+    max-width: 620px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 680px) {
+  .portfolio-v3 .hero-honor-list {
+    border: 1px solid rgba(135, 190, 255, 0.24);
+    border-bottom: 0;
+  }
+
+  .portfolio-v3 .paper-panel {
+    grid-template-areas:
+      "meta"
+      "title"
+      "lead"
+      "figure"
+      "metrics"
+      "detail"
+      "footer";
+  }
+
+  .paper-framework > a {
+    height: 180px;
+    padding: 7px;
+  }
+}

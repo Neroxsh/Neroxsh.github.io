@@ -34,7 +34,7 @@
       "experience.projectTitle": "Tiangong Optimizer: Multi-Agent Closed-Loop Model Optimization",
       "experience.summary": "Contributed to an automated multi-agent optimization controller for industrial vision models. The Planner orchestrates external research, three domain experts, controlled code changes, and ClearML training/testing. An isolated Analyst independently reviews each trial, Family Memory accumulates reusable lessons, and Human-in-the-loop retains final model-release authority.",
       "experience.before": "BEFORE",
-      "experience.fourWeeks": "~4 weeks",
+      "experience.fourWeeks": "25 days",
       "experience.after": "AFTER AUTOMATION",
       "experience.fourDays": "4-5 days",
       "experience.result": "Turned manual analysis, tuning, code experiments, and validation into a traceable optimization loop used for fire and smoke detection, risky-behavior detection, and human attribute recognition.",
@@ -65,6 +65,7 @@
       "paper.sqlequ.method": "A dual-track pipeline combines real LeetCode multi-solutions with hard SynSQL pairs, all formally labeled by VeriEQL. Verification-style CoT forms a balanced 60K-pair CoRE-SQL corpus, followed by 30% SFT warm-up and 70% GRPO with sparse verifiable rewards.",
       "paper.sqlequ.result": "Qwen2.5-Coder-1.5B rises from 34.88 to 89.38 GM on LeetCode-Hard and from 44.58 to 76.77 on OOD Calcite+Spider-DAIL, pairing compact deployment cost with strong hard-case discrimination.",
       "paper.manuscript": "Manuscript under review",
+      "paper.figureCaption": "Framework overview · Extracted from Figure 1",
       "paper.uniql.lead": "The first executable benchmark to evaluate 16 SQL dialects under aligned natural-language intents, schemas, and database contents.",
       "paper.uniql.problem": "Text-to-SQL benchmarks remain dominated by SQLite. Success in one dialect does not reveal whether a model transfers reliably to PostgreSQL, Oracle, Hive, Teradata, and other production systems.",
       "paper.uniql.method": "We migrate 1,534 BIRD Dev intents to 16 dialects using database migration, SQLGlot, LLM translation, three rounds of execution-feedback reflection, rule evolution, and dual-annotator consensus, while preserving ordering and duplicate semantics.",
@@ -73,14 +74,14 @@
       "paper.farsql.problem": "VeriEQL returns trustworthy determinate results, but complex aggregation, nesting, and dialect functions trigger timeout, unsupported, or conversion failures. Replacing it with a model discards the formal trust boundary.",
       "paper.farsql.method": "Verification-yield profiles learned from historical VeriEQL logs allocate dynamic budgets by SQL structure. Determinate outputs are preserved; normalized failure states route to a task-adapted local model with Self-Consistency@3.",
       "paper.farsql.result": "On 412 OOD Calcite+Spider-DAIL pairs, FAR-SQL reaches 83.98 GM with zero undetermined cases and about 14 seconds average latency, versus 38.19 GM and 35 seconds for VeriEQL@60s.",
-      "system.sql.title": "Unified SQL Evaluation Framework",
-      "system.sql.summary": "A unified evaluation infrastructure for NL2SQL, SQL correction, and equivalence verification that cleanly separates tasks, models, execution environments, and metrics.",
-      "system.sql.focus1": "Decoupled task / model adapters",
-      "system.sql.focus2": "Three database engines",
-      "system.sql.focus3": "Unified EX and diagnostics",
-      "system.sql.architecture": "Task Adapter and Model Adapter isolate task and model logic; Input Builder, Prediction Parser, Execution Engine, Normalizer, and Metric remain independently replaceable.",
-      "system.sql.method": "The same execution backbone evaluates three SQL tasks. Docker standardizes MySQL, PostgreSQL, and SQLite while normalizing nulls, ordering, duplicates, and execution failures.",
-      "system.sql.result": "Datasets and models connect through one interface with consistent execution accuracy and error diagnostics, reducing a new evaluation pipeline from days to hours.",
+      "system.sql.title": "Unified SQL Evaluation & Execution Framework",
+      "system.sql.summary": "A reusable pipeline for NL2SQL, SQL correction, and SQL equivalence verification that consolidates task definitions, execution logic, and metric reporting for cross-model, cross-task, and cross-dataset comparison.",
+      "system.sql.focus1": "Unified multi-task abstraction",
+      "system.sql.focus2": "Automatic three-DB switching",
+      "system.sql.focus3": "Cross-run EX comparison",
+      "system.sql.architecture": "A general task abstraction decomposes input construction, SQL execution, result comparison, and metric aggregation into reusable stages. Task definitions stay separate from the evaluation pipeline, so new datasets and models only implement adapters.",
+      "system.sql.method": "Execution accuracy is the core metric. Docker provides standardized MySQL, PostgreSQL, and SQLite environments with automatic switching and consistent handling of connections, outputs, failures, and reporting semantics.",
+      "system.sql.result": "One pipeline supports cross-model, cross-task, and cross-dataset comparison while eliminating repeated evaluation code, reducing new-task experiment setup from days to hours.",
       "system.credit.summary": "An intelligent enterprise credit-review workbench that joins multi-format document understanding, multi-agent risk analysis, and evidence-traceable reporting into one workflow.",
       "system.credit.focus1": "Five material formats",
       "system.credit.focus2": "Multi-agent risk analysis",
@@ -408,19 +409,7 @@
     .from(".hero-honor-list li", { y: 10, autoAlpha: 0, duration: 0.3, stagger: 0.03 }, 1.16)
     .from(".hero-education", { clipPath: "inset(0 0 0 100%)", autoAlpha: 0, duration: 0.72, ease: "power3.inOut" }, 0.32)
     .from(".education-heading > *", { y: 16, autoAlpha: 0, duration: 0.36, stagger: 0.08 }, 0.72)
-    .from(".degree-item", { y: 18, autoAlpha: 0, duration: 0.42, stagger: 0.1 }, 0.9)
-    .from(".proof-queries > *", { scale: 0.82, autoAlpha: 0, duration: 0.38, stagger: 0.08 }, 1.18)
-    .from(".proof-track span", { y: 10, autoAlpha: 0, duration: 0.32, stagger: 0.08 }, 1.34)
-    .from(".equivalence-proof > strong", { clipPath: "inset(0 100% 0 0)", duration: 0.5 }, 1.52);
-
-  gsap.to(".proof-queries > span", {
-    scale: 1.08,
-    autoAlpha: 0.72,
-    duration: 1.35,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut"
-  });
+    .from(".degree-item", { y: 18, autoAlpha: 0, duration: 0.42, stagger: 0.1 }, 0.9);
 
   const revealHeading = (selector) => {
     gsap.from(`${selector} > *`, {
@@ -522,6 +511,7 @@
       .from(paper.querySelector(".paper-meta"), { x: -18, autoAlpha: 0, duration: 0.34, clearProps: "transform,opacity,visibility" }, "-=0.34")
       .from([paper.querySelector("h4"), paper.querySelector(".paper-lead")], { y: 18, autoAlpha: 0, duration: 0.38, stagger: 0.07, clearProps: "transform,opacity,visibility" }, "-=0.26")
       .from(paper.querySelectorAll(".paper-metrics span"), { y: 14, autoAlpha: 0, duration: 0.34, stagger: 0.06, clearProps: "transform,opacity,visibility" }, "-=0.28")
+      .from(paper.querySelector(".paper-framework"), { y: 14, autoAlpha: 0, duration: 0.38, clearProps: "transform,opacity,visibility" }, "-=0.22")
       .from(paper.querySelectorAll(".paper-detail > div"), { y: 16, autoAlpha: 0, duration: 0.4, stagger: 0.07, clearProps: "transform,opacity,visibility" }, "-=0.2");
   });
 

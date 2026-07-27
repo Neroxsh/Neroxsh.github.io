@@ -23,7 +23,7 @@
     })();
   </script>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260727-relaydesk-v1">
+  <link rel="stylesheet" href="styles.css?v=20260727-paper-figures-v1">
 </head>
 <body class="portfolio-v3">
   <div class="page-progress" aria-hidden="true"><span></span></div>
@@ -112,11 +112,6 @@
             <div><span data-i18n="education.bachelor">本科</span><h3 data-i18n="education.haut">河南工业大学</h3><p data-i18n="education.major">计算机科学与技术</p></div>
           </article>
         </div>
-        <div class="equivalence-proof" aria-hidden="true">
-          <div class="proof-queries"><code>Q1</code><span>≡</span><code>Q2</code></div>
-          <div class="proof-track"><span>PARSE</span><span>NORMALIZE</span><span>VERIFY</span></div>
-          <strong>SEMANTICALLY EQUIVALENT</strong>
-        </div>
       </aside>
       <span class="hero-accent hero-accent--blue" aria-hidden="true"></span>
       <span class="hero-accent hero-accent--aqua" aria-hidden="true"></span>
@@ -146,7 +141,7 @@
           </div>
 
           <div class="optimizer-impact" aria-label="优化周期缩短">
-            <div><small data-i18n="experience.before">原优化周期</small><strong data-i18n="experience.fourWeeks">约 4 周</strong></div>
+            <div><small data-i18n="experience.before">原优化周期</small><strong data-i18n="experience.fourWeeks">25 天</strong></div>
             <i data-lucide="arrow-right" aria-hidden="true"></i>
             <div><small data-i18n="experience.after">自动化后</small><strong data-i18n="experience.fourDays">4-5 天</strong></div>
           </div>
@@ -246,6 +241,13 @@
               <span><strong>89.38</strong><small>LeetCode-Hard GM</small></span>
               <span><strong>1.5B</strong><small>Compact Verifier</small></span>
             </div>
+            <figure class="paper-framework">
+              <a href="public/assets/papers/sqlequ-o1-framework.webp" target="_blank" rel="noreferrer" title="查看原图" aria-label="查看 SQLEq-O1 框架原图">
+                <img src="public/assets/papers/sqlequ-o1-framework.webp" alt="SQLEq-O1 数据构造与两阶段训练框架" loading="lazy">
+                <span class="paper-framework-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </a>
+              <figcaption data-i18n="paper.figureCaption">方法框架图 · 摘自论文图 1</figcaption>
+            </figure>
             <div class="paper-detail">
               <div><span data-i18n="detail.problem">问题</span><p data-i18n="paper.sqlequ.problem">执行测试无法证明等价，SMT 验证在复杂查询上易超时；通用大模型成本高，而轻量模型又容易依赖关键词和结构相似度形成偏置。</p></div>
               <div><span data-i18n="detail.method">方法</span><p data-i18n="paper.sqlequ.method">双轨构造真实 LeetCode 多解与 SynSQL 合成难例，统一由 VeriEQL 形式化标注；蒸馏验证式 CoT，形成 6 万条类别均衡的 CoRE-SQL，再以 30% SFT Warm-up + 70% GRPO 和稀疏可验证奖励训练。</p></div>
@@ -263,6 +265,13 @@
               <span><strong>24,544</strong><small>Executable SQL</small></span>
               <span><strong>20.14%</strong><small>Best All-16</small></span>
             </div>
+            <figure class="paper-framework">
+              <a href="public/assets/papers/uniql-framework.webp" target="_blank" rel="noreferrer" title="查看原图" aria-label="查看 UniQL 框架原图">
+                <img src="public/assets/papers/uniql-framework.webp" alt="UniQL 跨方言基准构建流程" loading="lazy">
+                <span class="paper-framework-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </a>
+              <figcaption data-i18n="paper.figureCaption">方法框架图 · 摘自论文图 1</figcaption>
+            </figure>
             <div class="paper-detail">
               <div><span data-i18n="detail.problem">问题</span><p data-i18n="paper.uniql.problem">现有 Text-to-SQL 基准高度集中于 SQLite，模型在单一方言上的成功无法说明其能否稳定迁移到 PostgreSQL、Oracle、Hive、Teradata 等真实数据库。</p></div>
               <div><span data-i18n="detail.method">方法</span><p data-i18n="paper.uniql.method">将 BIRD Dev 的 1,534 个意图迁移到 16 种方言，组合数据库迁移、SQLGlot、LLM 翻译、三轮执行反馈自反思、规则演化和双人共识校验；比较时保留排序语义和重复项计数。</p></div>
@@ -283,6 +292,13 @@
               <span><strong>0%</strong><small>Undetermined</small></span>
               <span><strong>13.97s</strong><small>Average</small></span>
             </div>
+            <figure class="paper-framework">
+              <a href="public/assets/papers/farsql-framework.webp" target="_blank" rel="noreferrer" title="查看原图" aria-label="查看 FAR-SQL 框架原图">
+                <img src="public/assets/papers/farsql-framework.webp" alt="FAR-SQL 失效感知分层判定框架" loading="lazy">
+                <span class="paper-framework-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </a>
+              <figcaption data-i18n="paper.figureCaption">方法框架图 · 摘自论文图 1</figcaption>
+            </figure>
             <div class="paper-detail">
               <div><span data-i18n="detail.problem">问题</span><p data-i18n="paper.farsql.problem">VeriEQL 的确定输出可信，但复杂聚合、嵌套和方言函数会触发超时、不支持或转换异常；直接改用模型又会丢失形式化可信边界。</p></div>
               <div><span data-i18n="detail.method">方法</span><p data-i18n="paper.farsql.method">从历史 VeriEQL 日志学习验证收益画像，按 SQL 结构动态分配预算；保留 equivalent/inequivalent 结论，将非确定状态归一化后路由至任务适配本地模型，并以 Self-Consistency@3 稳定补全。</p></div>
@@ -299,17 +315,17 @@
           <article class="system-project">
             <div class="system-project-head"><span>S.01</span><i data-lucide="database-backup" aria-hidden="true"></i></div>
             <p class="system-kicker">SQL EVALUATION INFRASTRUCTURE</p>
-            <h4 data-i18n="system.sql.title">统一 SQL 评测框架</h4>
-            <p data-i18n="system.sql.summary">面向 NL2SQL、SQL 纠错与等价验证的统一评测基础设施，将任务、模型、执行环境和评价指标彻底解耦。</p>
+            <h4 data-i18n="system.sql.title">统一 SQL 评测与执行框架</h4>
+            <p data-i18n="system.sql.summary">面向 NL2SQL、SQL 纠错与 SQL 等价验证，将分散的任务定义、执行逻辑和指标统计收敛为可复用的统一流水线，支持多模型、多任务、多数据集横向对比。</p>
             <div class="system-focus" aria-label="项目重点">
-              <span><i data-lucide="blocks" aria-hidden="true"></i><strong data-i18n="system.sql.focus1">任务 / 模型解耦</strong></span>
-              <span><i data-lucide="database" aria-hidden="true"></i><strong data-i18n="system.sql.focus2">三数据库执行</strong></span>
-              <span><i data-lucide="scan-search" aria-hidden="true"></i><strong data-i18n="system.sql.focus3">统一 EX 与诊断</strong></span>
+              <span><i data-lucide="blocks" aria-hidden="true"></i><strong data-i18n="system.sql.focus1">多任务统一抽象</strong></span>
+              <span><i data-lucide="database" aria-hidden="true"></i><strong data-i18n="system.sql.focus2">三数据库自动切换</strong></span>
+              <span><i data-lucide="scan-search" aria-hidden="true"></i><strong data-i18n="system.sql.focus3">EX 横向对比</strong></span>
             </div>
             <dl>
-              <div><dt><i data-lucide="workflow" aria-hidden="true"></i><span data-i18n="detail.architecture">架构</span></dt><dd data-i18n="system.sql.architecture">以 Task Adapter 与 Model Adapter 解耦任务和模型；Input Builder、Prediction Parser、Execution Engine、Normalizer 与 Metric 均可独立替换。</dd></div>
-              <div><dt><i data-lucide="settings-2" aria-hidden="true"></i><span data-i18n="detail.method">方法</span></dt><dd data-i18n="system.sql.method">复用同一执行主干评测三类 SQL 任务，在 Docker 中标准化 MySQL、PostgreSQL 与 SQLite，并统一处理空值、顺序、重复行和执行异常。</dd></div>
-              <div><dt><i data-lucide="circle-check-big" aria-hidden="true"></i><span data-i18n="detail.result">结果</span></dt><dd data-i18n="system.sql.result">不同数据集与模型通过同一接口接入，统一产出执行准确率和错误诊断；新任务评测链路由天级缩短至小时级。</dd></div>
+              <div><dt><i data-lucide="workflow" aria-hidden="true"></i><span data-i18n="detail.architecture">架构</span></dt><dd data-i18n="system.sql.architecture">设计通用任务抽象层，将输入构造、SQL 执行、结果比对和指标统计拆为可复用环节；任务定义与评测流水线解耦，新增数据集或模型只需接入适配层。</dd></div>
+              <div><dt><i data-lucide="settings-2" aria-hidden="true"></i><span data-i18n="detail.method">方法</span></dt><dd data-i18n="system.sql.method">统一采用 EX 作为核心指标，在 Docker 中构建 MySQL、PostgreSQL、SQLite 标准化环境并自动切换，统一数据库连接、执行结果、异常状态和统计口径。</dd></div>
+              <div><dt><i data-lucide="circle-check-big" aria-hidden="true"></i><span data-i18n="detail.result">结果</span></dt><dd data-i18n="system.sql.result">同一流水线支持多模型、多任务、多数据集横向对比，减少重复评测代码，将新任务实验搭建周期由天级缩短至小时级。</dd></div>
             </dl>
           </article>
           <article class="system-project system-project--credit">
@@ -436,6 +452,6 @@
   <script src="public/vendor/gsap-3.13.0.min.js"></script>
   <script src="public/vendor/ScrollTrigger-3.13.0.min.js"></script>
   <script src="public/vendor/lucide-0.468.0.min.js"></script>
-  <script src="script.js?v=20260727-relaydesk-v1"></script>
+  <script src="script.js?v=20260727-paper-figures-v1"></script>
 </body>
 </html>
