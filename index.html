@@ -23,7 +23,7 @@
     })();
   </script>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260727-sqlequ-crop-v2">
+  <link rel="stylesheet" href="styles.css?v=20260728-content-audit">
 </head>
 <body class="portfolio-v3">
   <div class="page-progress" aria-hidden="true"><span></span></div>
@@ -134,7 +134,7 @@
         <div class="optimizer-copy">
           <p class="project-overline">MULTI-AGENT MODEL OPTIMIZATION</p>
           <h3 data-i18n="experience.projectTitle">天工优化：多智能体闭环模型自动优化系统</h3>
-          <p class="optimizer-summary" data-i18n="experience.summary">参与研发面向工业视觉模型的多智能体自动优化控制系统。Planner 编排研究检索、三类专家、受控代码改动与 ClearML 训练测试；Analyst 在隔离上下文中独立审查，Family Memory 沉淀可复用经验，正式模型发布保留 Human-in-the-loop 决策。</p>
+          <p class="optimizer-summary" data-i18n="experience.summary">参与天工模型自动优化系统研发，将工业视觉模型从 Baseline 建立到 Candidate 复核的迭代过程组织为可追踪的 Study。Planner 结合历史 Trial、外部检索与数据、超参、结构三类专家意见规划实验；系统在白名单 Worktree 内完成受控代码改动，并由 ClearML 串联训练、测试与模型归档。Evaluator 负责指标和硬约束，Analyst 在隔离上下文中独立复核，最终由人工决定是否 Promote 为正式 Best Model。</p>
 
           <div class="optimizer-capabilities" aria-label="核心能力">
             <span>Human-in-the-loop</span><span>Research Engine</span><span>Safe Code Editing</span><span>ClearML</span><span>Family Memory</span>
@@ -145,7 +145,7 @@
             <i data-lucide="arrow-right" aria-hidden="true"></i>
             <div><small data-i18n="experience.after">自动化后</small><strong data-i18n="experience.fourDays">4-5 天</strong></div>
           </div>
-          <p class="optimizer-result" data-i18n="experience.result">将人工分析、调参、代码试验与验证转化为可追踪的自动化闭环，应用于烟火检测、风险行为检测和人体属性识别等任务。</p>
+          <p class="optimizer-result" data-i18n="experience.result">系统已用于烟火检测、风险行为检测、人体与头部属性识别等模型线，将过去约 25 天的人工分析、反复调参与验证周期压缩至 4-5 天；每个 Trial 均保留代码分支、ClearML 任务、模型 ID、指标与审查结论，便于复现和复盘。</p>
           <button class="architecture-button liquid-action liquid-glass liquid-glass--action" type="button" data-liquid-glass data-architecture-open>
             <i data-lucide="maximize-2" aria-hidden="true"></i><span data-i18n="experience.architecture">查看完整架构</span>
           </button>
@@ -235,7 +235,7 @@
           <article class="paper-panel paper-panel--cobalt" data-paper-id="sqlequ" tabindex="0" role="listitem">
             <div class="paper-meta"><span>P.01</span><div class="paper-venue"><strong>EMNLP 2026</strong><small>UNDER REVIEW</small></div></div>
             <h4>SQLEq-O1</h4>
-            <p class="paper-lead" data-i18n="paper.sqlequ.lead">面向 SQL 语义等价判定的轻量级强化推理框架，将形式化标签、推理蒸馏与可验证奖励统一到同一训练链路。</p>
+            <p class="paper-lead" data-i18n="paper.sqlequ.lead">面向 SQL 等价验证训练可本地部署的轻量推理模型。方法不把有限实例上的执行一致或表面结构相似当作语义证据，而是用形式化标签、验证式推理蒸馏和可验证奖励学习等价与不等价的决策边界。</p>
             <div class="paper-metrics">
               <span><strong>60K</strong><small>CoRE-SQL</small></span>
               <span><strong>89.38</strong><small>LeetCode-Hard GM</small></span>
@@ -248,9 +248,9 @@
               </a>
             </figure>
             <div class="paper-detail">
-              <div><span data-i18n="detail.problem">问题</span><p data-i18n="paper.sqlequ.problem">执行测试无法证明等价，SMT 验证在复杂查询上易超时；通用大模型成本高，而轻量模型又容易依赖关键词和结构相似度形成偏置。</p></div>
-              <div><span data-i18n="detail.method">方法</span><p data-i18n="paper.sqlequ.method">双轨构造真实 LeetCode 多解与 SynSQL 合成难例，统一由 VeriEQL 形式化标注；蒸馏验证式 CoT，形成 6 万条类别均衡的 CoRE-SQL，再以 30% SFT Warm-up + 70% GRPO 和稀疏可验证奖励训练。</p></div>
-              <div><span data-i18n="detail.result">结果</span><p data-i18n="paper.sqlequ.result">Qwen2.5-Coder-1.5B 在 LeetCode-Hard 上由 34.88 GM 提升至 89.38，在域外 Calcite+Spider-DAIL 上由 44.58 提升至 76.77，兼顾小模型部署成本与困难样本判别能力。</p></div>
+              <div><span data-i18n="detail.problem">问题</span><p data-i18n="paper.sqlequ.problem">执行测试只能说明两条查询在有限数据库实例上结果相同，无法证明语义等价；VeriEQL 等 SMT 验证器面对深层嵌套、聚合与复杂关系组合时又容易出现状态空间爆炸。提示式大模型推理成本较高且输出不稳定，小模型则容易把关键词共现或结构重合学成捷径。</p></div>
+              <div><span data-i18n="detail.method">方法</span><p data-i18n="paper.sqlequ.method">数据侧采用双轨构造：一条轨道挖掘 LeetCode 同题的人写多解，保留真实查询的组合复杂度；另一条从 SynSQL 出发，由多个 Text-to-SQL 模型生成候选并在实例内配对，以扩充难负例。所有查询对由 VeriEQL 给出形式化标签，再蒸馏并筛选与标签一致的验证式推理，按类别平衡形成 60K 对 CoRE-SQL；训练采用 30% SFT Warm-up 与 70% GRPO，稀疏奖励只检查答案标签和输出格式。</p></div>
+              <div><span data-i18n="detail.result">结果</span><p data-i18n="paper.sqlequ.result">在 Qwen2.5-Coder-1.5B 上，GRPO 将 LeetCode-Hard 的 GM 从全量 SFT 的 73.60 提升至 89.38；在来源隔离的 Calcite+Spider-DAIL 上取得 76.77 GM，两个测试集平均 GM 达 83.08。消融结果表明，形式化难例、显式推理轨迹与强化阶段的边界校准均带来稳定收益。</p></div>
             </div>
             <div class="paper-footer"><span data-i18n="paper.manuscript">论文审稿中</span><i data-lucide="sparkles" aria-hidden="true"></i></div>
           </article>
@@ -258,7 +258,7 @@
           <article class="paper-panel paper-panel--blue" data-paper-id="uniql" tabindex="0" role="listitem">
             <div class="paper-meta"><span>P.02</span><div class="paper-venue"><strong>EMNLP 2026</strong><small>UNDER REVIEW · ARXIV</small></div></div>
             <h4>UniQL</h4>
-            <p class="paper-lead" data-i18n="paper.uniql.lead">首个在相同自然语言意图、对齐 Schema 与数据内容下，系统评估 16 种 SQL 方言泛化能力的可执行基准。</p>
+            <p class="paper-lead" data-i18n="paper.uniql.lead">UniQL 关注同一自然语言意图在异构数据库中的方言实现，而不是把不同数据库上的不相关样本混合比较。基准在 Schema 与数据内容对齐的前提下，为每个问题提供 16 种可执行 SQL。</p>
             <div class="paper-metrics">
               <span><strong>16</strong><small>SQL Dialects</small></span>
               <span><strong>24,544</strong><small>Executable SQL</small></span>
@@ -271,9 +271,9 @@
               </a>
             </figure>
             <div class="paper-detail">
-              <div><span data-i18n="detail.problem">问题</span><p data-i18n="paper.uniql.problem">现有 Text-to-SQL 基准高度集中于 SQLite，模型在单一方言上的成功无法说明其能否稳定迁移到 PostgreSQL、Oracle、Hive、Teradata 等真实数据库。</p></div>
-              <div><span data-i18n="detail.method">方法</span><p data-i18n="paper.uniql.method">将 BIRD Dev 的 1,534 个意图迁移到 16 种方言，组合数据库迁移、SQLGlot、LLM 翻译、三轮执行反馈自反思、规则演化和双人共识校验；比较时保留排序语义和重复项计数。</p></div>
-              <div><span data-i18n="detail.result">结果</span><p data-i18n="paper.uniql.result">形成 24,544 条人审可执行 SQL。最佳模型平均 EX 仅 54.63%，同一意图在 16 种方言全部正确的比例最高仅 20.14%，揭示 SQLite 评测掩盖的跨方言脆弱性。</p></div>
+              <div><span data-i18n="detail.problem">问题</span><p data-i18n="paper.uniql.problem">现有 Text-to-SQL 基准长期集中于 SQLite，但真实数据库在类型系统、内置函数、标识符规则和执行语义上存在明显差异。若不同方言使用不同问题与数据，就无法区分模型究竟受困于问题本身，还是缺乏对目标方言的理解。</p></div>
+              <div><span data-i18n="detail.method">方法</span><p data-i18n="paper.uniql.method">以 BIRD Dev 的 1,534 个问题为共同语义锚点，将原数据库迁移到 15 个目标系统，并处理类型映射、命名空间和标识符差异。SQL 先由 SQLGlot 转换，失败样本再进入 LLM 翻译与最多三轮执行反馈修复；重复失效模式被整理为方言规则继续迭代，长尾样本由两名标注者独立校验并达成共识。构建和评测均采用保守 EX，显式保留排序语义与重复项计数。</p></div>
+              <div><span data-i18n="detail.result">结果</span><p data-i18n="paper.uniql.result">最终得到覆盖 16 种方言的 24,544 条人审可执行 SQL。最佳模型平均 EX 仅为 54.63%，同一问题在全部 16 种方言上同时正确的比例最高只有 20.14%；模型在 SQLite、Oracle、Teradata 等系统间还呈现显著波动，说明单方言成绩不能代表跨数据库泛化能力。</p></div>
             </div>
             <div class="paper-footer">
               <a href="https://arxiv.org/abs/2606.08018" target="_blank" rel="noreferrer">arXiv <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
@@ -284,7 +284,7 @@
           <article class="paper-panel paper-panel--aqua" data-paper-id="farsql" tabindex="0" role="listitem">
             <div class="paper-meta"><span>P.03</span><div class="paper-venue"><strong>NDBC 2026</strong><small>UNDER REVIEW</small></div></div>
             <h4>FAR-SQL</h4>
-            <p class="paper-lead" data-i18n="paper.farsql.lead">以“形式化优先、失效后补全”为原则，在有限预算内分离可信确定域与模型补全域。</p>
+            <p class="paper-lead" data-i18n="paper.farsql.lead">将 SQL 等价判定划分为形式化确定域与模型补全域：先依据历史运行画像估计不同结构查询的验证收益，只有当 VeriEQL 无法给出确定结论时，才由任务适配的本地小模型接手。</p>
             <div class="paper-metrics">
               <span><strong>83.98</strong><small>OOD GM</small></span>
               <span><strong>0%</strong><small>Undetermined</small></span>
@@ -297,9 +297,9 @@
               </a>
             </figure>
             <div class="paper-detail">
-              <div><span data-i18n="detail.problem">问题</span><p data-i18n="paper.farsql.problem">VeriEQL 的确定输出可信，但复杂聚合、嵌套和方言函数会触发超时、不支持或转换异常；直接改用模型又会丢失形式化可信边界。</p></div>
-              <div><span data-i18n="detail.method">方法</span><p data-i18n="paper.farsql.method">从历史 VeriEQL 日志学习验证收益画像，按 SQL 结构动态分配预算；保留 equivalent/inequivalent 结论，将非确定状态归一化后路由至任务适配本地模型，并以 Self-Consistency@3 稳定补全。</p></div>
-              <div><span data-i18n="detail.result">结果</span><p data-i18n="paper.farsql.result">在 412 对 Calcite+Spider-DAIL 域外样本上达到 83.98 GM、0 未决率和约 14 秒平均耗时；相比 VeriEQL@60s 的 38.19 GM / 35 秒取得更优质量效率折中。</p></div>
+              <div><span data-i18n="detail.problem">问题</span><p data-i18n="paper.farsql.problem">VeriEQL 给出的 equivalent/inequivalent 结论具有明确的形式化来源，但在复杂聚合、嵌套与方言函数上常出现 timeout、unsupported 或 conversion error。统一延长预算会让低收益样本持续占用求解时间，直接改用模型又会抹去形式化结论与模型判断之间的可信边界。</p></div>
+              <div><span data-i18n="detail.method">方法</span><p data-i18n="paper.farsql.method">离线阶段从历史 VeriEQL 日志学习“SQL 结构—时间预算—确定率”的验证收益画像，并以来源隔离的形式化标签数据监督微调 1.5B/1.7B 本地模型。在线阶段按边际收益动态分配验证预算，保留所有确定输出；对 timeout、unsupported、runtime error、conversion error 等状态分别归一化和构造提示，仅在非确定区域调用模型，并以 Self-Consistency@3 返回稳定多数结果。</p></div>
+              <div><span data-i18n="detail.result">结果</span><p data-i18n="paper.farsql.result">在 412 对 Calcite+Spider-DAIL 域外样本上，FAR-SQL + Qwen2.5-SFT 达到 83.98 GM，较纯 SFT 的 76.20 提升 7.78 个百分点；未决率降至 0，平均耗时为 13.97 秒。相比 VeriEQL@60s 的 38.19 GM 与 35 秒平均耗时，动态路由同时改善了覆盖、均衡性和验证成本。</p></div>
             </div>
             <div class="paper-footer"><a href="https://github.com/Neroxsh/FAR-SQL" target="_blank" rel="noreferrer">GitHub <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
           </article>
@@ -313,32 +313,32 @@
             <div class="system-project-head"><span>S.01</span><i data-lucide="database-backup" aria-hidden="true"></i></div>
             <p class="system-kicker">SQL EVALUATION INFRASTRUCTURE</p>
             <h4 data-i18n="system.sql.title">统一 SQL 评测与执行框架</h4>
-            <p data-i18n="system.sql.summary">面向 NL2SQL、SQL 纠错与 SQL 等价验证，将分散的任务定义、执行逻辑和指标统计收敛为可复用的统一流水线，支持多模型、多任务、多数据集横向对比。</p>
+            <p data-i18n="system.sql.summary">为 NL2SQL、SQL 纠错与 SQL 等价验证提供同一个可复现实验入口，把原本散落在各任务中的样本适配、数据库执行、结果比较和指标汇总收敛到统一流水线。</p>
             <div class="system-focus" aria-label="项目重点">
               <span><i data-lucide="blocks" aria-hidden="true"></i><strong data-i18n="system.sql.focus1">多任务统一抽象</strong></span>
               <span><i data-lucide="database" aria-hidden="true"></i><strong data-i18n="system.sql.focus2">三数据库自动切换</strong></span>
               <span><i data-lucide="scan-search" aria-hidden="true"></i><strong data-i18n="system.sql.focus3">EX 横向对比</strong></span>
             </div>
             <dl>
-              <div><dt><i data-lucide="workflow" aria-hidden="true"></i><span data-i18n="detail.architecture">架构</span></dt><dd data-i18n="system.sql.architecture">设计通用任务抽象层，将输入构造、SQL 执行、结果比对和指标统计拆为可复用环节；任务定义与评测流水线解耦，新增数据集或模型只需接入适配层。</dd></div>
-              <div><dt><i data-lucide="settings-2" aria-hidden="true"></i><span data-i18n="detail.method">方法</span></dt><dd data-i18n="system.sql.method">统一采用 EX 作为核心指标，在 Docker 中构建 MySQL、PostgreSQL、SQLite 标准化环境并自动切换，统一数据库连接、执行结果、异常状态和统计口径。</dd></div>
-              <div><dt><i data-lucide="circle-check-big" aria-hidden="true"></i><span data-i18n="detail.result">结果</span></dt><dd data-i18n="system.sql.result">同一流水线支持多模型、多任务、多数据集横向对比，减少重复评测代码，将新任务实验搭建周期由天级缩短至小时级。</dd></div>
+              <div><dt><i data-lucide="workflow" aria-hidden="true"></i><span data-i18n="detail.architecture">架构</span></dt><dd data-i18n="system.sql.architecture">任务层只描述样本如何构造、预测 SQL 从何处读取以及目标结果如何取得；公共执行层统一负责连接数据库、运行查询、比较结果和聚合指标。模型、数据集与任务定义通过适配器接入，评测主流程不再随实验对象重复改写。</dd></div>
+              <div><dt><i data-lucide="settings-2" aria-hidden="true"></i><span data-i18n="detail.method">方法</span></dt><dd data-i18n="system.sql.method">以 EX 为核心指标，在 Docker 中维护 MySQL、PostgreSQL 与 SQLite 的标准化环境并按任务自动切换；对执行结果、空值、顺序、异常与超时采用一致的数据结构和统计口径，使不同模型和数据集的结果可以直接横向比较。</dd></div>
+              <div><dt><i data-lucide="circle-check-big" aria-hidden="true"></i><span data-i18n="detail.result">结果</span></dt><dd data-i18n="system.sql.result">同一流水线能够覆盖多模型、多任务与多数据集实验，减少重复的执行脚本和临时统计代码；新增任务主要集中在适配层，将一套新评测从天级准备缩短到小时级。</dd></div>
             </dl>
           </article>
           <article class="system-project system-project--credit">
             <div class="system-project-head"><span>S.02</span><i data-lucide="landmark" aria-hidden="true"></i></div>
             <p class="system-kicker">BANKING FINTECH · MULTI-AGENT</p>
             <h4>CreditRiskRobot</h4>
-            <p data-i18n="system.credit.summary">面向企业授信业务的智能审查工作台，把多格式材料理解、多 Agent 风险研判与可追溯报告生成串成完整业务闭环。</p>
+            <p data-i18n="system.credit.summary">面向企业贷款授信审查的辅助工作台，从材料盘点开始，依次完成财务指标计算、经营与还款来源分析、风险汇总、证据引用和报告自审计；系统提供审查依据，不替代人工审批。</p>
             <div class="system-focus" aria-label="项目重点">
               <span><i data-lucide="files" aria-hidden="true"></i><strong data-i18n="system.credit.focus1">五类材料统一解析</strong></span>
               <span><i data-lucide="users-round" aria-hidden="true"></i><strong data-i18n="system.credit.focus2">多 Agent 风险协作</strong></span>
               <span><i data-lucide="file-check-2" aria-hidden="true"></i><strong data-i18n="system.credit.focus3">证据回链与自审计</strong></span>
             </div>
             <dl>
-              <div><dt><i data-lucide="workflow" aria-hidden="true"></i><span data-i18n="detail.architecture">架构</span></dt><dd data-i18n="system.credit.architecture">以 Case 为中心串联材料清单、解析与事实库，再由经营、财务、还款来源和风险 Agent 协作，最终进入报告编辑与自审计。</dd></div>
-              <div><dt><i data-lucide="settings-2" aria-hidden="true"></i><span data-i18n="detail.method">方法</span></dt><dd data-i18n="system.credit.method">统一处理 PDF、Word、Excel、文本与图片；每项结论保留原文证据、页码和材料缺口，Agent 只在证据边界内完成分析。</dd></div>
-              <div><dt><i data-lucide="circle-check-big" aria-hidden="true"></i><span data-i18n="detail.result">结果</span></dt><dd data-i18n="system.credit.result">覆盖案件管理、材料盘点、风险分析、报告编辑、自审计及多格式导出，并把最终授信判断明确保留给人工审批。</dd></div>
+              <div><dt><i data-lucide="workflow" aria-hidden="true"></i><span data-i18n="detail.architecture">架构</span></dt><dd data-i18n="system.credit.architecture">以 Case 为数据边界，材料清单、文档解析和证据索引先形成统一上下文，再由企业画像、经营、财务、现金流、担保与外部风险 Agent 分工分析，Risk Summary 与 Credit Opinion 汇总审查意见。报告端复用 FinSight 的 outline → section → report 结构并适配企业授信提纲。</dd></div>
+              <div><dt><i data-lucide="settings-2" aria-hidden="true"></i><span data-i18n="detail.method">方法</span></dt><dd data-i18n="system.credit.method">统一接收 PDF、DOCX、XLSX、TXT 与图片，自动分类并对照授信材料清单标记缺口；财务指标采用规则计算，风险项保留来源文件与材料依据。Report Audit 检查免责声明、无证据风险和越权审批表述，人工可在导出前编辑全文。</dd></div>
+              <div><dt><i data-lucide="circle-check-big" aria-hidden="true"></i><span data-i18n="detail.result">结果</span></dt><dd data-i18n="system.credit.result">形成从多 Case 管理、材料盘点、多 Agent 分析到 Markdown、HTML、Word、PDF 报告导出的完整工作流，并提供公开资料案例验证材料缺口识别。所有输出均定位为辅助审查，最终授信条件和审批结论保留给人工。</dd></div>
             </dl>
             <a class="system-link" href="https://github.com/Neroxsh/CreditRiskRobot" target="_blank" rel="noreferrer">GitHub <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
           </article>
@@ -356,11 +356,11 @@
           <div class="relaydesk-project-copy">
             <p>Next.js · React · Node.js · E2EE</p>
             <h3>RelayDesk</h3>
-            <span data-i18n="builds.relayDetail">在手机浏览器中安全接续电脑上的 Codex 会话，无需安装手机 App，也无需在手机登录 ChatGPT。</span>
+            <span data-i18n="builds.relayDetail">将电脑上的 Codex 会话延伸到手机浏览器：按项目查看历史会话、继续对话并实时接收执行进度，无需安装手机 App，也不需要在手机重复登录 ChatGPT。</span>
             <ul class="relaydesk-highlights" aria-label="RelayDesk 核心能力">
-              <li><i data-lucide="messages-square" aria-hidden="true"></i><span data-i18n="builds.relayFeature1">按项目查看并继续历史会话</span></li>
-              <li><i data-lucide="radio-tower" aria-hidden="true"></i><span data-i18n="builds.relayFeature2">实时同步回复与执行进度</span></li>
-              <li><i data-lucide="shield-check" aria-hidden="true"></i><span data-i18n="builds.relayFeature3">端到端加密与一次配对</span></li>
+              <li><i data-lucide="messages-square" aria-hidden="true"></i><span data-i18n="builds.relayFeature1">浏览本地会话，远程发送消息并调整模型、思考强度与权限</span></li>
+              <li><i data-lucide="radio-tower" aria-hidden="true"></i><span data-i18n="builds.relayFeature2">电脑端仅监听 127.0.0.1，中继负责转发端到端加密密文</span></li>
+              <li><i data-lucide="shield-check" aria-hidden="true"></i><span data-i18n="builds.relayFeature3">16 位配对码配合电脑端确认，已配对设备可随时撤销</span></li>
             </ul>
             <div class="relaydesk-actions">
               <a href="https://relay.xingshihao.site" target="_blank" rel="noreferrer"><i data-lucide="smartphone" aria-hidden="true"></i><span data-i18n="builds.relayLive">打开手机端</span></a>
@@ -376,11 +376,11 @@
         </article>
         <article class="small-project">
           <a class="small-project-image" href="https://github.com/Neroxsh/hello-kitty-todo" target="_blank" rel="noreferrer"><img src="public/assets/todo-widget.png" alt="Hello Kitty Todo 应用界面" loading="lazy"></a>
-          <div><p>TypeScript · Tauri</p><h3 data-i18n="builds.todo">我的任务 · Hello Kitty Todo</h3><span data-i18n="builds.todoDetail">轻量桌面待办应用，支持截止日期进度、智能排序与托盘常驻。</span><a href="https://github.com/Neroxsh/hello-kitty-todo" target="_blank" rel="noreferrer" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a></div>
+          <div><p>React · TypeScript · Tauri</p><h3 data-i18n="builds.todo">我的任务 · Hello Kitty Todo</h3><span data-i18n="builds.todoDetail">常驻桌面角落的跨平台待办小组件，支持精确到分钟的截止时间、随时间推进的 DDL 进度、重要度与收藏、四种排序方式，并可从系统托盘快速隐藏和恢复。</span><a href="https://github.com/Neroxsh/hello-kitty-todo" target="_blank" rel="noreferrer" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a></div>
         </article>
         <article class="small-project">
           <a class="small-project-image small-project-image--words" href="https://github.com/Neroxsh/moyu-words" target="_blank" rel="noreferrer"><img src="public/assets/moyu-words.png" alt="摸鱼背词应用图标" loading="lazy"></a>
-          <div><p>React · Tauri</p><h3 data-i18n="builds.words">摸鱼背词</h3><span data-i18n="builds.wordsDetail">透明悬浮式桌面背词应用，支持学习计划、词书切换与熟词归档。</span><a href="https://github.com/Neroxsh/moyu-words" target="_blank" rel="noreferrer" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a></div>
+          <div><p>React · Zustand · Tauri</p><h3 data-i18n="builds.words">摸鱼背词</h3><span data-i18n="builds.wordsDetail">透明、置顶且可缩放的桌面背词窗口，用鼠标切词和长按归档熟词；内置七套词书，支持自定义词库导入、每日学习计划、单元打卡与 CSV 导出。</span><a href="https://github.com/Neroxsh/moyu-words" target="_blank" rel="noreferrer" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a></div>
         </article>
       </div>
     </section>
@@ -449,6 +449,6 @@
   <script src="public/vendor/gsap-3.13.0.min.js"></script>
   <script src="public/vendor/ScrollTrigger-3.13.0.min.js"></script>
   <script src="public/vendor/lucide-0.468.0.min.js"></script>
-  <script src="script.js?v=20260727-sqlequ-crop-v2"></script>
+  <script src="script.js?v=20260728-content-audit"></script>
 </body>
 </html>

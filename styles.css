@@ -4121,7 +4121,7 @@ html[data-theme="dark"] .portfolio-v3 .architecture-dialog {
 }
 
 @media (max-width: 420px) {
-  .portfolio-v3 .header-tools .glass-control:nth-of-type(1) {
+  .portfolio-v3 .header-tools > a.glass-control:first-of-type {
     display: none;
   }
 
@@ -4568,5 +4568,200 @@ html[data-theme="dark"] .portfolio-v3 .interest-item {
   .paper-framework > a {
     height: 180px;
     padding: 7px;
+  }
+}
+
+/* Readable technical narratives for the audited research and project copy. */
+.portfolio-v3 .optimizer-summary {
+  max-width: 70ch;
+  font-size: 15px;
+  line-height: 1.88;
+}
+
+.portfolio-v3 .optimizer-result {
+  max-width: 72ch;
+  font-size: 13px;
+  line-height: 1.82;
+}
+
+.portfolio-v3 .paper-panel,
+.portfolio-v3 .paper-panel--cobalt,
+.portfolio-v3 .paper-panel--blue,
+.portfolio-v3 .paper-panel--aqua {
+  padding: 38px 34px 32px;
+  grid-template-columns: 124px minmax(0, 1fr) 176px;
+  column-gap: 28px;
+}
+
+.portfolio-v3 .paper-lead {
+  max-width: 76ch;
+  min-height: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.portfolio-v3 .paper-metrics {
+  margin-top: 0;
+  padding: 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  align-content: start;
+}
+
+.portfolio-v3 .paper-metrics span {
+  min-height: 82px;
+  padding: 14px 18px;
+  justify-content: center;
+  border-bottom: 1px solid rgba(146, 198, 255, 0.18);
+}
+
+.portfolio-v3 .paper-metrics span:last-child {
+  border-bottom: 0;
+}
+
+.portfolio-v3 .paper-metrics strong {
+  overflow-wrap: normal;
+  white-space: nowrap;
+}
+
+.portfolio-v3 .paper-framework {
+  max-width: 680px;
+  margin-top: 18px;
+}
+
+.portfolio-v3 .paper-framework > a {
+  height: auto;
+  padding: 8px;
+  aspect-ratio: 2.05;
+}
+
+.portfolio-v3 [data-paper-id="sqlequ"] .paper-framework > a {
+  aspect-ratio: 1335 / 690;
+}
+
+.portfolio-v3 .paper-detail {
+  margin-top: 30px;
+  padding-top: 25px;
+  grid-template-columns: 1fr 1.35fr 1fr;
+}
+
+.portfolio-v3 .paper-detail > div {
+  padding: 0 26px;
+}
+
+.portfolio-v3 .paper-detail > div > span {
+  font-size: 10px;
+  letter-spacing: 0;
+}
+
+.portfolio-v3 .paper-detail p {
+  margin-top: 10px;
+  font-size: 12.5px;
+  line-height: 1.8;
+}
+
+.portfolio-v3 .system-project,
+.portfolio-v3 .system-project--credit {
+  min-height: 0;
+  padding: 38px 34px 34px;
+}
+
+.portfolio-v3 .system-project > p:not(.system-kicker) {
+  max-width: 62ch;
+  font-size: 14px;
+  line-height: 1.78;
+}
+
+.portfolio-v3 .system-project dl > div {
+  padding: 16px 0;
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.portfolio-v3 .system-project dd {
+  font-size: 12.5px;
+  line-height: 1.78;
+}
+
+.portfolio-v3 .small-project > div > span {
+  font-size: 12.5px;
+  line-height: 1.76;
+}
+
+.portfolio-v3 .relaydesk-highlights li {
+  min-height: 54px;
+  padding: 8px 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .portfolio-v3 .paper-panel,
+  .portfolio-v3 .paper-panel--cobalt,
+  .portfolio-v3 .paper-panel--blue,
+  .portfolio-v3 .paper-panel--aqua {
+    grid-template-columns: 118px minmax(0, 1fr);
+    padding: 34px 24px 30px;
+  }
+
+  .portfolio-v3 .paper-framework {
+    width: min(680px, 100%);
+  }
+
+  .portfolio-v3 .paper-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid rgba(146, 198, 255, 0.2);
+    border-left: 0;
+  }
+
+  .portfolio-v3 .paper-metrics span {
+    min-height: 76px;
+    border-right: 1px solid rgba(146, 198, 255, 0.18);
+    border-bottom: 0;
+  }
+
+  .portfolio-v3 .paper-metrics span:last-child {
+    border-right: 0;
+  }
+
+  .portfolio-v3 .paper-detail {
+    grid-template-columns: 1fr 1.2fr 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .portfolio-v3 .paper-panel,
+  .portfolio-v3 .paper-panel--cobalt,
+  .portfolio-v3 .paper-panel--blue,
+  .portfolio-v3 .paper-panel--aqua {
+    padding: 28px 8px 26px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portfolio-v3 .paper-lead {
+    font-size: 13.5px;
+  }
+
+  .portfolio-v3 .paper-detail {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portfolio-v3 .paper-metrics span {
+    padding: 12px 8px;
+  }
+
+  .portfolio-v3 .paper-metrics strong {
+    font-size: 20px;
+  }
+
+  .portfolio-v3 .paper-detail > div,
+  .portfolio-v3 .paper-detail > div:first-child,
+  .portfolio-v3 .paper-detail > div:last-child {
+    padding: 15px 0;
+  }
+
+  .portfolio-v3 .system-project dl > div {
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 12px;
   }
 }
