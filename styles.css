@@ -4768,25 +4768,34 @@ html[data-theme="dark"] .portfolio-v3 .interest-item {
 
 /* Refined editorial frame: balanced hero, quieter blues, and a unified brand mark. */
 .portfolio-refined .brand-mark {
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
-  border: 1px solid rgba(113, 204, 255, 0.28);
-  border-radius: 9px;
-  background: #061a3d;
-  box-shadow: 0 8px 22px rgba(0, 9, 34, 0.28);
+  width: 38px;
+  height: 38px;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
-.portfolio-refined .brand-mark img {
+.portfolio-refined .brand-mark svg {
   width: 100%;
   height: 100%;
   display: block;
-  transition: transform 260ms cubic-bezier(0.2, 0.75, 0.3, 1);
 }
 
-.portfolio-refined .brand:hover .brand-mark img,
-.portfolio-refined .brand:focus-visible .brand-mark img {
-  transform: scale(1.06) rotate(-2deg);
+.portfolio-refined .brand-glyph {
+  fill: none;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.portfolio-refined .brand-glyph--s {
+  stroke: #f7fbff;
+}
+
+.portfolio-refined .brand-glyph--x {
+  stroke: #57ddff;
 }
 
 .portfolio-refined .brand-name {
@@ -4818,7 +4827,8 @@ html[data-theme="dark"] .portfolio-v3 .interest-item {
 }
 
 .portfolio-refined .hero {
-  width: min(calc(100% - 40px), var(--content-width));
+  width: 100%;
+  max-width: none;
   min-height: 0;
   padding: 0;
   display: grid;
@@ -4830,13 +4840,11 @@ html[data-theme="dark"] .portfolio-v3 .interest-item {
   gap: 0;
   overflow: hidden;
   color: #f7faff;
-  border: 1px solid rgba(119, 184, 255, 0.22);
-  border-top: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(119, 184, 255, 0.22);
   background: #061a3d;
-  box-shadow:
-    0 0 0 100vmax #061a3d,
-    0 26px 70px rgba(0, 8, 30, 0.22);
-  clip-path: inset(0 -100vmax -80px);
+  box-shadow: 0 26px 70px rgba(0, 8, 30, 0.22);
+  clip-path: none;
 }
 
 .portfolio-refined .hero::before,
@@ -4847,7 +4855,7 @@ html[data-theme="dark"] .portfolio-v3 .interest-item {
 .portfolio-refined .hero-signature {
   grid-area: identity;
   min-height: 390px;
-  padding: 62px 58px;
+  padding: 62px 58px 62px max(58px, calc((100vw - var(--content-width)) / 2 + 58px));
   justify-content: center;
   color: #f7faff;
   border-right: 1px solid rgba(131, 193, 255, 0.2);
@@ -4882,9 +4890,11 @@ html[data-theme="dark"] .portfolio-refined .hero-links a {
 }
 
 .portfolio-refined .hero-education {
+  position: relative;
+  isolation: isolate;
   grid-area: education;
   min-height: 390px;
-  padding: 50px 54px;
+  padding: 50px max(54px, calc((100vw - var(--content-width)) / 2 + 54px)) 50px 54px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -4892,11 +4902,51 @@ html[data-theme="dark"] .portfolio-refined .hero-links a {
   background: #124bb5;
 }
 
+.portfolio-refined .hero-education > :not(.anime-dot-grid) {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-refined .anime-dot-grid {
+  position: absolute;
+  z-index: 0;
+  top: 24px;
+  right: max(24px, calc((100vw - var(--content-width)) / 2 + 24px));
+  width: 98px;
+  height: 98px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  place-items: center;
+  pointer-events: none;
+}
+
+.portfolio-refined .anime-dot-grid span {
+  width: 3px;
+  height: 3px;
+  display: block;
+  background: #8cecff;
+  opacity: 0.28;
+}
+
 .portfolio-refined .education-heading {
+  position: relative;
   min-height: 58px;
   padding: 0 0 18px;
   align-items: center;
   border-bottom: 1px solid rgba(202, 228, 255, 0.28);
+}
+
+.portfolio-refined .anime-education-rail {
+  position: absolute;
+  right: auto;
+  bottom: -2px;
+  left: 0;
+  width: 42px;
+  height: 3px;
+  display: block;
+  background: #8cecff;
+  box-shadow: 0 0 14px rgba(87, 221, 255, 0.42);
 }
 
 .portfolio-refined .education-heading > p,
@@ -4973,7 +5023,7 @@ html[data-theme="dark"] .portfolio-refined .hero-links a {
 .portfolio-refined .hero-honors {
   grid-area: honors;
   margin: 0;
-  padding: 26px 34px 34px;
+  padding: 26px max(34px, calc((100vw - var(--content-width)) / 2 + 34px)) 34px;
   color: #f7faff;
   border: 0;
   border-top: 1px solid rgba(133, 195, 255, 0.23);
@@ -5160,6 +5210,10 @@ html[data-theme="dark"] .portfolio-refined .hero-honors {
 }
 
 @media (max-width: 680px) {
+  .portfolio-refined .anime-dot-grid {
+    display: none;
+  }
+
   .portfolio-refined .brand-mark {
     width: 36px;
     height: 36px;

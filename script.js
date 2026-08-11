@@ -163,6 +163,7 @@
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const hasGsap = Boolean(window.gsap && window.ScrollTrigger);
+  const hasAnime = Boolean(window.anime?.animate && window.anime?.stagger && window.anime?.svg);
 
   const renderIcons = () => {
     if (window.lucide) window.lucide.createIcons({ attrs: { "aria-hidden": "true" } });
@@ -385,6 +386,53 @@
   applyLanguage(state.language);
   renderIcons();
   updateProgress();
+
+  if (hasAnime && !reducedMotion) {
+    const { animate, stagger, svg } = window.anime;
+    const dotGrid = document.querySelector("[data-anime-grid]");
+
+    if (dotGrid && window.matchMedia("(min-width: 681px)").matches) {
+      const fragment = document.createDocumentFragment();
+      for (let index = 0; index < 49; index += 1) fragment.append(document.createElement("span"));
+      dotGrid.append(fragment);
+
+      animate(dotGrid.children, {
+        scale: [0.45, 1, 0.45],
+        opacity: [0.16, 0.78, 0.16],
+        delay: stagger(54, { grid: [7, 7], from: "center" }),
+        duration: 2400,
+        ease: "inOutSine",
+        loop: true
+      });
+    }
+
+    animate(svg.createDrawable(".brand-glyph"), {
+      draw: ["0 0", "0 1"],
+      delay: stagger(150),
+      duration: 900,
+      ease: "inOut(3)"
+    });
+
+    const educationRail = document.querySelector("[data-anime-rail]");
+    if (educationRail) {
+      animate(educationRail, {
+        translateX: () => Math.max(0, educationRail.parentElement.clientWidth - educationRail.offsetWidth),
+        duration: 4200,
+        alternate: true,
+        loop: true,
+        ease: "inOut(3)"
+      });
+    }
+
+    document.querySelector(".brand")?.addEventListener("pointerenter", () => {
+      animate(".brand-mark", {
+        scale: [1, 1.055, 1],
+        rotate: [0, -3, 0],
+        duration: 560,
+        ease: "out(3)"
+      });
+    });
+  }
 
   if (!hasGsap || reducedMotion) return;
 

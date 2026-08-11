@@ -3,6 +3,7 @@
 This site vendors the following browser libraries so the deployed page does not depend on a runtime CDN connection:
 
 - GSAP 3.13.0 and ScrollTrigger 3.13.0, Copyright GreenSock. Distributed under the [GSAP Standard License](https://gsap.com/standard-license/).
+- Anime.js 4.5.0, Copyright Julian Garnier. Distributed under the [MIT License](https://github.com/juliangarnier/anime/blob/master/LICENSE.md).
 - Lucide 0.468.0, distributed under the [ISC License](https://github.com/lucide-icons/lucide/blob/main/LICENSE).
 
 The original license headers are retained in the minified files under `public/vendor/`.

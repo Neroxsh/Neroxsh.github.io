@@ -22,8 +22,8 @@
       document.documentElement.lang = language === "en" ? "en" : "zh-CN";
     })();
   </script>
-  <link rel="icon" href="favicon.svg?v=20260811-stefanie" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260811-refined-hero-2">
+  <link rel="icon" href="favicon.svg?v=20260811-sx" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260811-anime-fullbleed-3">
 </head>
 <body class="portfolio-v3 portfolio-refined">
   <div class="page-progress" aria-hidden="true"><span></span></div>
@@ -37,7 +37,12 @@
 
   <header class="site-header" data-header>
     <a class="brand" href="#top" aria-label="返回首页">
-      <span class="brand-mark" aria-hidden="true"><img src="favicon.svg" alt=""></span>
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" focusable="false">
+          <path class="brand-glyph brand-glyph--s" d="M31 15H18c-5 0-9 4-9 9s4 9 9 9h7c5 0 9 4 9 9s-4 9-9 9H10" />
+          <path class="brand-glyph brand-glyph--x" d="m40 18 14 30M54 18 40 48" />
+        </svg>
+      </span>
       <span class="brand-name" data-i18n="brand.name">Stefanie Xing</span>
     </a>
 
@@ -81,9 +86,11 @@
       </div>
 
       <aside class="hero-education" aria-labelledby="hero-education-title">
+        <div class="anime-dot-grid" data-anime-grid aria-hidden="true"></div>
         <div class="education-heading">
           <p>EDUCATION</p>
           <h2 id="hero-education-title" data-i18n="education.title">教育经历</h2>
+          <span class="anime-education-rail" data-anime-rail aria-hidden="true"></span>
         </div>
         <div class="degree-list">
           <article class="degree-item">
@@ -447,9 +454,10 @@
     <figure><img src="public/assets/tiangong-optimizer.png" alt="天工模型自动优化系统完整架构图"><figcaption data-i18n="dialog.caption">Human-in-the-loop、Planner、专家协作、受控 Trial、ClearML 训练评测、Analyst 与经验闭环。</figcaption></figure>
   </dialog>
 
+  <script src="public/vendor/anime-4.5.0.umd.min.js"></script>
   <script src="public/vendor/gsap-3.13.0.min.js"></script>
   <script src="public/vendor/ScrollTrigger-3.13.0.min.js"></script>
   <script src="public/vendor/lucide-0.468.0.min.js"></script>
-  <script src="script.js?v=20260811-refined-hero-2"></script>
+  <script src="script.js?v=20260811-anime-fullbleed-3"></script>
 </body>
 </html>
