@@ -4765,3 +4765,458 @@ html[data-theme="dark"] .portfolio-v3 .interest-item {
     gap: 12px;
   }
 }
+
+/* Refined editorial frame: balanced hero, quieter blues, and a unified brand mark. */
+.portfolio-refined .brand-mark {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border: 1px solid rgba(113, 204, 255, 0.28);
+  border-radius: 9px;
+  background: #061a3d;
+  box-shadow: 0 8px 22px rgba(0, 9, 34, 0.28);
+}
+
+.portfolio-refined .brand-mark img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 260ms cubic-bezier(0.2, 0.75, 0.3, 1);
+}
+
+.portfolio-refined .brand:hover .brand-mark img,
+.portfolio-refined .brand:focus-visible .brand-mark img {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.portfolio-refined .brand-name {
+  font-size: 13px;
+  font-weight: 720;
+}
+
+.portfolio-refined .site-nav a {
+  position: relative;
+}
+
+.portfolio-refined .site-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: -9px;
+  left: 0;
+  height: 1px;
+  background: #61ddff;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 220ms cubic-bezier(0.2, 0.75, 0.3, 1);
+}
+
+.portfolio-refined .site-nav a:hover::after,
+.portfolio-refined .site-nav a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.portfolio-refined .hero {
+  width: min(calc(100% - 40px), var(--content-width));
+  min-height: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(360px, 0.82fr) minmax(520px, 1.18fr);
+  grid-template-areas:
+    "identity education"
+    "honors honors";
+  align-items: stretch;
+  gap: 0;
+  overflow: hidden;
+  color: #f7faff;
+  border: 1px solid rgba(119, 184, 255, 0.22);
+  border-top: 0;
+  background: #061a3d;
+  box-shadow:
+    0 0 0 100vmax #061a3d,
+    0 26px 70px rgba(0, 8, 30, 0.22);
+  clip-path: inset(0 -100vmax -80px);
+}
+
+.portfolio-refined .hero::before,
+.portfolio-refined .hero::after {
+  display: none;
+}
+
+.portfolio-refined .hero-signature {
+  grid-area: identity;
+  min-height: 390px;
+  padding: 62px 58px;
+  justify-content: center;
+  color: #f7faff;
+  border-right: 1px solid rgba(131, 193, 255, 0.2);
+  background: #071f4b;
+}
+
+.portfolio-refined .hero-kicker,
+html[data-theme="dark"] .portfolio-refined .hero-kicker {
+  color: #61ddff;
+}
+
+.portfolio-refined .hero h1 {
+  color: #ffffff;
+  font-size: 50px;
+  letter-spacing: 0;
+}
+
+.portfolio-refined .hero h1 small,
+html[data-theme="dark"] .portfolio-refined .hero h1 small {
+  color: #a9c4e9;
+}
+
+.portfolio-refined .hero-links a,
+html[data-theme="dark"] .portfolio-refined .hero-links a {
+  color: #e8f2ff;
+  border-color: rgba(148, 202, 255, 0.32);
+}
+
+.portfolio-refined .hero-links a:hover {
+  color: #67e3ff;
+  border-color: currentColor;
+}
+
+.portfolio-refined .hero-education {
+  grid-area: education;
+  min-height: 390px;
+  padding: 50px 54px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #f8fbff;
+  background: #124bb5;
+}
+
+.portfolio-refined .education-heading {
+  min-height: 58px;
+  padding: 0 0 18px;
+  align-items: center;
+  border-bottom: 1px solid rgba(202, 228, 255, 0.28);
+}
+
+.portfolio-refined .education-heading > p,
+.portfolio-refined .degree-item span {
+  color: #6ee4ff;
+}
+
+.portfolio-refined .education-heading h2 {
+  font-size: 28px;
+}
+
+.portfolio-refined .degree-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-bottom: 1px solid rgba(202, 228, 255, 0.24);
+}
+
+.portfolio-refined .degree-list::before {
+  display: none;
+}
+
+.portfolio-refined .degree-item,
+.portfolio-refined .degree-item:last-child {
+  min-height: 205px;
+  padding: 30px 30px 28px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  border: 0;
+  transition: background 220ms ease, transform 220ms ease;
+}
+
+.portfolio-refined .degree-item + .degree-item {
+  padding-left: 30px;
+  border-left: 1px solid rgba(202, 228, 255, 0.2);
+}
+
+.portfolio-refined .degree-item:hover {
+  background: rgba(7, 33, 92, 0.12);
+  transform: translateY(-2px);
+}
+
+.portfolio-refined .degree-item time {
+  padding: 0;
+  color: rgba(227, 241, 255, 0.72);
+  font-size: 9px;
+}
+
+.portfolio-refined .degree-item > div {
+  padding: 28px 0 0;
+}
+
+.portfolio-refined .degree-item > div::before {
+  top: 12px;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  border: 0;
+  border-radius: 0;
+  background: #6ee4ff;
+  box-shadow: none;
+}
+
+.portfolio-refined .degree-item h3 {
+  margin-top: 8px;
+  font-size: 27px;
+}
+
+.portfolio-refined .degree-item p {
+  margin-top: 4px;
+  color: rgba(226, 240, 255, 0.72);
+}
+
+.portfolio-refined .hero-honors {
+  grid-area: honors;
+  margin: 0;
+  padding: 26px 34px 34px;
+  color: #f7faff;
+  border: 0;
+  border-top: 1px solid rgba(133, 195, 255, 0.23);
+  background: #0a2e6c;
+  scroll-margin-top: 74px;
+}
+
+.portfolio-refined .hero-honors-heading {
+  min-height: 48px;
+  padding: 0 0 16px;
+  border: 0;
+}
+
+.portfolio-refined .hero-honors-heading h2 {
+  font-size: 18px;
+}
+
+.portfolio-refined .hero-honors-heading span,
+.portfolio-refined .hero-honor-list li > span {
+  color: #62ddff;
+}
+
+.portfolio-refined .hero-honor-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid rgba(139, 198, 255, 0.24);
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.portfolio-refined .hero-honor-list .hero-honor-wide {
+  grid-column: auto;
+}
+
+.portfolio-refined .hero-honor-list li,
+.portfolio-refined .hero-honor-list li:not(.hero-honor-wide):nth-child(odd),
+.portfolio-refined .hero-honor-list li:nth-child(3n + 1),
+.portfolio-refined .hero-honor-list li.hero-honor-wide {
+  min-height: 72px;
+  padding: 13px 16px;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 7px;
+  color: #f1f6ff;
+  border: 0;
+  border-right: 1px solid rgba(139, 198, 255, 0.2);
+  border-bottom: 1px solid rgba(139, 198, 255, 0.2);
+  transition: color 180ms ease;
+}
+
+.portfolio-refined .hero-honor-list li::before {
+  inset: 0;
+  display: block;
+  background: rgba(42, 111, 222, 0.34);
+  transform: scaleX(0);
+}
+
+.portfolio-refined .hero-honor-list li:hover {
+  color: #ffffff;
+  transform: none;
+}
+
+.portfolio-refined .hero-honor-list li:hover::before {
+  transform: scaleX(1);
+}
+
+.portfolio-refined .hero-honor-list li:hover > span {
+  color: #7be7ff;
+}
+
+.portfolio-refined .hero-honor-list li p {
+  font-size: 10.5px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.portfolio-refined .experience-section {
+  background: #04142f;
+  box-shadow: 0 0 0 100vmax #04142f;
+}
+
+.portfolio-refined .work-section {
+  background: #07275a;
+  box-shadow: 0 0 0 100vmax #07275a;
+}
+
+.portfolio-refined .paper-panel,
+.portfolio-refined .paper-panel--cobalt {
+  background: #0b377b;
+}
+
+.portfolio-refined .paper-panel--blue {
+  background: #0d4288;
+}
+
+.portfolio-refined .paper-panel--aqua {
+  background: #102f69;
+}
+
+.portfolio-refined .systems-subsection {
+  background: #0f4597;
+  box-shadow: 0 0 0 100vmax #0f4597;
+}
+
+.portfolio-refined .builds-section {
+  background: #051a3d;
+  box-shadow: 0 0 0 100vmax #051a3d;
+}
+
+.portfolio-refined .small-project {
+  box-shadow: 0 18px 46px rgba(0, 7, 27, 0.24);
+}
+
+.portfolio-refined .skills-section {
+  background: #092f6b;
+  box-shadow: 0 0 0 100vmax #092f6b;
+}
+
+.portfolio-refined .interests-section {
+  background: #0b3b83;
+  box-shadow: 0 0 0 100vmax #0b3b83;
+}
+
+html[data-theme="dark"] .portfolio-refined .hero,
+html[data-theme="dark"] .portfolio-refined .hero-signature {
+  background: #03132f;
+}
+
+html[data-theme="dark"] .portfolio-refined .hero-education {
+  background: #0b3b91;
+}
+
+html[data-theme="dark"] .portfolio-refined .hero-honors {
+  background: #061f4c;
+}
+
+@media (max-width: 1080px) {
+  .portfolio-refined .hero {
+    grid-template-columns: minmax(320px, 0.78fr) minmax(480px, 1.22fr);
+  }
+
+  .portfolio-refined .hero-signature {
+    padding-inline: 42px;
+  }
+
+  .portfolio-refined .hero-education {
+    padding-inline: 40px;
+  }
+
+  .portfolio-refined .degree-item h3 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .portfolio-refined .hero {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "identity"
+      "education"
+      "honors";
+    border-right: 0;
+    border-left: 0;
+    clip-path: none;
+  }
+
+  .portfolio-refined .hero-signature {
+    min-height: 360px;
+    padding: 58px 40px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(131, 193, 255, 0.2);
+  }
+
+  .portfolio-refined .hero-education,
+  html[data-theme="dark"] .portfolio-refined .hero-education {
+    min-height: 0;
+    padding: 46px 40px 50px;
+    box-shadow: none;
+    clip-path: none;
+  }
+
+  .portfolio-refined .hero-honors {
+    padding-inline: 40px;
+  }
+}
+
+@media (max-width: 680px) {
+  .portfolio-refined .brand-mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .portfolio-refined .hero-signature {
+    min-height: 330px;
+    padding: 52px 20px 46px;
+  }
+
+  .portfolio-refined .hero h1 {
+    font-size: 42px;
+  }
+
+  .portfolio-refined .hero-education {
+    padding: 40px 20px 44px;
+  }
+
+  .portfolio-refined .degree-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portfolio-refined .degree-item,
+  .portfolio-refined .degree-item:last-child,
+  .portfolio-refined .degree-item + .degree-item {
+    min-height: 150px;
+    padding: 24px 0;
+    border-left: 0;
+    border-bottom: 1px solid rgba(202, 228, 255, 0.2);
+  }
+
+  .portfolio-refined .degree-item:last-child {
+    border-bottom: 0;
+  }
+
+  .portfolio-refined .hero-honors {
+    padding: 24px 20px 30px;
+  }
+
+  .portfolio-refined .hero-honor-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-refined .hero-honor-list li,
+  .portfolio-refined .hero-honor-list li:not(.hero-honor-wide):nth-child(odd),
+  .portfolio-refined .hero-honor-list li:nth-child(3n + 1),
+  .portfolio-refined .hero-honor-list li.hero-honor-wide {
+    min-height: 72px;
+    padding: 11px 10px;
+    grid-template-columns: 23px minmax(0, 1fr);
+  }
+
+  .portfolio-refined .hero-honor-list li:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .portfolio-refined .hero-honor-list li p {
+    font-size: 9.5px;
+  }
+}

@@ -3,7 +3,7 @@
 
   const translations = {
     en: {
-      "brand.name": "Shihao Xing",
+      "brand.name": "Stefanie Xing",
       "nav.honors": "Honors",
       "nav.experience": "Internship",
       "nav.research": "Research & Systems",
@@ -233,7 +233,7 @@
     });
 
     document.querySelector("[data-flow-caption]").textContent = flowCopy[language][state.activeFlow] || flowCopy[language].default;
-    document.title = language === "zh" ? "邢仕浩 | 研究与工程" : "Shihao Xing | Research & Engineering";
+    document.title = "Stefanie Xing";
     const english = language === "en";
     document.querySelector(".brand")?.setAttribute("aria-label", english ? "Back to top" : "返回首页");
     document.querySelector(".site-nav")?.setAttribute("aria-label", english ? "Primary navigation" : "主导航");
@@ -394,23 +394,26 @@
   const media = gsap.matchMedia();
 
   gsap.defaults({ ease: "power3.out" });
-  gsap.set(".hero", { "--hero-plane": 0 });
 
-  const heroTimeline = gsap.timeline();
+  const heroTimeline = gsap.timeline({
+    defaults: { ease: "power3.out" }
+  });
   heroTimeline
-    .from(".site-header > *", { y: -16, autoAlpha: 0, duration: 0.42, stagger: 0.07 })
-    .to(".hero", { "--hero-plane": 1, duration: 0.86, ease: "power4.inOut" }, 0.08)
-    .from(".hero-kicker", { x: -20, autoAlpha: 0, duration: 0.38 }, 0.26)
-    .from(".hero-name-line", { yPercent: 96, clipPath: "inset(0 0 100% 0)", duration: 0.68 }, 0.34)
-    .from(".hero h1 small", { y: 12, autoAlpha: 0, duration: 0.34 }, 0.66)
-    .from(".hero-links a", { y: 12, autoAlpha: 0, duration: 0.34, stagger: 0.06 }, 0.76)
-    .from(".hero-honors", { clipPath: "inset(0 100% 0 0)", duration: 0.66, ease: "power3.inOut" }, 0.92)
-    .from(".hero-honor-list li", { y: 10, autoAlpha: 0, duration: 0.3, stagger: 0.03 }, 1.16)
-    .from(".hero-education", { clipPath: "inset(0 0 0 100%)", autoAlpha: 0, duration: 0.72, ease: "power3.inOut" }, 0.32)
-    .from(".education-heading > *", { y: 16, autoAlpha: 0, duration: 0.36, stagger: 0.08 }, 0.72)
-    .from(".degree-item", { y: 18, autoAlpha: 0, duration: 0.42, stagger: 0.1 }, 0.9);
+    .addLabel("shell")
+    .from(".site-header > *", { y: -14, autoAlpha: 0, duration: 0.44, stagger: 0.065 }, "shell")
+    .from(".hero-signature", { clipPath: "inset(0 100% 0 0)", autoAlpha: 0, duration: 0.76, ease: "power4.inOut" }, "shell+=0.08")
+    .from(".hero-education", { clipPath: "inset(0 0 0 100%)", autoAlpha: 0, duration: 0.76, ease: "power4.inOut" }, "shell+=0.14")
+    .addLabel("identity", "shell+=0.38")
+    .from(".hero-kicker", { x: -18, autoAlpha: 0, duration: 0.36 }, "identity")
+    .from(".hero-name-line", { yPercent: 82, clipPath: "inset(0 0 100% 0)", duration: 0.62 }, "identity+=0.06")
+    .from(".hero h1 small", { y: 10, autoAlpha: 0, duration: 0.34 }, "identity+=0.34")
+    .from(".hero-links a", { y: 10, autoAlpha: 0, duration: 0.34, stagger: 0.055 }, "identity+=0.46")
+    .from(".education-heading > *", { y: 14, autoAlpha: 0, duration: 0.38, stagger: 0.08 }, "identity+=0.08")
+    .from(".degree-item", { y: 16, autoAlpha: 0, duration: 0.44, stagger: 0.09 }, "identity+=0.22")
+    .from(".hero-honors", { y: 24, autoAlpha: 0, duration: 0.58 }, "identity+=0.54")
+    .from(".hero-honor-list li", { y: 9, autoAlpha: 0, duration: 0.3, stagger: 0.025 }, "identity+=0.7");
 
-  const revealHeading = (selector) => {
+  const revealHeading = (selector, start = "top 84%") => {
     gsap.from(`${selector} > *`, {
       y: 28,
       clipPath: "inset(0 0 100% 0)",
@@ -418,11 +421,11 @@
       duration: 0.66,
       stagger: 0.08,
       clearProps: "transform,clipPath,opacity,visibility",
-      scrollTrigger: { trigger: selector, start: "top 84%", once: true }
+      scrollTrigger: { trigger: selector, start, once: true }
     });
   };
 
-  revealHeading(".experience-head");
+  revealHeading(".experience-head", "top 96%");
   revealHeading(".work-heading");
   revealHeading(".builds-heading");
   revealHeading(".skills-heading");
