@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
-  <meta name="theme-color" content="#061a3d">
+  <meta name="theme-color" content="#07111f">
   <meta name="description" content="邢仕浩的个人网站：SQL 等价验证、跨方言 Text-to-SQL、多智能体模型优化与金融科技系统。">
   <meta property="og:title" content="Stefanie Xing">
   <meta property="og:description" content="可信 AI 系统方向的研究、工程与公开项目。">
@@ -22,8 +22,8 @@
       document.documentElement.lang = language === "en" ? "en" : "zh-CN";
     })();
   </script>
-  <link rel="icon" href="favicon.svg?v=20260811-sx" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260811-anime-fullbleed-3">
+  <link rel="icon" href="favicon.svg?v=20260811-orbit" type="image/svg+xml">
+  <link rel="stylesheet" href="anime-portfolio.css?v=20260811-stage-1">
 </head>
 <body class="portfolio-v3 portfolio-refined">
   <div class="page-progress" aria-hidden="true"><span></span></div>
@@ -75,40 +75,67 @@
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-signature">
-        <p class="hero-kicker" data-i18n="hero.kicker">2027 届硕士研究生 · 河南大学软件学院</p>
-        <h1 id="hero-title"><span class="hero-name-line">邢仕浩</span><small>Stefanie Xing</small></h1>
+        <p class="hero-kicker"><span class="signal-dot" aria-hidden="true"></span><span data-i18n="hero.kicker">2027 届硕士研究生 · 河南大学软件学院</span></p>
+        <p class="hero-wordmark">Stefanie Xing</p>
+        <h1 id="hero-title">
+          <span class="hero-name-line" data-i18n="hero.field1">SQL 推理。</span>
+          <span data-i18n="hero.field2">可信智能。</span>
+          <span data-i18n="hero.field3">系统工程。</span>
+        </h1>
+        <p class="hero-intro" data-i18n="hero.intro">研究 SQL 语义等价、跨方言 Text-to-SQL 与可验证推理，也把多智能体方法落到模型优化和金融科技系统中。</p>
         <div class="hero-links">
-          <a href="mailto:shihaoxing@henu.edu.cn"><i data-lucide="mail" aria-hidden="true"></i>shihaoxing@henu.edu.cn</a>
-          <a href="https://github.com/Neroxsh" target="_blank" rel="noreferrer">GitHub <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
-          <a href="https://openreview.net/profile?id=%7EShihao_Xing1" target="_blank" rel="noreferrer">OpenReview <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          <a href="mailto:shihaoxing@henu.edu.cn"><i data-lucide="mail" aria-hidden="true"></i><span>Email</span></a>
+          <a href="https://github.com/Neroxsh" target="_blank" rel="noreferrer"><span>GitHub</span><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          <a href="https://openreview.net/profile?id=%7EShihao_Xing1" target="_blank" rel="noreferrer"><span>OpenReview</span><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
         </div>
-
       </div>
 
+      <div class="hero-engine" data-anime-engine aria-label="SQL 推理与可信智能动态研究图谱">
+        <svg class="engine-canvas" viewBox="0 0 720 720" role="img" aria-hidden="true">
+          <defs>
+            <filter id="engine-glow" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur stdDeviation="5" result="blur" />
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <g class="engine-grid">
+            <circle cx="360" cy="360" r="280"/><circle cx="360" cy="360" r="210"/><circle cx="360" cy="360" r="140"/>
+            <path d="M80 360H640M360 80V640M162 162L558 558M558 162L162 558"/>
+          </g>
+          <g class="engine-rings" data-engine-rings>
+            <circle class="engine-segment engine-segment--cyan" cx="360" cy="360" r="302" pathLength="100"/>
+            <circle class="engine-segment engine-segment--blue" cx="360" cy="360" r="278" pathLength="100"/>
+            <circle class="engine-segment engine-segment--violet" cx="360" cy="360" r="254" pathLength="100"/>
+          </g>
+          <g class="engine-query">
+            <path class="engine-drawable" d="M168 366C205 366 211 286 252 286S301 436 349 436 397 241 449 241s58 125 103 125"/>
+            <path class="engine-drawable engine-drawable--secondary" d="M184 402c48 0 63-86 106-86s55 112 97 112 63-74 146-74"/>
+          </g>
+          <g class="engine-orbit engine-orbit--one"><circle class="engine-node" cx="360" cy="80" r="7"/><circle class="engine-node-halo" cx="360" cy="80" r="16"/></g>
+          <g class="engine-orbit engine-orbit--two"><circle class="engine-node" cx="620" cy="360" r="6"/><circle class="engine-node-halo" cx="620" cy="360" r="14"/></g>
+          <g class="engine-orbit engine-orbit--three"><circle class="engine-node" cx="360" cy="140" r="6"/><circle class="engine-node-halo" cx="360" cy="140" r="14"/></g>
+        </svg>
+        <div class="engine-core"><small>RESEARCH ENGINE</small><strong>SQL</strong><span>VERIFY · REASON · EXECUTE</span></div>
+        <div class="engine-label engine-label--one"><span>01</span><strong>SQL Equivalence</strong></div>
+        <div class="engine-label engine-label--two"><span>02</span><strong>Text-to-SQL</strong></div>
+        <div class="engine-label engine-label--three"><span>03</span><strong>Agent Systems</strong></div>
+        <div class="engine-label engine-label--four"><span>04</span><strong>FinTech</strong></div>
+      </div>
+
+      <a class="hero-scroll" href="#profile"><span data-i18n="hero.explore">向下探索</span><i data-lucide="arrow-down" aria-hidden="true"></i></a>
+    </section>
+
+    <section class="credentials-stage" id="profile" aria-label="教育与荣誉">
       <aside class="hero-education" aria-labelledby="hero-education-title">
-        <div class="anime-dot-grid" data-anime-grid aria-hidden="true"></div>
-        <div class="education-heading">
-          <p>EDUCATION</p>
-          <h2 id="hero-education-title" data-i18n="education.title">教育经历</h2>
-          <span class="anime-education-rail" data-anime-rail aria-hidden="true"></span>
-        </div>
+        <div class="education-heading"><p>EDUCATION · 02</p><h2 id="hero-education-title" data-i18n="education.title">教育经历</h2></div>
         <div class="degree-list">
-          <article class="degree-item">
-            <time>2024.09 - 2027.06</time>
-            <div><span data-i18n="education.master">硕士研究生</span><h3 data-i18n="education.henu">河南大学</h3><p data-i18n="education.school">软件学院</p></div>
-          </article>
-          <article class="degree-item">
-            <time>2020.09 - 2024.06</time>
-            <div><span data-i18n="education.bachelor">本科</span><h3 data-i18n="education.haut">河南工业大学</h3><p data-i18n="education.major">计算机科学与技术</p></div>
-          </article>
+          <article class="degree-item"><time>2024.09 - 2027.06</time><div><span data-i18n="education.master">硕士研究生</span><h3 data-i18n="education.henu">河南大学</h3><p data-i18n="education.school">软件学院</p></div></article>
+          <article class="degree-item"><time>2020.09 - 2024.06</time><div><span data-i18n="education.bachelor">本科</span><h3 data-i18n="education.haut">河南工业大学</h3><p data-i18n="education.major">计算机科学与技术</p></div></article>
         </div>
       </aside>
 
       <div class="hero-honors" id="honors" aria-labelledby="hero-honors-title">
-        <div class="hero-honors-heading">
-          <h2 id="hero-honors-title" data-i18n="honors.title">荣誉奖项</h2>
-          <span>HONORS · 09</span>
-        </div>
+        <div class="hero-honors-heading"><h2 id="hero-honors-title" data-i18n="honors.title">荣誉奖项</h2><span>HONORS · 09</span></div>
         <ol class="hero-honor-list">
           <li class="hero-honor-wide"><span>01</span><p data-i18n="honors.1">第十六届全国大学生金融科技创新大赛全国二等奖（河南省第一名）</p></li>
           <li><span>02</span><p data-i18n="honors.2">“互联网+”河南省赛银奖</p></li>
@@ -121,8 +148,6 @@
           <li><span>09</span><p data-i18n="honors.9">大学生计算机设计大赛优秀志愿者</p></li>
         </ol>
       </div>
-      <span class="hero-accent hero-accent--blue" aria-hidden="true"></span>
-      <span class="hero-accent hero-accent--aqua" aria-hidden="true"></span>
     </section>
 
     <section class="experience-section" id="experience" aria-labelledby="experience-title">
@@ -458,6 +483,6 @@
   <script src="public/vendor/gsap-3.13.0.min.js"></script>
   <script src="public/vendor/ScrollTrigger-3.13.0.min.js"></script>
   <script src="public/vendor/lucide-0.468.0.min.js"></script>
-  <script src="script.js?v=20260811-anime-fullbleed-3"></script>
+  <script src="script.js?v=20260811-stage-1"></script>
 </body>
 </html>
