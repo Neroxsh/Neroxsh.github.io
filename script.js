@@ -11,11 +11,6 @@
       "nav.skills": "Skills",
       "nav.interests": "Interests",
       "hero.kicker": "MSc Candidate 2027 · School of Software, Henan University",
-      "hero.field1": "SQL Reasoning.",
-      "hero.field2": "Reliable AI.",
-      "hero.field3": "Systems.",
-      "hero.intro": "I study SQL semantic equivalence, cross-dialect Text-to-SQL, and verifiable reasoning, then carry multi-agent methods into model optimization and financial-technology systems.",
-      "hero.explore": "Explore the work",
       "education.title": "Education",
       "education.master": "Master's Degree",
       "education.henu": "Henan University",
@@ -191,7 +186,7 @@
     state.theme = theme;
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("portfolio-theme", theme);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#080a0f" : "#07111f");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#0b1020" : "#0f4db8");
     updateThemeIcon();
   };
 
@@ -394,98 +389,46 @@
 
   if (hasAnime && !reducedMotion) {
     const { animate, stagger, svg } = window.anime;
+    const dotGrid = document.querySelector("[data-anime-grid]");
+
+    if (dotGrid && window.matchMedia("(min-width: 681px)").matches) {
+      const fragment = document.createDocumentFragment();
+      for (let index = 0; index < 49; index += 1) fragment.append(document.createElement("span"));
+      dotGrid.append(fragment);
+
+      animate(dotGrid.children, {
+        scale: [0.45, 1, 0.45],
+        opacity: [0.16, 0.78, 0.16],
+        delay: stagger(54, { grid: [7, 7], from: "center" }),
+        duration: 2400,
+        ease: "inOutSine",
+        loop: true
+      });
+    }
 
     animate(svg.createDrawable(".brand-glyph"), {
       draw: ["0 0", "0 1"],
-      delay: stagger(120),
-      duration: 820,
+      delay: stagger(150),
+      duration: 900,
       ease: "inOut(3)"
     });
 
-    animate(".hero-kicker, .hero-wordmark, .hero h1 span, .hero-intro, .hero-links, .hero-scroll", {
-      opacity: [0, 1],
-      translateY: [26, 0],
-      delay: stagger(85, { start: 100 }),
-      duration: 760,
-      ease: "out(4)"
-    });
-
-    animate(".hero-engine", {
-      opacity: [0, 1],
-      scale: [0.9, 1],
-      rotate: [-4, 0],
-      duration: 1100,
-      ease: "out(4)"
-    });
-
-    animate(svg.createDrawable(".engine-drawable"), {
-      draw: ["0 0", "0 1"],
-      delay: stagger(180, { start: 480 }),
-      duration: 1500,
-      ease: "inOut(3)"
-    });
-
-    animate(".engine-segment--cyan", {
-      rotate: [0, 360],
-      duration: 18000,
-      loop: true,
-      ease: "linear"
-    });
-
-    animate(".engine-segment--blue", {
-      rotate: [360, 0],
-      duration: 24000,
-      loop: true,
-      ease: "linear"
-    });
-
-    animate(".engine-segment--violet", {
-      rotate: [0, 360],
-      duration: 32000,
-      loop: true,
-      ease: "linear"
-    });
-
-    animate(".engine-orbit--one", { rotate: [0, 360], duration: 9000, loop: true, ease: "linear" });
-    animate(".engine-orbit--two", { rotate: [360, 0], duration: 13000, loop: true, ease: "linear" });
-    animate(".engine-orbit--three", { rotate: [0, 360], duration: 7000, loop: true, ease: "linear" });
-    animate(".engine-node-halo", {
-      scale: [0.72, 1.38],
-      opacity: [0.9, 0.08],
-      delay: stagger(260),
-      duration: 1500,
-      loop: true,
-      ease: "out(3)"
-    });
-    animate(".engine-core strong", {
-      opacity: [0.58, 1],
-      scale: [0.97, 1.03],
-      duration: 1700,
-      alternate: true,
-      loop: true,
-      ease: "inOut(3)"
-    });
-    animate(".engine-label", {
-      opacity: [0, 1],
-      translateX: [18, 0],
-      delay: stagger(110, { start: 820 }),
-      duration: 620,
-      ease: "out(3)"
-    });
-    animate(".signal-dot", {
-      scale: [0.82, 1.32],
-      opacity: [0.65, 1],
-      duration: 1200,
-      alternate: true,
-      loop: true,
-      ease: "inOut(3)"
-    });
+    const educationRail = document.querySelector("[data-anime-rail]");
+    if (educationRail) {
+      animate(educationRail, {
+        translateX: () => Math.max(0, educationRail.parentElement.clientWidth - educationRail.offsetWidth),
+        duration: 4200,
+        alternate: true,
+        loop: true,
+        ease: "inOut(3)"
+      });
+    }
 
     document.querySelector(".brand")?.addEventListener("pointerenter", () => {
       animate(".brand-mark", {
-        scale: [1, 1.08, 1],
-        rotate: [0, -5, 0],
-        duration: 520,
+        scale: [1, 1.055, 1],
+        rotate: [0, -3, 0],
+        duration: 560,
         ease: "out(3)"
       });
     });
@@ -500,16 +443,23 @@
 
   gsap.defaults({ ease: "power3.out" });
 
-  gsap.from(".site-header > *", { y: -14, autoAlpha: 0, duration: 0.44, stagger: 0.065 });
-
-  gsap.from(".credentials-stage > *", {
-    y: 30,
-    autoAlpha: 0,
-    duration: 0.65,
-    stagger: 0.1,
-    clearProps: "transform,opacity,visibility",
-    scrollTrigger: { trigger: ".credentials-stage", start: "top 82%", once: true }
+  const heroTimeline = gsap.timeline({
+    defaults: { ease: "power3.out" }
   });
+  heroTimeline
+    .addLabel("shell")
+    .from(".site-header > *", { y: -14, autoAlpha: 0, duration: 0.44, stagger: 0.065 }, "shell")
+    .from(".hero-signature", { clipPath: "inset(0 100% 0 0)", autoAlpha: 0, duration: 0.76, ease: "power4.inOut" }, "shell+=0.08")
+    .from(".hero-education", { clipPath: "inset(0 0 0 100%)", autoAlpha: 0, duration: 0.76, ease: "power4.inOut" }, "shell+=0.14")
+    .addLabel("identity", "shell+=0.38")
+    .from(".hero-kicker", { x: -18, autoAlpha: 0, duration: 0.36 }, "identity")
+    .from(".hero-name-line", { yPercent: 82, clipPath: "inset(0 0 100% 0)", duration: 0.62 }, "identity+=0.06")
+    .from(".hero h1 small", { y: 10, autoAlpha: 0, duration: 0.34 }, "identity+=0.34")
+    .from(".hero-links a", { y: 10, autoAlpha: 0, duration: 0.34, stagger: 0.055 }, "identity+=0.46")
+    .from(".education-heading > *", { y: 14, autoAlpha: 0, duration: 0.38, stagger: 0.08 }, "identity+=0.08")
+    .from(".degree-item", { y: 16, autoAlpha: 0, duration: 0.44, stagger: 0.09 }, "identity+=0.22")
+    .from(".hero-honors", { y: 24, autoAlpha: 0, duration: 0.58 }, "identity+=0.54")
+    .from(".hero-honor-list li", { y: 9, autoAlpha: 0, duration: 0.3, stagger: 0.025 }, "identity+=0.7");
 
   const revealHeading = (selector, start = "top 84%") => {
     gsap.from(`${selector} > *`, {
